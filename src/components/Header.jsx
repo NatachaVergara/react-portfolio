@@ -1,8 +1,9 @@
 import { MenuOutlined } from '@material-ui/icons'
 import React, {useState} from 'react'
 import './Styles/Header.scss'
-import {MenuData} from './Data/MenuData'
+import {MenuData} from '../Data/MenuData'
 import { Link } from 'react-router-dom'
+
 
 const Header = () => {
     const [show, setShow] = useState(false)
@@ -12,14 +13,19 @@ const Header = () => {
     }
 
     return (
+        <>
         <div className="header">
             <div className="navBar">
                 <div className="left">
                     <MenuOutlined className='menu-icon' onClick={showMenu} />
-                </div>
+                    </div>
+                    
+
+                    <div className="rigth">
+                        <h1>Natacha Vergara</h1>
+                    </div>    
+                    
             </div>
-
-
             <nav className={show ? 'nav-item active' : 'nav-item'}>
                 <ul onClick={showMenu}>
                     {MenuData.map((item, index) => {
@@ -32,11 +38,16 @@ const Header = () => {
                         )
 
                     })}
+                    </ul>
+                    
+                    
+                </nav>   
 
-                </ul>
+            
+            </div>
 
-            </nav>
-        </div>
+          
+        </>
     )
 }
 

@@ -1,12 +1,12 @@
 import React from 'react'
-import { SkillsData } from './Data/SkillsData'
-import '../components/Styles/Skills.scss'
+import { SkillsData } from '../../Data/SkillsData'
+import '../Styles/Skills.scss'
 
 const Skills = () => {
     return (
         <section className="skills">
-            <h1>Herramientas que manejo</h1>
-            <div className="skill-container">
+            <h1>Skills</h1>
+            <div className="skill-container  ">
                 {SkillsData.map((skill, index) => {
                     return (
                         <div key={index}>

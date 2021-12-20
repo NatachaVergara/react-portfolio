@@ -1,13 +1,13 @@
 import React from 'react'
 import { Route, Routes } from "react-router-dom";
-import { Data } from '../Data/Data';
-import Slider from '../Slider';
+import HomeContainer from '../components/Home/HomeContainer';
+
+
 
 const RouterApp = () => {
     return (
         <Routes>
-            <Route path="/" element={<Slider slides={Data} />} />
-            
+            <Route path="/" element={<HomeContainer  />} />            
         </Routes>
     )
 }

@@ -1,17 +1,15 @@
 import './App.css';
 import { BrowserRouter } from "react-router-dom";
 import Header from './components/Header';
-import RouterApp from './components/RouterApp/RouterApp';
-import Skills from './components/Skills';
+import RouterApp from './RouterApp/RouterApp';
+
 
 function App() {
   return (
-    <div >
+    <div>
       <BrowserRouter>
-        <Header />
-        
+        <Header />  
         <RouterApp />
-        <Skills />
       </BrowserRouter>
     </div>
   );

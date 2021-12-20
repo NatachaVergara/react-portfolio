@@ -13,9 +13,5 @@ export const MenuData = [
         title: 'Contacto',
         path: '/contacto',
         className: 'menu-item'
-    }, {
-        title: 'Redes Sociales',
-        path: '/redesSociales',
-        className: 'menu-item'
     }
 ]

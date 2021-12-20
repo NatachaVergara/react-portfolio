@@ -1,7 +1,8 @@
 import { ArrowBackIosOutlined, ArrowForwardIosOutlined } from '@material-ui/icons'
 import React, {useState} from 'react'
-import { Data } from './Data/Data'
-import './Styles/Section.scss'
+import { Link } from 'react-router-dom'
+import { Data } from '../../Data/Data'
+import '../Styles/Section.scss'
 
 function Slider({slides}) {
     const [current, setCurrent] = useState(0)
@@ -26,8 +27,8 @@ function Slider({slides}) {
             </div>
             <div className="content">
                 <h1>Porfolio Personal</h1>
-                <button>Lorem</button>
-                <button>Lorem</button>
+                <Link to='/portfolio'>  <button>Trabajos</button></Link> 
+                <Link to='/contacto'><button>Contacto</button></Link>
 
 
             </div>

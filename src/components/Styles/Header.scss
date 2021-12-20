@@ -1,6 +1,6 @@
 .navBar{
     display: flex;
-    justify-content: start;
+    justify-content:space-between;
     height: 8vh;
     box-shadow: 2px 2px 2px rgb(189, 170, 170);
 
@@ -18,32 +18,38 @@
             // background: transparent;
         }
     }
+
+    .rigth{
+        margin-right: 20px;
+        padding-right: 20px;
+        text-shadow: 2px 2px 20px rgb(12, 12, 12);
+        align-self: center;
+    }
 }
 
 
 .nav-item{
     position: fixed;
-    top: 0;
+    top: -100%;
     display: flex;
-    align-items: center;
+    // align-items: center;
     justify-content: center;
-    width: 30%;
-    height: 100vh;
-    background-color: #fff;
+    width: 20%;
+    height: 60vh;
+    background-color: transparent;
     z-index: 1000;
-    left: -100%;
     transition: 1s ease-in-out;  
 }
 
     .nav-item.active{
             justify-content: center;
             align-items: center;
-            left: 0;
+            top: 0;
             transition: 1s ease-in-out; 
         }
         .menu-item{
             align-items: center;
-            height: 150px;
+            height: 40px;
             list-style: none;
             padding: 40px;
             width: 100%;
@@ -51,7 +57,38 @@
         }
         a{
             text-decoration: none;
-            color: black;
+            color: rgb(255, 251, 251);
             font-weight: bolder;
             text-transform: uppercase;
+            text-shadow: 2px 2px 15px #fff;
         }
+
+$breakpoint-cell: 650px;
+@media (max-width: $breakpoint-cell)
+{
+    .navBar{
+        .rigth{
+            font-size: 10px;
+            text-shadow: 2px 2px 10px rgb(12, 12, 12);
+        }
+
+    }
+    
+
+    .nav-item.active{
+        left: 50px;
+       
+    }
+        .menu-item{
+            font-size: 1em;
+            
+        }
+        .menu-item a{
+            border: 1px black solid;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: black;
+        }
+
+
+}

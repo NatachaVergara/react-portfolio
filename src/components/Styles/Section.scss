@@ -82,8 +82,13 @@ section{
 
 
 
-$breakpoint-cell: 400px;
+$breakpoint-cell: 650px;
 @media (max-width: $breakpoint-cell) {
+  section{
+          height: 50vh;
+  }  
+
+
  .slides.active
   { 
       img{
@@ -110,15 +115,14 @@ $breakpoint-cell: 400px;
 
 
 .content{
-    left: 20%;
-    top: 35%;
-
+    left: 16%;
+    top: 62%;
 
         h1{
         color: white;
         font-size: 1em;
-}
-
+        }
 } 
 
 }
+
