@@ -1,10 +1,11 @@
 import React from 'react'
+import CardList from './CardList'
 
 const PortfolioContainer = () => {
     return (
-        <div>
-            
-        </div>
+        <section>
+            <CardList />
+        </section>
     )
 }
 

@@ -1,0 +1,59 @@
+.cuerpoEfecto{
+  position: relative;
+  margin: 20px auto;
+  background: rgb(252, 35, 35);
+  border-radius: 75px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  
+     
+}
+
+.cuerpoEfecto:hover{
+     box-shadow: 0 5px 35px 0px rgba(255, 3, 3, 0.1);
+     transition: 1s box-shadow;
+     animation:3s clockwise infinite;
+}
+
+
+
+@keyframes clockwise {
+  0% {
+    top: -5px;
+    left: 0;
+  }
+  12% {
+    top: -2px;
+    left: 2px;
+  }
+  25% {
+    top: 0;
+    left: 5px;    
+  }
+  37% {
+    top: 2px;
+    left: 2px;
+  }
+  50% {
+    top: 5px;
+    left: 0;    
+  }
+  62% {
+    top: 2px;
+    left: -2px;
+  }
+  75% {
+    top: 0;
+    left: -5px;
+  }
+  87% {
+    top: -2px;
+    left: -2px;
+  }
+  100% {
+    top: -5px;
+    left: 0;    
+  }
+}
