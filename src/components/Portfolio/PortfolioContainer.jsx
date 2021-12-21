@@ -1,5 +1,6 @@
 import React from 'react'
 import CardList from './CardList'
+import '../Styles/CardBody.scss'
 
 const PortfolioContainer = () => {
     return (

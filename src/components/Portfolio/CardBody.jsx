@@ -63,7 +63,7 @@ const CardBody = ({ key, title, link, img, tec, logo }) => {
                         <LinkRounded />
 
                     </IconButton>
-                    <a href={link} rel="noreferrer" target='_blank' >Visitar</a>{/*Cambiar el color a la letra!*/}
+                    <a href={link} rel="noreferrer" className='visitar' target='_blank' >Visitar</a>{/*Cambiar el color a la letra!*/}
                     
                     <ExpandMore
                         expand={expanded}
@@ -77,7 +77,7 @@ const CardBody = ({ key, title, link, img, tec, logo }) => {
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
                         <Typography paragraph>Tecnologías aplicadas</Typography>
-                        <ul>
+                        <ul className='tecList'>
                             <li>{tec.map(t => <li>{t}</li>)} </li>
                         </ul>
                     </CardContent>

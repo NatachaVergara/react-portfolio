@@ -34,7 +34,17 @@ export const SkillsData = [
     },
     {
         img: 'https://www.kindpng.com/picc/m/146-1461679_slack-transparent-slack-logo-hd-png-download.png'
+    }, 
+    {
+        img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/800px-Bootstrap_logo.svg.png'
+    },
+    {
+        img: 'https://mui.com/static/logo.png'
     }
+
+
+
+    
     
 
 ]
