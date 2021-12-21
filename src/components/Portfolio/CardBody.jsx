@@ -10,10 +10,8 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-//import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Grid } from '@mui/material';
-import { LinkRounded } from '@material-ui/icons';
+import { ExpandMoreSharp, LinkRounded } from '@material-ui/icons';
 import '../Styles/CardBody.scss'
 
 const ExpandMore = styled((props) => {
@@ -65,14 +63,15 @@ const CardBody = ({ key, title, link, img, tec, logo }) => {
                         <LinkRounded />
 
                     </IconButton>
-                    <a href={link} rel="noreferrer" target='_blank'  >Visitar</a>{/*Cambiar el color a la letra!*/}
+                    <a href={link} rel="noreferrer" target='_blank' >Visitar</a>{/*Cambiar el color a la letra!*/}
+                    
                     <ExpandMore
                         expand={expanded}
                         onClick={handleExpandClick}
                         aria-expanded={expanded}
                         aria-label="show more"
                     >
-                        <ExpandMoreIcon />
+                        <ExpandMoreSharp />
                     </ExpandMore>
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
