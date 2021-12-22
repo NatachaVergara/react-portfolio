@@ -28,7 +28,7 @@ function Slider({slides}) {
             <div className="content">
                 <h1>Porfolio Personal</h1>
                 <Link to='/portfolio'>  <button>Trabajos</button></Link> 
-                <Link to='/contacto'><button>Contacto</button></Link>
+                <Link to='/contact'><button>Contacto</button></Link>
 
 
             </div>

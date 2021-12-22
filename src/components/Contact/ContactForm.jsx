@@ -2,6 +2,8 @@ import React from 'react'
 
 
 const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, setMsg, sendForm }) => {
+   
+
     const noValidate =
         !(name.length &&
             email.length &&
@@ -9,6 +11,9 @@ const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, set
             msg.length > 0)
 
 
+    
+    
+    
     return (
         <form>
             <div className="background">
@@ -83,8 +88,11 @@ const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, set
                     </div> */}
                 </div>
             </div>
-
         </form>
+
+
+
+        
     )
 }
 

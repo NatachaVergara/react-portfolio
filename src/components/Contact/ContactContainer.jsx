@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import ContactForm from './ContactForm'
 import '../Styles/Contact.scss'
 import firebase from 'firebase'
-import { getFirestore } from '../../Firebase/Firebase'
+//import { getFirestore } from '../../Firebase/Firebase'
+import { postMsg } from '../../Utils/PostMesg'
+import MsgModal from '../Modal/MsgModal'
 
 
 
@@ -15,22 +17,29 @@ const ContactContainer = () => {
     const [msg, setMsg] = useState('')
     // eslint-disable-next-line no-unused-vars
     const [orderId, setOrderId] = useState(null)
+    //Modal
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
-    const sendForm = async (e) => {
+
+    const sendForm = (e) => {
         e.preventDefault();
-
-        const db = getFirestore()
-        const mensajes = db.collection('mensajes')
-
         const usuario = {}
         usuario.mensaje = { name, email, razon, msg }
         usuario.date = firebase.firestore.Timestamp.fromDate(new Date())
 
-        mensajes.add(usuario)
-            .then((res) => {setOrderId(res.id)})
-            .catch(err => console.log(err))
+        
+        postMsg(usuario, setOrderId)
 
-     
+        //Erase form
+        setName('')
+        setEmail('')
+        setRazon('')
+        setMsg('')
+        //Modal
+        handleOpen()
+
     }
   
 
@@ -47,7 +56,12 @@ const ContactContainer = () => {
                 msg={msg}
                 setMsg={setMsg}
                 sendForm={sendForm}
+                
             />
+            <MsgModal open={open} handleClose={handleClose}  />
+
+
+
         </section>
     )
 }
