@@ -11,7 +11,7 @@ export const MenuData = [
     },
     {
         title: 'Contacto',
-        path: '/contacto',
+        path: '/contact',
         className: 'menu-item'
     }
 ]

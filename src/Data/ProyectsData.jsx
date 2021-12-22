@@ -15,7 +15,7 @@ export const ProyectsData = [
     },
 
     {
-        title: 'Pequeños proyectos con Javascrip',
+        title: 'Pequeños proyectos con Javascript',
         link: 'https://proyectosdejs.netlify.app/',
         img: 'https://firebasestorage.googleapis.com/v0/b/busco-libro-app.appspot.com/o/reactPorfolio%2FimgPortfolio%2FjsProyectos.png?alt=media&token=4bb3aecf-b60e-4569-86fd-f95a6729437b',
         tecnologies: ['html', 'css', 'bootstrap', 'animate css', 'font-awsome', 'google-fonts', 'javascript', 'netlify'],
