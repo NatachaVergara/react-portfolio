@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import ContactForm from './ContactForm'
-import '../Styles/Contact.scss'
+import '../Styles/Contact.css'
 import firebase from 'firebase'
-//import { getFirestore } from '../../Firebase/Firebase'
 import { postMsg } from '../../Utils/PostMesg'
 import MsgModal from '../Modal/MsgModal'
 

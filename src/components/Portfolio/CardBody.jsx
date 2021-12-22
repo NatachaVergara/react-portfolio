@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import { Grid } from '@mui/material';
 import { ExpandMoreSharp, LinkRounded } from '@material-ui/icons';
-import '../Styles/CardBody.scss'
+import '../Styles/CardBody.css'
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
