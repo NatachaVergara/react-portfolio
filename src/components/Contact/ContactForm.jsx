@@ -1,12 +1,16 @@
 import React from 'react'
 
 
-const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, onClick  }) => {
-
+const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, setMsg, sendForm }) => {
+    const noValidate =
+        !(name.length &&
+            email.length &&
+            razon.length &&
+            msg.length > 0)
 
 
     return (
-        <form action="https://submit-form.com/Uy9hX44A">
+        <form>
             <div className="background">
                 <div className="container">
                     <div className="screen">
@@ -26,27 +30,35 @@ const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, onC
                             <div className="screen-body-item left">
                                 <div className="app-title">
                                     <span>Contáctese</span>
-                                 
+
                                 </div>
-                               
+
                             </div>
                             <div className="screen-body-item">
                                 <div className="app-form">
                                     <div className="app-form-group">
-                                        <input className="app-form-control" placeholder="Nombre" />
+                                        <input className="app-form-control" placeholder="Nombre" value={name}
+                                            onChange={(e) => setName(e.target.value)}    
+                                        />
                                     </div>
                                     <div className="app-form-group">
-                                        <input className="app-form-control" placeholder="EMAIL" />
+                                        <input className="app-form-control" placeholder="EMAIL"
+                                            value={email} onChange={(e) => setEmail(e.target.value)}
+                                        />
                                     </div>
                                     <div className="app-form-group">
-                                        <input className="app-form-control" placeholder="Razón" />
+                                        <input className="app-form-control" placeholder="Razón" value={razon} onChange={(e) => setRazon(e.target.value)}
+                                        
+                                        />
                                     </div>
                                     <div className="app-form-group message">
-                                        <input className="app-form-control" placeholder="Mensaje" />
+                                        <input className="app-form-control" placeholder="Mensaje" value={msg} onChange={(e) => setMsg(e.target.value)} />
                                     </div>
                                     <div className="app-form-group buttons">
-                                        <button className="app-form-button" type='submit'>Enviar</button>
-                                      
+                                        <button className="app-form-button" type='submit'
+                                            disabled={noValidate}
+                                            onClick={sendForm}
+                                           >Enviar</button>
                                     </div>
                                     <div className="app-contact">
                                         <span> Redes Sociales</span>
