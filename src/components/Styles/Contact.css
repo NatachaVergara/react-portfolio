@@ -118,9 +118,14 @@ form {
 }
 
 .app-contact {
+  display:flex;
   margin-top: auto;
-  font-size: 8px;
+  font-size: 20px;
   color: #888;
+}
+
+.app-contact img{
+  width: 20px;
 }
 
 .app-form-group {

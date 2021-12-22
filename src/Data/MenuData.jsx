@@ -5,7 +5,7 @@ export const MenuData = [
         className: 'menu-item'
     },
     {
-        title: 'Porfolio',
+        title: 'Portfolio',
         path: '/portfolio',
         className: 'menu-item'
     },

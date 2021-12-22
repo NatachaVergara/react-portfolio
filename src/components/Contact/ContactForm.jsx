@@ -66,7 +66,10 @@ const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, set
                                            >Enviar</button>
                                     </div>
                                     <div className="app-contact">
-                                        <span> Redes Sociales</span>
+                                        <a href="https://www.linkedin.com/in/natacha-vergara" target='_blank' rel='noreferrer' >
+                                            <img src="https://firebasestorage.googleapis.com/v0/b/portfolio-c32fd.appspot.com/o/contacto%2Flinkedin.png?alt=media&token=052fea24-c1fc-46aa-b794-63951ebcbfcd" alt='linkedin logo'></img></a>
+
+                                        
                                     </div>
                                 </div>
                             </div>
