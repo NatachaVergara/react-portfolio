@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -31,11 +31,11 @@ const ExpandMore = styled((props) => {
 
 
 
-const CardBody = ({ key, title, link, img, tec, logo }) => {
+const CardBody = ({ id, title, link, img, tec, logo }) => {
 
-    console.log(tec)
+    console.log(id)
 
-    const [expanded, setExpanded] = React.useState(false);
+    const [expanded, setExpanded] = useState(false);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -43,10 +43,11 @@ const CardBody = ({ key, title, link, img, tec, logo }) => {
 
     return (
 
-        <Grid item xs={2} sm={4} md={4} key={key} data-aos="fade-down"  >
-            <Card sx={{ maxWidth: 345 }} className="cuerpoEfecto" >
+        <Grid item xs={2} sm={4} md={4}  data-aos="fade-down"  >
+            <Card sx={{ maxWidth: 345 }} className="cuerpoEfecto" key={id} >
 
                 <CardHeader
+                    key={id}
                     avatar={
                         <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
                             {logo}
@@ -60,7 +61,7 @@ const CardBody = ({ key, title, link, img, tec, logo }) => {
                     component="img"
                     height="194"
                     image={img}
-                    alt="Paella dish"
+                    alt="logo"
                 />
                 <CardActions disableSpacing>
                     <IconButton aria-label="Folow Link">

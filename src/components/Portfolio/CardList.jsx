@@ -4,20 +4,25 @@ import CardBody from './CardBody'
 import Grid from '@mui/material/Grid';
 
 const CardList = () => {
+
+    
+
     return (
-        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8, md: 12 }}>
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8, md: 12 }}> 
 
             {
                 ProyectsData.map
-                    ((proyect, index) =>
-                        <CardBody key={index}
+                    ((proyect) =>
+                        
+                        <CardBody
+                            id={proyect.id}
                             title={proyect.title}
                             link={proyect.link}
                             img={proyect.img}
                             tec={proyect.tecnologies}
                             logo={proyect.logo} />
                     )
-                
+               
             }
 
 
