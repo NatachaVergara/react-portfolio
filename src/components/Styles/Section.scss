@@ -1,8 +1,11 @@
 section{
+ position: sticky;
+    top: 0;
+}
+.slider{
     width: 100%;
     height: 100vh;
-    position: sticky;
-    top: 0;
+   
 }
 
 
@@ -72,7 +75,9 @@ section{
 }
 
 
-
+ a{
+    text-decoration: none;
+}
 
 
 
@@ -81,8 +86,8 @@ section{
 
 $breakpoint-cell: 650px;
 @media (max-width: $breakpoint-cell) {
-  section{
-          height: 50vh;
+  .slider{
+          height: 40vh;
   }  
 
 
@@ -90,7 +95,7 @@ $breakpoint-cell: 650px;
   { 
       img{
        width: 100%;
-       height: 50vh; 
+       height: 40vh; 
     }
 
    
@@ -109,8 +114,6 @@ $breakpoint-cell: 650px;
        }
 }
 
-
-
 .content{
     left: 16%;
     top: 62%;
@@ -123,3 +126,18 @@ $breakpoint-cell: 650px;
 
 }
 
+@media (min-width: 800px) and (max-width: 950px){
+    .slider{
+        height: 40vh;
+  } 
+   .slides.active
+  { 
+      img{
+       height: 40vh; 
+    }
+
+   
+}
+
+  
+}

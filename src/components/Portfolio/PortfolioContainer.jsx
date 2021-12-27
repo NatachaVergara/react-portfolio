@@ -4,7 +4,7 @@ import '../Styles/CardBody.css'
 
 const PortfolioContainer = () => {
     return (
-        <section>
+        <section className='portfolio-section'>
             <CardList />
         </section>
     )

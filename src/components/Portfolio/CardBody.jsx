@@ -14,6 +14,10 @@ import { Grid } from '@mui/material';
 import { ExpandMoreSharp, LinkRounded } from '@material-ui/icons';
 import '../Styles/CardBody.css'
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
+
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -39,7 +43,7 @@ const CardBody = ({ key, title, link, img, tec, logo }) => {
 
     return (
 
-        <Grid item xs={2} sm={4} md={4} key={key} >
+        <Grid item xs={2} sm={4} md={4} key={key} data-aos="fade-down"  >
             <Card sx={{ maxWidth: 345 }} className="cuerpoEfecto" >
 
                 <CardHeader
@@ -63,8 +67,8 @@ const CardBody = ({ key, title, link, img, tec, logo }) => {
                         <LinkRounded />
 
                     </IconButton>
-                    <a href={link} rel="noreferrer" className='visitar' target='_blank' >Visitar</a>{/*Cambiar el color a la letra!*/}
-                    
+                    <a href={link} rel="noreferrer" className='visitar' target='_blank' >Visitar</a>
+
                     <ExpandMore
                         expand={expanded}
                         onClick={handleExpandClick}

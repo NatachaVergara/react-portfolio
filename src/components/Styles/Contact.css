@@ -104,6 +104,10 @@ form {
   position: relative;
   color: #ea1d6f;
   font-size: 26px;
+  text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff, 0.025em 0 0.4em 0 #fffc00;
+  animation: glitch 1000ms infinite
+
+
 }
 
 .app-title:after {
@@ -184,10 +188,28 @@ form {
   margin: 0 5px;
 }
 
+@keyframes glitch {
+    0%{
+      text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+      0.025em 0.04em 0 #fffc00;
+    }
+
+    15% {
+      text-shadow:  0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+      0.025em 0.04em 0 #fffc00;
+    }
+   
+
+}
+
+
+
+
+
+
 
 @media screen and (max-width: 600px) {
-
-    
+  
 
   .screen-body {
      display: flex;

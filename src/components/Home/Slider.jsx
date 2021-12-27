@@ -21,13 +21,13 @@ function Slider({slides}) {
 
 
     return (
-        <section className="slide">
+        <section className="slider">
             <div className="buttons">
                 <ArrowForwardIosOutlined className="leftBtn" onClick={leftArrow} />
                 <ArrowBackIosOutlined className="rightBtn" onClick={rightArrow} />
             </div>
             <div className="content">
-                <h1>Porfolio Personal</h1>
+                <h1>Portfolio Personal</h1>
                 <Link to='/portfolio'>  <button> <WorkOutlineOutlined />  </button></Link> 
                 <Link to='/contact'><button> <MarkunreadTwoTone />   </button></Link>
 
