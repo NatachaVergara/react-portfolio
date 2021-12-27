@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ContactForm from './ContactForm'
 import '../Styles/Contact.css'
-import { postMsg } from '../../Utils/PostMesg'
+import { postMsg } from '../../Utils/CRUD'
 import MsgModal from '../Modal/MsgModal'
 
 const ContactContainer = () => {

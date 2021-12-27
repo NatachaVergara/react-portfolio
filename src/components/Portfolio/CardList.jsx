@@ -1,26 +1,35 @@
-import React from 'react'
-import { ProyectsData } from '../../Data/ProyectsData'
+import React, { useEffect, useState } from 'react'
 import CardBody from './CardBody'
 import Grid from '@mui/material/Grid';
+import { getUrl } from '../../Utils/CRUD';
 
 const CardList = () => {
+    const [urls, setUrls] = useState([])
 
-    
+    useEffect(() => {
+
+        getUrl(setUrls)
+
+    }, [])
+
+
+
+    console.log(urls)
 
     return (
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8, md: 12 }}> 
 
             {
-                ProyectsData.map
-                    ((proyect) =>
+                urls.map
+                    ((url) =>
                         
                         <CardBody
-                            id={proyect.id}
-                            title={proyect.title}
-                            link={proyect.link}
-                            img={proyect.img}
-                            tec={proyect.tecnologies}
-                            logo={proyect.logo} />
+                            id={url.id}
+                            title={url.data.titulo}
+                            link={url.data.link}
+                            img={url.data.img}
+                            tec={url.data.tec}
+                            logo={url.data.logo} />
                     )
                
             }

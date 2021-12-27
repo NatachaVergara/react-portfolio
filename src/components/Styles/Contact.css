@@ -173,12 +173,21 @@ form {
   font-size: 14px;
   cursor: pointer;
   outline: none;
+  
 }
 
 .app-form-button:hover {
   color: #b9134f;
+  
 }
 
+.app-contact img{
+  width: 20px;
+  transition: width 2s;
+}
+.app-contact img:hover{
+  width: 50px;
+}
 
 
 

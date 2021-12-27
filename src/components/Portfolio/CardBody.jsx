@@ -33,7 +33,7 @@ const ExpandMore = styled((props) => {
 
 const CardBody = ({ id, title, link, img, tec, logo }) => {
 
-    console.log(id)
+
 
     const [expanded, setExpanded] = useState(false);
 
@@ -43,13 +43,13 @@ const CardBody = ({ id, title, link, img, tec, logo }) => {
 
     return (
 
-        <Grid item xs={2} sm={4} md={4}  data-aos="fade-down"  >
+        <Grid item xs={2} sm={4} md={4} data-aos="fade-down" key={id} >
             <Card sx={{ maxWidth: 345 }} className="cuerpoEfecto" key={id} >
 
                 <CardHeader
                     key={id}
                     avatar={
-                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe" >
                             {logo}
                         </Avatar>
                     }
@@ -83,7 +83,7 @@ const CardBody = ({ id, title, link, img, tec, logo }) => {
                     <CardContent>
                         <Typography paragraph>Tecnologías aplicadas</Typography>
                         <ul className='tecList'>
-                            <li>{tec.map(t => <li>{t}</li>)} </li>
+                            <li key={id}>{tec.map(t => <li>{t}</li>)} </li>
                         </ul>
                     </CardContent>
                 </Collapse>

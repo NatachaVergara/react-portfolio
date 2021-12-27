@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, setMsg, sendForm }) => {
-   
+
 
     const noValidate =
         !(name.length &&
@@ -11,9 +11,9 @@ const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, set
             msg.length > 0)
 
 
-    
-    
-    
+
+
+
     return (
         <form>
             <div className="background">
@@ -43,7 +43,7 @@ const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, set
                                 <div className="app-form">
                                     <div className="app-form-group">
                                         <input className="app-form-control" placeholder="Nombre" value={name}
-                                            onChange={(e) => setName(e.target.value)}    
+                                            onChange={(e) => setName(e.target.value)}
                                         />
                                     </div>
                                     <div className="app-form-group">
@@ -53,7 +53,7 @@ const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, set
                                     </div>
                                     <div className="app-form-group">
                                         <input className="app-form-control" placeholder="Razón" value={razon} onChange={(e) => setRazon(e.target.value)}
-                                        
+
                                         />
                                     </div>
                                     <div className="app-form-group message">
@@ -63,13 +63,13 @@ const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, set
                                         <button className="app-form-button" type='submit'
                                             disabled={noValidate}
                                             onClick={sendForm}
-                                           >Enviar</button>
+                                        >Enviar</button>
                                     </div>
                                     <div className="app-contact">
                                         <a href="https://www.linkedin.com/in/natacha-vergara" target='_blank' rel='noreferrer' >
                                             <img src="https://firebasestorage.googleapis.com/v0/b/portfolio-c32fd.appspot.com/o/contacto%2Flinkedin.png?alt=media&token=052fea24-c1fc-46aa-b794-63951ebcbfcd" alt='linkedin logo'></img></a>
 
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@ const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, set
 
 
 
-        
+
     )
 }
 

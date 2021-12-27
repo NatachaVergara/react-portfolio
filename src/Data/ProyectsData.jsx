@@ -42,7 +42,7 @@ export const ProyectsData = [
     },
     {
         id: 6,
-        title: 'Recetas para celíacos (en construción )',
+        title: 'Recetas para celíacos (en construcción)',
         link: 'https://ancient-mesa-83605.herokuapp.com/',
         img: 'https://firebasestorage.googleapis.com/v0/b/busco-libro-app.appspot.com/o/reactPorfolio%2FimgPortfolio%2FrecetasCeliacos.png?alt=media&token=284534c0-a17b-4033-867d-fc3b124c1e1e',
         tecnologies: ['html', 'css', 'bootstrap', 'font-awsome', 'javascript', 'Heroku', 'node', 'api'],
@@ -61,7 +61,7 @@ export const ProyectsData = [
         title: 'Cuenta regresiva',
         link: 'https://cuentaregresiva-eventos.netlify.app/',
         img: 'https://firebasestorage.googleapis.com/v0/b/busco-libro-app.appspot.com/o/reactPorfolio%2FimgPortfolio%2FcuentaRegresiva.png?alt=media&token=38afd78a-443a-4579-ab6f-cdfccc2faf85',
-        tecnologies: ['html', 'css', 'bootstrap', 'font-awsome', 'google-fonts', 'javascript', 'localStorage'],
+        tecnologies: ['html', 'css', 'google-fonts', 'javascript', 'localStorage'],
         logo: 'CR'
     },
     {
@@ -74,7 +74,7 @@ export const ProyectsData = [
     }, 
     {
         id: 10,
-        title: 'Find your recipe',
+        title: 'Find your recipe - React',
         link: 'https://find-your-recipe-nv.netlify.app/',
         img: 'https://firebasestorage.googleapis.com/v0/b/busco-libro-app.appspot.com/o/reactPorfolio%2FimgPortfolio%2FfindYourRecipe.png?alt=media&token=89eb5c8b-5eb6-4a89-ac6c-9ace1b5fb4d5',
         tecnologies: ['html', 'css', 'javascript', 'bootstrap', 'React', 'Api'],
