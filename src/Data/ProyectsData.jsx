@@ -43,7 +43,7 @@ export const ProyectsData = [
     {
         id: 6,
         title: 'Recetas para celíacos (en construción )',
-        link: 'https://resetasceliaquia.herokuapp.com/index',
+        link: 'https://ancient-mesa-83605.herokuapp.com/',
         img: 'https://firebasestorage.googleapis.com/v0/b/busco-libro-app.appspot.com/o/reactPorfolio%2FimgPortfolio%2FrecetasCeliacos.png?alt=media&token=284534c0-a17b-4033-867d-fc3b124c1e1e',
         tecnologies: ['html', 'css', 'bootstrap', 'font-awsome', 'javascript', 'Heroku', 'node', 'api'],
         logo: 'RC'
