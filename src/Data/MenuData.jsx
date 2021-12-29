@@ -13,5 +13,10 @@ export const MenuData = [
         title: 'Contacto',
         path: '/contact',
         className: 'menu-item'
+    },
+    {
+        title: 'Sobre mi',
+        path: '/about',
+        className: 'menu-item'
     }
 ]

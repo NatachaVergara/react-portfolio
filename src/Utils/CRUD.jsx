@@ -16,13 +16,6 @@ export const postMsg = async (usuario) => {
         alert(err)
     }
 
-    // const db = getFirestore()
-    // const mensajes = db.collection('mensajes')
-
-    // mensajes.add(usuario)
-    //     .then((res) => { setOrderId(res.id) })
-    //     .catch(err => console.log(err))
-
 
 
 }

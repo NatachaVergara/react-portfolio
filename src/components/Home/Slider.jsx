@@ -34,8 +34,7 @@ function Slider({slides}) {
     return (
         <section className="slider">
             <div className="buttons">
-                {/* <ArrowForwardIosOutlined className="leftBtn" />
-                <ArrowBackIosOutlined className="rightBtn" /> */}
+              
             </div>
             <div className="content">
                 <h1>Portfolio Personal</h1>

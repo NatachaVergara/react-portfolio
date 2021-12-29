@@ -1,0 +1,41 @@
+.slider{
+    background-position-y: -170px ;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/portfolio-c32fd.appspot.com/o/aboutMe%2Fbg2.png?alt=media&token=3de52818-c2c7-416e-b19f-738bcb0d8118');
+    background-repeat: no-repeat ;
+    background-size:cover;    
+    margin: auto;
+    height: 70vh;
+    
+    
+}
+
+.aboutMe{
+    background-color: rgb(226, 210, 210);
+}
+.infoContainer{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    
+
+}
+
+.infoContainer img{
+    width: 600px;
+    height: 400px;
+    padding: 50px;
+}
+.aboutMeInfo{
+    padding: 20px;
+}
+
+.aboutMeInfo h2{
+    text-align: center;
+    padding: 20px;
+}
+
+.aboutMeInfo p{
+    text-align: justify;
+     word-wrap: break-word;
+}
