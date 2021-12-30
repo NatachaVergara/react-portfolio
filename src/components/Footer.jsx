@@ -1,4 +1,4 @@
-import { Facebook, Instagram } from '@material-ui/icons';
+import { LinkedIn } from '@material-ui/icons';
 import React from 'react'
 import { Link } from 'react-router-dom';
 import './Styles/Footer.css'
@@ -9,8 +9,8 @@ const Footer = () => {
         <div className="footer-basic">
             <footer>
                 <div className="social">
-                    <a href="#"><Facebook /></a>
-                    <a href="#"><Instagram /></a>
+                    <a href="https://www.linkedin.com/in/natacha-vergara/"><LinkedIn /></a>
+                  
                     
                 </div>
                 <ul className="list-inline">

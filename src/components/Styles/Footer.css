@@ -71,4 +71,12 @@ footer{
   margin-bottom:0;
 }
 
+
+@media screen and (max-width:700px) {
+  
+main{
+ margin-bottom: 800px;
+}
+
+}
 /* Credit to https://epicbootstrap.com/snippets/footer-basic */

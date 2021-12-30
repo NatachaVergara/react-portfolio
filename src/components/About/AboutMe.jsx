@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import '../Styles/AboutMe.css'
 const AboutMe = () => {
     return (
@@ -9,11 +10,15 @@ const AboutMe = () => {
 
                 <div className='aboutMeInfo'>
                     <h2>Sobre Mi</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem praesentium adipisci tempora accusamus animi molestias et, voluptas dolor dolorem repellat aspernatur, distinctio consequatur, eius ipsam nostrum enim aliquid expedita asperiores.
-                        Facere, optio maxime praesentium repellat tempora vero facilis minus. Consequuntur, perferendis vitae sit doloribus minima sapiente similique, magnam illo dolorem nobis corporis, culpa fuga? Voluptatum obcaecati eligendi quo adipisci? Officiis?
-                        Quibusdam eligendi magni aut cupiditate consequuntur corrupti omnis repellendus, impedit, esse excepturi, dolore quia ea nisi commodi? Quia quibusdam blanditiis officia in earum, eligendi hic molestias voluptatum quae laudantium ratione.
-                        Sapiente dicta tenetur harum fugit fuga. Minus, doloremque, cum illum magni consequuntur deserunt quas modi quo nihil cumque tempora nemo totam, quae nesciunt iure! Tenetur doloribus similique aperiam quas aut!
-                        Obcaecati, in? Neque placeat praesentium asperiores necessitatibus doloremque in quaerat officia harum saepe quo velit omnis reiciendis esse dolor impedit, corrupti earum quod molestiae! Est, accusantium. Repellat, quasi. Eius, excepturi.</p>
+                    <p>Soy una mujer que a los 34 años se animó a la programación.<br></br>
+                        En febrero 2021 comencé con un curso de 6 meses de Programación Web Full Stack en PDTC <a href='https://linktr.ee/programadesdetucasa' target='_blank' rel='noreferrer' >(Programa desde tu casa)</a>, ahí realicé mis primeros proyectos -<Link to='/portfolio'> ver acá</Link> - antes de finalizar mi cursada me ofrecieron una oportunidad única entre todos mis compañeros para ser ayudante de profesor, por lo que en agosto y antes de terminar mi propia cursada empezé con mi primera comisión, por supuesto con muchos nervios y miedos. 
+                        Por suerte, unos meses mas tarde me ofrecieron mi segunda comisión. <br></br>
+                        A lo largo de mi vida he estudiado de todo, inglés, portugués y actualmente coreano. 
+                        También soy Bibliotecaria Nacional, promoción 2014.<br></br>
+                        Nunca me faltan ganas de aprender cosas nuevas y de emprender nuevos proyectos. 
+
+
+                    </p>
                 </div>    
 
             </div>    
