@@ -1,10 +1,11 @@
 import React from 'react'
 import AboutMe from './AboutMe'
 import AboutSlaider from './AboutSlaider'
+import '../Styles/AboutMe.css'
 
 const AboutContainer = () => {
     return (
-        <section>
+        <section className='aboutMe-section'>
             <AboutSlaider />
             <AboutMe />
             

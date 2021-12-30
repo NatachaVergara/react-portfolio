@@ -3,7 +3,7 @@ import '../Styles/AboutMe.css'
 
 const AboutSlaider = () => {
     return (
-        <div className='slider'>
+        <div className='aboutMeslider'>
        </div>
     )
 }
