@@ -33,7 +33,7 @@
     top: -100%;
     display: flex;
     width: 15%;
-    height: 45vh;
+    height: 55vh;
     background-color: transparent;
     z-index: 1000;
     transition: 1s ease-in-out;  
@@ -74,12 +74,16 @@ $breakpoint-cell: 500px;
             font-size: 10px;
             text-shadow: 2px 2px 10px rgb(12, 12, 12);
         }
+        
+    }
 
+    .nav-item.active{
+        left: 15%;
     }
     
     .nav-item{
         width: 50%;
-        height: 40vh;
+        height: 50vh;
         
     }
 
@@ -103,12 +107,25 @@ $breakpoint-cell: 500px;
 {   .navBar{
     margin: 15px 0;
     padding: 20px 0;
+    
+    .left .menu-icon{
+        bottom: 6px;
+    }
+    
+
+    .rigth h1{
+            font-size: 1em;
+            text-shadow: 2px 2px 10px rgb(12, 12, 12);
+           
+        }
+
 }
 
 
-    .nav-item{
+ .nav-item{
     width: 30%;
-    height: 73vh; 
+    top: -110%;
+    height: 93vh; 
 }
 
 .nav-item.active{
@@ -128,7 +145,7 @@ $breakpoint-tablet0: 690px;
 $breakpoint-tablet1: 850px;
 @media (min-width: $breakpoint-tablet0) and (max-width: $breakpoint-tablet1){
 .nav-item{
-    width: 40%;
+    width: 25%;
     height: 25vh;    
 }
     .nav-item.active{

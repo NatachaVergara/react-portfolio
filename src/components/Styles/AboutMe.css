@@ -30,6 +30,7 @@
 }
 .aboutMeInfo{
     padding: 20px;
+    
 }
 
 .aboutMeInfo h2{
@@ -109,7 +110,7 @@
 .aboutMeslider{
     background-position-y: -100px ;
     background-size: 100%;
-    height: 200px;
+    height: 260px;
     margin-top: -14px;
 }
 
@@ -134,7 +135,7 @@
 }
 
 .aboutMeInfo p{
-   width: 50%;
+   width: 70%;
    margin: auto;
    
 }
