@@ -87,7 +87,7 @@ export const ProyectsData = [
         link: 'https://lista-tareas-nv.netlify.app/',
         img: 'https://firebasestorage.googleapis.com/v0/b/portfolio-c32fd.appspot.com/o/sitiosWeb%2FlistaTareasLS.png?alt=media&token=f5f56aed-ad29-4e53-a44d-2814547bbe8e',
         tecnologies: ['html', 'css', 'bootstrap', 'React', 'LocalStorage'],
-        logo: 'LT'
+        logo: 'LTLS'
     }, 
     // {
     //     title: '',
