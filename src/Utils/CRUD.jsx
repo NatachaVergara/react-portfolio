@@ -16,14 +16,12 @@ export const postMsg = async (usuario) => {
         alert(err)
     }
 
-
-
 }
 
-export const getUrl = (setUrls) => {
+export const getUrl =  (setUrls) => {
 
     try{
-    const q = query(collection(db, 'url'))
+    const q =  query(collection(db, 'url'))
     onSnapshot(q, (querySnapshot) => {
         setUrls(querySnapshot.docs.map(doc => ({
             id: doc.id,

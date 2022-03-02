@@ -1,4 +1,4 @@
-import { LinkedIn } from '@material-ui/icons';
+import { GitHub, LinkedIn } from '@material-ui/icons';
 import React from 'react'
 import { Link } from 'react-router-dom';
 import './Styles/Footer.css'
@@ -10,6 +10,7 @@ const Footer = () => {
             <footer>
                 <div className="social">
                     <a href="https://www.linkedin.com/in/natacha-vergara/"><LinkedIn /></a>
+                    <a href="https://github.com/NatachaVergara"><GitHub /></a>
                   
                     
                 </div>
