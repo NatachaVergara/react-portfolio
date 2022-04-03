@@ -5,16 +5,17 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 
+
 function App() {
   return (
     <div>
       <BrowserRouter>
-        <Header />  
-        <RouterApp />
+        <Header />
+        <RouterApp />     
         <Footer />
       </BrowserRouter>
     </div>
-  );
+  )
 }
 
 export default App;

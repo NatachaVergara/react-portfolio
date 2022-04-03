@@ -1,7 +1,7 @@
 //import firebase from 'firebase'
 // import { getFirestore } from '../Firebase/Firebase'
 import { db } from '../Firebase/Firebase'
-import { collection, addDoc, Timestamp, query, onSnapshot,  } from 'firebase/firestore'
+import { collection, addDoc, Timestamp, query, onSnapshot, deleteDoc, doc } from 'firebase/firestore'
 
 export const postMsg = async (usuario) => {
 
@@ -17,6 +17,28 @@ export const postMsg = async (usuario) => {
     }
 
 }
+
+export const postProyect = async (titulo, link, logo, img, tec) => {
+
+    try {
+        await addDoc(collection(db, 'url'),
+            {
+                titulo, link, logo, img, tec
+            }
+        )
+    } catch (err) {
+        alert(err)
+    }
+
+}
+
+export const deleteProyect = async ({id}) => {
+    const userDoc = (doc(db, 'url', id))
+    await deleteDoc(userDoc)
+}
+
+
+
 
 export const getUrl =  (setUrls) => {
 
@@ -35,3 +57,4 @@ export const getUrl =  (setUrls) => {
         alert(err)
     }
 }
+

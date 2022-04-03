@@ -1,21 +1,33 @@
 import React from 'react'
 import { Route, Routes } from "react-router-dom";
-import HomeContainer from '../components/Home/HomeContainer';
-import PortfolioContainer from '../components/Portfolio/PortfolioContainer';
-import ContactContainer from '../components/Contact/ContactContainer'
-import AboutContainer from '../components/About/AboutContainer';
+import Home from '../Views/Home'
+import Portfolio from '../Views/Portfolio'
+import Contact from '../Views/Contact'
+import About from '../Views/About'
+import Login from '../Views/Login'
+import RoutesCPanel from './RoutesCPanel';
+
+
+
+
 
 
 
 const RouterApp = () => {
     return (
-        <Routes>
-            <Route path="/" element={<HomeContainer />} />  
-            <Route path="/portfolio" element={<PortfolioContainer />} />  
-            <Route path="/contact" element={<ContactContainer />} />  
-            <Route path="/about" element={<AboutContainer />} />  
-            
-        </Routes>
+        <>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/login" element={<Login />} />
+
+                <Route path='/*' element={<RoutesCPanel/>}/>               
+               
+            </Routes>
+        </>
+
     )
 }
 
