@@ -1,0 +1,21 @@
+.logout {
+    width: 70%;
+    margin: 15px auto;
+    height: 70vh;
+    border: 1px solid black;
+    padding: 10px;
+    background: linear-gradient(to right, #434343 0%, #eb466b 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & .logout-btn {
+        width: 150px;
+        height: 100px;
+        font-size: 50px;
+        color: white;
+        background: linear-gradient(to right, #434343 0%, #eb466b 100%);
+        border-radius: 10px;
+        padding: auto;
+    }
+}

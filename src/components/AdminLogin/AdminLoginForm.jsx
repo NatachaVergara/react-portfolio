@@ -2,12 +2,13 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 import { MdLogin } from "react-icons/md";
-
-const AdminLoginForm = ({ user }) => {
-  const { email: userEmail, password: userPassword } = user
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { useUserContext } from '../../Store/useContext';
+import './Formulario.scss'
+const AdminLoginForm = () => {
   const navigate = useNavigate()
+  const { setUserId } = useUserContext()
 
-  console.log(userEmail, userPassword)
 
   return (
 
@@ -37,24 +38,20 @@ const AdminLoginForm = ({ user }) => {
 
         onSubmit={(values, { resetForm }) => {
 
-          if (userEmail !== values.email) {
-            alert('El correo ingresado no se encuentra registrado. Ingreselo nuevamente')
-          }
 
-          if (userEmail !== values.email && userPassword !== values.password) {
-            alert('El email o la contraseña no es correcta. Ingreselo nuevamente')
-          }
-
-          if (userPassword !== values.password) {
-            alert('La contraseña no es la correcta. Ingresela nuevamente')
-          }
-
-          if (userEmail === values.email && userPassword === values.password) {
-            resetForm()
-            console.log('Formik funcionando correctamente')
-            navigate('/controlPanel')
-
-          }
+          const auth = getAuth();
+          signInWithEmailAndPassword(auth, values.email, values.password)
+            .then((userCredential) => {
+              // Signed in 
+              const user = userCredential.user;
+              // console.log(user)
+              setUserId(user.uid)
+              navigate('/controlPanel')
+            })
+            .catch((error) => {
+              console.log(error.code)
+              console.log(error.message)
+            });
 
         }} //End of the email validation onSubmit
 
@@ -62,13 +59,13 @@ const AdminLoginForm = ({ user }) => {
 
         {
           ({ errors, touched }) => (
-            <div className="form">
+            <div className="formLogin">
               <Form >
-                <div className='field'>
+                <div className='fieldLogin'>
                   <label htmlFor="email">Email:</label>
                   <Field
                     type='email'
-                    className='form-control'
+                    className='form-control inputLogin'
                     id='email'
                     name='email'
                     aria-describedby="emailHelp"
@@ -78,20 +75,21 @@ const AdminLoginForm = ({ user }) => {
                     :
                     null}
                 </div>
-                <div className='field'>
+                <div className='fieldLogin'>
                   <label htmlFor="password">Contraseña: </label>
                   <Field
                     type='password'
-                    className='form-control'
+                    className='form-control inputLogin'
                     id='password'
                     name='password'
                   />
                   {touched.password && errors.password ? <div className="form-text text-warning fs-6">{errors.password}</div> : null}
                 </div>
+                <div>
+                  <button type='submit' className='btnLogin'> <MdLogin />
+                  </button>
+                </div>
 
-
-
-                <button type='submit' className='btnLogin'> <MdLogin />  </button>
               </Form>
             </div>
           )

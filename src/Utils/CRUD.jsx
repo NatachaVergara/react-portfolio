@@ -1,7 +1,7 @@
 //import firebase from 'firebase'
 // import { getFirestore } from '../Firebase/Firebase'
 import { db } from '../Firebase/Firebase'
-import { collection, addDoc, Timestamp, query, onSnapshot, deleteDoc, doc } from 'firebase/firestore'
+import { collection, addDoc, Timestamp, query, onSnapshot, deleteDoc, doc, updateDoc } from 'firebase/firestore'
 
 export const postMsg = async (usuario) => {
 
@@ -31,6 +31,26 @@ export const postProyect = async (titulo, link, logo, img, tec) => {
     }
 
 }
+
+export const updateProyect = async ( id, titulo, link, img, logo, tec ) => {
+    try {
+       // console.log(id, titulo, link, img, logo, tec)
+        const userDoc = doc(db, 'url', id)
+
+        await updateDoc(userDoc, {
+            titulo: titulo,
+            link: link,
+            img: img,
+            logo: logo,
+            tec: tec
+
+        })
+
+    } catch (error) {
+        console.error(error.response.data)
+    }
+}
+
 
 export const deleteProyect = async ({id}) => {
     const userDoc = (doc(db, 'url', id))

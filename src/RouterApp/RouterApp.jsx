@@ -6,6 +6,7 @@ import Contact from '../Views/Contact'
 import About from '../Views/About'
 import Login from '../Views/Login'
 import RoutesCPanel from './RoutesCPanel';
+import { useUserContext } from '../Store/useContext';
 
 
 
@@ -14,6 +15,7 @@ import RoutesCPanel from './RoutesCPanel';
 
 
 const RouterApp = () => {
+    const { userId } = useUserContext()
     return (
         <>
             <Routes>
@@ -22,8 +24,8 @@ const RouterApp = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/login" element={<Login />} />
-
-                <Route path='/*' element={<RoutesCPanel/>}/>               
+                {userId ? <Route path='/*' element={<RoutesCPanel />} />  : null}
+                             
                
             </Routes>
         </>

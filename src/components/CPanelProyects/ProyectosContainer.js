@@ -14,7 +14,7 @@ const ProyectosContainer = () => {
 
     }, [])
 
-    console.log(proyect)
+    
 
     return (
         <>
@@ -28,7 +28,7 @@ const ProyectosContainer = () => {
                         link={item.data.link}
                         tec={item.data.tec}
                         title={item.data.titulo}
-                        logo={item.data.log}
+                        logo={item.data.logo}
                     />))}
                    
 

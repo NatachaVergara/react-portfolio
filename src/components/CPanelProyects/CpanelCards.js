@@ -4,15 +4,11 @@ import { deleteProyect } from '../../Utils/CRUD';
 import EditModal from '../Modal/EditModal';
 
 const CpanelCards = ({ id, img, link, tec, title, logo }) => {
+    
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-
-
-
-
-
-    console.log(id)
+  
     return (
         <>
         <div className="card col-6 m-2" style={{ width: "15rem" }}>

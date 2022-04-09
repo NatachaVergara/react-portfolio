@@ -1,27 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
+import '../Styles/EditModal.scss'
+import { updateProyect } from '../../Utils/CRUD';
 
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '400',
-    height: '100vh',
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-
-};
 
 
 
 
 const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
+  
+    const [etitulo, setEditTitulo] = useState(titulo)
+    const [elink, setEditLink] = useState(link)
+    const [eimg, setEditImg] = useState(img)
+    const [elogo, setEditLogo] = useState(logo)
+    const [etec, setEditTec] = useState(tec)
+
+    const onHandleClick = () => {
+        
+        updateProyect(id, etitulo, elink, eimg, elogo, etec)
+    }
+
+
+
     return (
 
         <>
@@ -35,57 +37,51 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
                     component="form"
                     noValidate
                     autoComplete="off"
-                    sx={style}>
+                    >
 
-                    <div className='d-flex flex-column container'>
-                        <div className="col-12 p-2">
+                    <div className='container row'>
+                        <div className="col-6 p-2">
                             <TextField
                                 id="outlined-helperText"
                                 label="Titulo"
                                 defaultValue={titulo}
-
+                                onChange={(e) => setEditTitulo(e.target.value)}
                             />
                         </div>
-                        <div className="col-12 p-2">
+                        <div className="col-6 p-2">
                             <TextField
                                 id="outlined-helperText"
                                 label="Link"
                                 defaultValue={link}
-
+                                onChange={(e) => setEditLink(e.target.value)}
                             />
                         </div>
-                        <div className="col-12 p-2">
+                        <div className="col-6 p-2">
                             <TextField
                                 id="outlined-helperText"
                                 label="img"
                                 defaultValue={img}
-
+                                onChange={(e) => setEditImg(e.target.value)}
                             />
                         </div>
-                        <div className="col-12 p-2">
+                        <div className="col-6 p-2">
 
                             <TextField
                                 id="outlined-helperText"
                                 label="Logo"
                                 defaultValue={logo}
+                                onChange={(e) => setEditLogo(e.target.value)}
                             />
                         </div>
-                        <div className="col-12 p-2">
-                            <TextField
-                                id="outlined-helperText"
-                                label="Titulo"
-                                defaultValue={titulo}
-
-                            />
-                        </div>
+                      
 
                         {tec.map((e, i) => (
-                            <div className="col-12 p-2 d-flex flex-row">
+                            <div className="col-6 p-2 d-flex flex-row" key={i}>
                                 <TextField
-                                    key={i}
                                     id="outlined-helperText"
                                     label="Tecnología"
                                     defaultValue={e}
+                                    onChange={(e) => setEditTec(e.target.value)}
 
                                 />
                             </div>
@@ -93,7 +89,8 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
 
                         }
 
-
+                        <button type='submit' className='btn'
+                            onClick={onHandleClick}>Enviar cambios</button>
 
                     </div>
                 </Box>
