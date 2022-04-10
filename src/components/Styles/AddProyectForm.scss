@@ -1,0 +1,59 @@
+.AddProyectContainer {
+    width: 90%;
+    margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.proyectAddForm {
+    width: 100%;
+    margin: 20px auto;
+    height: 70vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    background: linear-gradient(to right, #434343 0%, #eb466b 100%);
+ 
+
+    & Form{
+        background: linear-gradient(to right, #434343 0%, #eb466b 100%);
+
+
+        & .formBody{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+
+            & .formFields{
+                margin: 10px;
+
+                & label{
+                    color:aliceblue;
+                    padding: 10px;
+                }
+
+                & .error{
+                    display: flex;
+                    flex-direction: column
+                }
+
+                & ul{
+                    list-style: none;
+                }
+
+            }
+
+
+
+        }
+    }
+
+
+
+}

@@ -7,7 +7,7 @@ import { Outlet } from 'react-router-dom'
 const ControlPanel = () => {
     return (
         <>
-            <div className="d-flex flex-column m-3">                
+            <div className="">                
                 <Outlet />
             </div>
         </>

@@ -1,11 +1,10 @@
 import React from 'react'
 import NewProyectForm from './NewProyectForm'
-
+import '../Styles/AddProyectForm.scss'
 const AddProyect = () => {
   return (
-    <div className='m-5 container'>
-
-      <h1 className=''>Add a Proyect</h1>
+    <div className='AddProyectContainer'>
+      <h1 className='mb-1'>Agregar proyecto</h1>
 
       <NewProyectForm />
 

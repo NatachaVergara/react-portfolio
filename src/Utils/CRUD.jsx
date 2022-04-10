@@ -3,6 +3,7 @@
 import { db } from '../Firebase/Firebase'
 import { collection, addDoc, Timestamp, query, onSnapshot, deleteDoc, doc, updateDoc } from 'firebase/firestore'
 
+
 export const postMsg = async (usuario) => {
 
     try {
@@ -54,6 +55,7 @@ export const updateProyect = async ( id, titulo, link, img, logo, tec ) => {
 
 export const deleteProyect = async ({id}) => {
     const userDoc = (doc(db, 'url', id))
+
     await deleteDoc(userDoc)
 }
 

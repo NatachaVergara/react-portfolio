@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -17,12 +17,16 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
     const [elogo, setEditLogo] = useState(logo)
     const [etec, setEditTec] = useState(tec)
 
-    const onHandleClick = () => {
-        
-        updateProyect(id, etitulo, elink, eimg, elogo, etec)
+    const onHandleClick = async () => {
+         //console.log(id, etitulo, elink, eimg, elogo, etec)
+         await updateProyect(id, etitulo, elink, eimg, elogo, etec)
     }
 
+    useEffect(() => {
+        
+        onHandleClick()
 
+    }, )
 
     return (
 

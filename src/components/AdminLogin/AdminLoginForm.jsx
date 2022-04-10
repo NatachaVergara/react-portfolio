@@ -4,7 +4,9 @@ import { Formik, Form, Field } from 'formik'
 import { MdLogin } from "react-icons/md";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useUserContext } from '../../Store/useContext';
+
 import './Formulario.scss'
+import { successTimeout } from '../sweetAlerts/alert';
 const AdminLoginForm = () => {
   const navigate = useNavigate()
   const { setUserId } = useUserContext()
@@ -44,8 +46,9 @@ const AdminLoginForm = () => {
             .then((userCredential) => {
               // Signed in 
               const user = userCredential.user;
-              // console.log(user)
+             console.log(user)
               setUserId(user.uid)
+              successTimeout('Bienvenido/a', user.email)
               navigate('/controlPanel')
             })
             .catch((error) => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { MdModeEdit, MdOutlineDelete } from 'react-icons/md';
-import { deleteProyect } from '../../Utils/CRUD';
 import EditModal from '../Modal/EditModal';
+import { deleteFile } from '../sweetAlerts/alert';
 
 const CpanelCards = ({ id, img, link, tec, title, logo }) => {
     
@@ -9,6 +9,11 @@ const CpanelCards = ({ id, img, link, tec, title, logo }) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
   
+
+    const onHandleDelete = ({id}) => {
+        deleteFile({id})
+
+    }
     return (
         <>
         <div className="card col-6 m-2" style={{ width: "15rem" }}>
@@ -20,7 +25,7 @@ const CpanelCards = ({ id, img, link, tec, title, logo }) => {
                 </ul>
                 <div className='d-flex justify-content-between'>
                         <button className="btn btn-danger" onClick={() => handleOpen() }   ><MdModeEdit /></button>
-                    <button className="btn btn-success" onClick={() => deleteProyect({ id })}  ><MdOutlineDelete /> </button>
+                        <button className="btn btn-success" onClick={()=> onHandleDelete({id})}  ><MdOutlineDelete /> </button>
                 </div>
             </div>
             </div>

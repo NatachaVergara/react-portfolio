@@ -1,12 +1,8 @@
 import React from 'react'
 import { Field, Form, Formik } from 'formik'
-import { postProyect } from '../../Utils/CRUD'
+import { addProyect } from '../sweetAlerts/alert'
+
 const NewProyectForm = () => {
-
-
-
-
-
     return (
         <Formik
             initialValues={{
@@ -39,25 +35,10 @@ const NewProyectForm = () => {
 
 
             onSubmit={(values, { resetForm }) => {
-                
-
                 const { titulo, link, logo, img, tec } = values
-
-
-                console.log(tec)
-                postProyect(titulo, link, logo, img, tec)
-
-                resetForm()
-
+               
+                addProyect(titulo, link, logo, img, tec, resetForm)
             }}
-
-
-
-
-
-
-
-
         >
 
 
@@ -65,92 +46,100 @@ const NewProyectForm = () => {
 
             {
                 ({ errors, touched }) => (
-                    <div >
+                    <div className="proyectAddForm">
                         <Form>
-                            <div className="proyectAddForm">
+                            <div className='formBody'>
                                 <div className="formFields">
                                     <label htmlFor="titulo">Titulo: </label>
-                                    <Field
-                                        type="text"
-                                        id='titulo'
-                                        name='titulo'
-                                    />
+                                    <div className="error">
+                                        <Field
+                                            type="text"
+                                            id='titulo'
+                                            name='titulo'
+                                        />
+                                        {touched.titulo ? <div className="form-text text-warning fs-6">{errors.titulo}</div> : null}
+                                    </div>
+
                                 </div>
-                                {touched.titulo ? <div className="form-text text-warning fs-6">{errors.titulo}</div> : null}
 
 
                                 <div className="formFields">
                                     <label htmlFor="link">Link: </label>
-                                    <Field
-                                        type="text"
-                                        id='link'
-                                        name='link'
-                                    />
+
+                                    <div className="error">
+                                        <Field
+                                            type="text"
+                                            id='link'
+                                            name='link'
+                                        />
+                                        {touched.link ? <div className="form-text text-warning fs-6">{errors.link}</div> : null}
+                                    </div>
                                 </div>
-                                {touched.link ? <div className="form-text text-warning fs-6">{errors.link}</div> : null}
+
 
                                 <div className="formFields">
                                     <label htmlFor="link">Logo: </label>
-                                    <Field
-                                        type="text"
-                                        id='logo'
-                                        name='logo'
-                                    />
+                                    <div className="error">
+                                        <Field
+                                            type="text"
+                                            id='logo'
+                                            name='logo'
+                                        />
+                                        {touched.logo ? <div className="form-text text-warning fs-6">{errors.logo}</div> : null}
+                                    </div>
                                 </div>
-                                {touched.logo ? <div className="form-text text-warning fs-6">{errors.logo}</div> : null}
+
                                 <div className="formFields">
                                     <label htmlFor="link">Img: </label>
-                                    <Field
-                                        type="text"
-                                        id='img'
-                                        name='img'
-                                    />
+                                    <div className="error">
+                                        <Field
+                                            type="text"
+                                            id='img'
+                                            name='img'
+                                        />
+                                        {touched.img ? <div className="form-text text-warning fs-6">{errors.img}</div> : null}
+                                    </div>
                                 </div>
-                                {touched.img ? <div className="form-text text-warning fs-6">{errors.img}</div> : null}
+
                                 <div className="formFields">
                                     <label htmlFor="tec">Tecnologías: </label>
-                                    <ul className=''>
-                                        <li> <Field
-                                            type="text"
-                                            id='tec'
-                                            name='tec[0]'
-                                        /></li>
-                                        <li>  <Field
-                                            type="text"
-                                            id='tec'
-                                            name='tec[1]'
-                                        /></li>
-                                        <li><Field
-                                            type="text"
-                                            id='tec'
-                                            name='tec[2]'
-                                        /></li>
-                                        <li> <Field
-                                            type="text"
-                                            id='tec'
-                                            name='tec[3]'
-                                        /></li>
-                                        <li> <Field
-                                            type="text"
-                                            id='tec'
-                                            name='tec[4]'
-                                        /></li>
-                                    </ul>
+                                    <div className="error">
+                                        <ul>
+                                            <li> <Field
+                                                type="text"
+                                                id='tec'
+                                                name='tec[0]'
+                                            />
+                                            </li>
 
+                                            <li>  <Field
+                                                type="text"
+                                                id='tec'
+                                                name='tec[1]'
+                                            /></li>
+                                            <li><Field
+                                                type="text"
+                                                id='tec'
+                                                name='tec[2]'
+                                            /></li>
+                                            <li> <Field
+                                                type="text"
+                                                id='tec'
+                                                name='tec[3]'
+                                            /></li>
+                                            <li> <Field
+                                                type="text"
+                                                id='tec'
+                                                name='tec[4]'
+                                            /></li>
+                                        </ul>
 
-
-
-
+                                    </div>
                                 </div>
 
-
+                                <button type='submit' className='btn btn-success bg-danger m-2 align-self-center'>Agregar</button>
                             </div>
 
-
-
-
-
-                            <button type='submit' className='btn btn-success m-2 align-self-center'>Add</button>
                         </Form>
 
 
