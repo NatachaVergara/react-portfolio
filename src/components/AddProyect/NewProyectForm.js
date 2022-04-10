@@ -104,7 +104,7 @@ const NewProyectForm = () => {
                                 <div className="formFields">
                                     <label htmlFor="tec">Tecnologías: </label>
                                     <div className="error">
-                                        <ul>
+                                        <ul className='ps-0'>
                                             <li> <Field
                                                 type="text"
                                                 id='tec'

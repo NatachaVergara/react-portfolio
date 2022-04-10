@@ -18,32 +18,32 @@
     align-items: center;
     border-radius: 10px;
     background: linear-gradient(to right, #434343 0%, #eb466b 100%);
- 
 
-    & Form{
+
+    & Form {
         background: linear-gradient(to right, #434343 0%, #eb466b 100%);
 
 
-        & .formBody{
+        & .formBody {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
 
 
-            & .formFields{
+            & .formFields {
                 margin: 10px;
 
-                & label{
-                    color:aliceblue;
+                & label {
+                    color: aliceblue;
                     padding: 10px;
                 }
 
-                & .error{
+                & .error {
                     display: flex;
                     flex-direction: column
                 }
 
-                & ul{
+                & ul {
                     list-style: none;
                 }
 
@@ -55,5 +55,26 @@
     }
 
 
+
+}
+
+
+@media screen and (max-width: 576px) {
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+
+    .AddProyectContainer {
+        width: 100%;
+    }
+
+    .proyectAddForm {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+        margin: auto;
+    }
 
 }
