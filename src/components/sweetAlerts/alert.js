@@ -3,8 +3,8 @@ import { deleteProyect, postProyect, updateProyect } from '../../Utils/CRUD'
 
 export const successTimeout = async (title, html) => {
     let timerInterval
-  await  Swal.fire({
-        title:` ${title}`,
+    await Swal.fire({
+        title: ` ${title}`,
         html: `${html}`,
         timer: 2000,
         timerProgressBar: true,
@@ -27,7 +27,7 @@ export const successTimeout = async (title, html) => {
 
 }
 
-export const deleteFile =async ({id}) => {
+export const deleteFile = async ({ id }) => {
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
             confirmButton: 'btn btn-success',
@@ -36,7 +36,7 @@ export const deleteFile =async ({id}) => {
         buttonsStyling: false
     })
 
-   await swalWithBootstrapButtons.fire({
+    await swalWithBootstrapButtons.fire({
         title: '¿Está seguro/a que quiere borrar el archivo?',
         text: "¡No Podrá revertirlo!",
         icon: 'warning',
@@ -49,8 +49,8 @@ export const deleteFile =async ({id}) => {
             swalWithBootstrapButtons.fire(
                 'Borrado!',
                 'Su archivo ha sido borrado exitosamente',
-                deleteProyect({id})
-                
+                deleteProyect({ id })
+
             )
         } else if (
             /* Read more about handling dismissals below */
@@ -59,12 +59,12 @@ export const deleteFile =async ({id}) => {
             swalWithBootstrapButtons.fire(
                 'Cancelado',
                 'Su archivo no ha sido eliminado',
-               
+
             )
         }
     })
 
-    
+
 }
 
 
@@ -77,7 +77,7 @@ export const addProyect = async (titulo, link, logo, img, tec, resetForm) => {
         buttonsStyling: false
     })
 
-  await  swalWithBootstrapButtons.fire({
+    await swalWithBootstrapButtons.fire({
         title: '¿Está segura/o de que quiere agregar el archivo?',
         icon: 'question',
         showCancelButton: true,
@@ -90,7 +90,7 @@ export const addProyect = async (titulo, link, logo, img, tec, resetForm) => {
                 'Agregado!',
                 'Su archivo ha sido agregado exitosamente',
                 'success',
-                postProyect( titulo, link, logo, img, tec ),
+                postProyect(titulo, link, logo, img, tec),
                 resetForm()
             )
         } else if (
@@ -109,3 +109,14 @@ export const addProyect = async (titulo, link, logo, img, tec, resetForm) => {
 }
 
 
+export const loginError =  async (code, message) => {
+
+ await    Swal.fire({
+        icon: 'error',
+        title: `${code}`,
+        text: `${message}`,
+       
+    })
+
+
+}

@@ -6,7 +6,7 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useUserContext } from '../../Store/useContext';
 
 import './Formulario.scss'
-import { successTimeout } from '../sweetAlerts/alert';
+import { loginError, successTimeout } from '../sweetAlerts/alert';
 const AdminLoginForm = () => {
   const navigate = useNavigate()
   const { setUserId } = useUserContext()
@@ -54,6 +54,8 @@ const AdminLoginForm = () => {
             .catch((error) => {
               console.log(error.code)
               console.log(error.message)
+
+              loginError(error.code, error.message )
             });
 
         }} //End of the email validation onSubmit
