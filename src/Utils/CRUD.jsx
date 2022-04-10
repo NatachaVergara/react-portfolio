@@ -43,7 +43,7 @@ export const updateProyect = async ( id, titulo, link, img, logo, tec ) => {
             link: link,
             img: img,
             logo: logo,
-            tec: tec
+           // tec: tec
 
         })
 

@@ -78,7 +78,7 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
                             />
                         </div>
                       
-
+{/* 
                         {tec.map((e, i) => (
                             <div className="col-6 p-2 d-flex flex-row" key={i}>
                                 <TextField
@@ -91,7 +91,7 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
                             </div>
                         ))
 
-                        }
+                        } */}
 
                         <button type='submit' className='btn'
                             onClick={onHandleClick}>Enviar cambios</button>
