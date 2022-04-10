@@ -24,7 +24,7 @@ const RouterApp = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/login" element={<Login />} />
-                {userId ? <Route path='*' element={<RoutesCPanel />} />  : null}
+                {userId ? <Route path='/*' element={<RoutesCPanel />} />  : null}
                              
                
             </Routes>

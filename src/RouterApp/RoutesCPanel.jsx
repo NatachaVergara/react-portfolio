@@ -12,8 +12,8 @@ const RoutesCPanel = () => {
             <MenuCPanel />
             <Routes>
                 <Route path='/controlPanel' element={<ControlPanel />} >
-                    <Route path='/add' element={<AddProyect />} />
-                    <Route path='/proyectos' element={<ProyectosContainer />} />
+                    <Route path='add' element={<AddProyect />} />
+                    <Route path='proyectos' element={<ProyectosContainer />} />
                 </Route>
 
             </Routes>
