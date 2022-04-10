@@ -15,11 +15,11 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
     const [elink, setEditLink] = useState(link)
     const [eimg, setEditImg] = useState(img)
     const [elogo, setEditLogo] = useState(logo)
-    const [etec, setEditTec] = useState(tec)
+   // const [etec, setEditTec] = useState(tec)
 
     const onHandleClick = async () => {
          //console.log(id, etitulo, elink, eimg, elogo, etec)
-         await updateProyect(id, etitulo, elink, eimg, elogo, etec)
+         await updateProyect(id, etitulo, elink, eimg, elogo)
     }
 
     useEffect(() => {
