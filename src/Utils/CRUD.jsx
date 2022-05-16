@@ -35,16 +35,13 @@ export const postProyect = async (titulo, link, logo, img, tec) => {
 
 export const updateProyect = async ( id, titulo, link, img, logo ) => {
     try {
-       // console.log(id, titulo, link, img, logo, tec)
+       
         const userDoc = doc(db, 'url', id)
-
         await updateDoc(userDoc, {
             titulo: titulo,
             link: link,
             img: img,
-            logo: logo,
-           // tec: tec
-
+            logo: logo
         })
 
     } catch (error) {
