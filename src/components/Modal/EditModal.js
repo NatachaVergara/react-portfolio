@@ -20,6 +20,7 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
     const onHandleClick = async () => {
          //console.log(id, etitulo, elink, eimg, elogo, etec)
          await updateProyect(id, etitulo, elink, eimg, elogo)
+         handleClose()
     }
 
     useEffect(() => {        
