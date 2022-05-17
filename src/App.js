@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter  } from "react-router-dom";
 import RouterApp from './RouterApp/RouterApp';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -11,11 +11,11 @@ function App() {
   return (
     <div>
       <UserContextProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Header />
         <RouterApp />     
         <Footer />
-        </BrowserRouter>
+        </HashRouter>
       </UserContextProvider>
     </div>
   )
