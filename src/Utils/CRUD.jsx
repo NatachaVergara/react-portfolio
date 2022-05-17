@@ -1,7 +1,7 @@
 //import firebase from 'firebase'
 // import { getFirestore } from '../Firebase/Firebase'
 import { db } from '../Firebase/Firebase'
-import { collection, addDoc, Timestamp, query, onSnapshot, deleteDoc, doc, updateDoc } from 'firebase/firestore'
+import { collection, addDoc, Timestamp, query, onSnapshot, doc, updateDoc } from 'firebase/firestore'
 
 
 export const postMsg = async (usuario) => {

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import '../Styles/EditModal.scss'
-import { updateProyect } from '../../Utils/CRUD';
+
 import axios from 'axios';
 import { BASE_URL } from '../../Utils/URL';
 
