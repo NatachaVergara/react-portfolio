@@ -24,6 +24,7 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
 
     useEffect(() => {        
         onHandleClick()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
