@@ -24,7 +24,7 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
 
     useEffect(() => {        
         onHandleClick()
-    },)
+    }, [])
 
     return (
 

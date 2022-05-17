@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import CpanelCards from './CpanelCards'
 import { getUrl } from '../../Utils/CRUD'
 import Spinner from '../Spinner'
-import axios from 'axios'
+//import axios from 'axios'
 
 
 const ProyectosContainer = () => {
@@ -13,20 +13,20 @@ const ProyectosContainer = () => {
         getUrl(setProyect)
     }, [])
 
-    useEffect(()=>{
-        const fetchData = async () => {
-            try {
-                axios.all([
-                    axios.get(`https://nv-portfolio.herokuapp.com/proyects`)
-                ]).then(response => {
-                   console.log(response)                  
-                })
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        fetchData()
-    })
+    // useEffect(()=>{
+    //     const fetchData = async () => {
+    //         try {
+    //             axios.all([
+    //                 axios.get(`https://nv-portfolio.herokuapp.com/proyects`)
+    //             ]).then(response => {
+    //                console.log(response)                  
+    //             })
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     }
+    //     fetchData()
+    // })
     
 
 
