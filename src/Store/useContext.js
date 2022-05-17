@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 
+
+
 const UserContext = createContext()
 
 export const useUserContext = () => {
@@ -21,17 +23,23 @@ const getLocalUser = () => {
 
 const UserContextProvider = ({ children }) => {
     const [userId, setUserId] = useState(getLocalUser())
-    //console.log(userId)
+    const [ proyects, setProyects] = useState([])
 
     useEffect(() => {
         localStorage.setItem('user', JSON.stringify(userId))
     }, [userId])
 
 
+    
+
+
+
+
+
 
     return (
         <UserContext.Provider
-            value={{ userId, setUserId }}
+            value={{ userId, setUserId, proyects, setProyects }}
         >
 
             {children}

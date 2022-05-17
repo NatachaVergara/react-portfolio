@@ -1,22 +1,23 @@
 import React from 'react'
 import { Field, Form, Formik } from 'formik'
-import { addProyect } from '../sweetAlerts/alert'
 
-const NewProyectForm = () => {
+
+const NewProyectForm = ({addProyect}) => {
+
     return (
         <Formik
             initialValues={{
-                titulo: '',
+                title: '',
                 link: '',
                 logo: '',
                 img: '',
-                tec: ['', '', '', '', '']
+                tec: ''
             }}
 
             validate={(values) => {
                 let isError = {}
-                if (!values.titulo) {
-                    isError.titulo = 'Ingrese un título'
+                if (!values.title) {
+                    isError.title = 'Ingrese un título'
                 }
                 if (!values.link) {
                     isError.link = 'Ingrese un link'
@@ -34,10 +35,8 @@ const NewProyectForm = () => {
             }}
 
 
-            onSubmit={(values, { resetForm }) => {
-                const { titulo, link, logo, img, tec } = values
-               
-                addProyect(titulo, link, logo, img, tec, resetForm)
+            onSubmit={(values, { resetForm }) => {            
+                  addProyect(values, resetForm)
             }}
         >
 
@@ -50,14 +49,14 @@ const NewProyectForm = () => {
                         <Form>
                             <div className='formBody'>
                                 <div className="formFields">
-                                    <label htmlFor="titulo">Titulo: </label>
+                                    <label htmlFor="title">Title: </label>
                                     <div className="error">
                                         <Field
                                             type="text"
-                                            id='titulo'
-                                            name='titulo'
+                                            id='title'
+                                            name='title'
                                         />
-                                        {touched.titulo ? <div className="form-text text-warning fs-6">{errors.titulo}</div> : null}
+                                        {touched.title ? <div className="form-text text-warning fs-6">{errors.title}</div> : null}
                                     </div>
 
                                 </div>
@@ -104,36 +103,12 @@ const NewProyectForm = () => {
                                 <div className="formFields">
                                     <label htmlFor="tec">Tecnologías: </label>
                                     <div className="error">
-                                        <ul className='ps-0'>
-                                            <li> <Field
-                                                type="text"
-                                                id='tec'
-                                                name='tec[0]'
-                                            />
-                                            </li>
-
-                                            <li>  <Field
-                                                type="text"
-                                                id='tec'
-                                                name='tec[1]'
-                                            /></li>
-                                            <li><Field
-                                                type="text"
-                                                id='tec'
-                                                name='tec[2]'
-                                            /></li>
-                                            <li> <Field
-                                                type="text"
-                                                id='tec'
-                                                name='tec[3]'
-                                            /></li>
-                                            <li> <Field
-                                                type="text"
-                                                id='tec'
-                                                name='tec[4]'
-                                            /></li>
-                                        </ul>
-
+                                        <Field
+                                            type="text"
+                                            id='tec'
+                                            name='tec'
+                                        />
+                                        {touched.tec ? <div className="form-text text-warning fs-6">{errors.tec}</div> : null}
                                     </div>
                                 </div>
 
@@ -142,72 +117,8 @@ const NewProyectForm = () => {
 
                         </Form>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            }
-
-
-
-
-
-
-
-
-
-
-
-
-
+                   </div>
+             ) }
         </Formik>
     )
 }

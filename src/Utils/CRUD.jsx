@@ -19,19 +19,6 @@ export const postMsg = async (usuario) => {
 
 }
 
-export const postProyect = async (titulo, link, logo, img, tec) => {
-
-    try {
-        await addDoc(collection(db, 'url'),
-            {
-                titulo, link, logo, img, tec
-            }
-        )
-    } catch (err) {
-        alert(err)
-    }
-
-}
 
 export const updateProyect = async ( id, titulo, link, img, logo ) => {
     try {
@@ -49,12 +36,6 @@ export const updateProyect = async ( id, titulo, link, img, logo ) => {
     }
 }
 
-
-export const deleteProyect = async ({id}) => {
-    const userDoc = (doc(db, 'url', id))
-
-    await deleteDoc(userDoc)
-}
 
 
 

@@ -1,38 +1,84 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import NewProyectForm from './NewProyectForm'
 import '../Styles/AddProyectForm.scss'
-import {BASE_URL} from '../../Utils/URL'
 import axios from 'axios'
+import { BASE_URL } from '../../Utils/URL'
+import Swal from 'sweetalert2'
+
 
 const AddProyect = () => {
 
-useEffect(() => {
-  const fetchData = async () => {
-   try {
-     axios.all([
-       axios.get(`${BASE_URL}/proyects`)
-     ]).then(response=>{
-       console.log(response)
-     })
-   } catch (error) {
-     console.log(error)
-   }
+  const createProyect = async (values) => {
+    console.log(values)
+    axios
+      .post(`${BASE_URL}/proyects`,
+        {
+          title: values.title,
+          link: values.link,
+          logo: values.logo,
+          img: values.img,
+          tec: values.tec,
+        })
+      .then((res) => {
+        console.log(res)
+        console.log(res.data)
+        console.log(res.data.message)
+        console.log(res.status)
+      })
+      .catch(err => console.log(err))
+  }
+
+
+  const addProyect = async (values, resetForm) => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
+
+    await swalWithBootstrapButtons.fire({
+      title: '¿Está segura/o de que quiere agregar el archivo?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        swalWithBootstrapButtons.fire(
+          'Agregado!',
+          'Su archivo ha sido agregado exitosamente',
+          'success',
+          createProyect(values),
+          resetForm()
+        )
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+          'El proyecto no ha sido agregado',
+          'error'
+        )
+      }
+    })
+
 
   }
-  fetchData()
-
-})
 
 
-  
+
+
 
 
 
   return (
     <div className='AddProyectContainer'>
       <h1 className='mb-1'>Agregar proyecto</h1>
-
-      <NewProyectForm />
+      <NewProyectForm addProyect={addProyect} />
 
     </div>
   )
