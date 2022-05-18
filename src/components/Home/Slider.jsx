@@ -38,8 +38,8 @@ function Slider({slides}) {
             </div>
             <div className="content">
                 <h1>Portfolio Personal</h1>
-                <Link to='/portfolio'>  <button> <WorkOutlineOutlined />  </button></Link> 
-                <Link to='/contact'><button> <MarkunreadTwoTone />   </button></Link>
+                <Link to='/portfolio' className="btn btn-outline-danger me-1 "> <WorkOutlineOutlined /> </Link> 
+                <Link to='/contact'  className="btn  btn-outline-danger "> <MarkunreadTwoTone />  </Link>
 
 
             </div>
