@@ -32,9 +32,9 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
             img: values.eimg,
             tec: values.etec
         }).then((res) => {
-            console.log(res.data)
-            console.log(res.data.message)
-            console.log(res.status)
+            // console.log(res.data)
+            // console.log(res.data.message)
+            // console.log(res.status)
             setProyects(res.data.fulldata)
         }).catch(err => console.log(err))       
         handleClose()    

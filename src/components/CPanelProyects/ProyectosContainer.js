@@ -15,9 +15,9 @@ const ProyectosContainer = () => {
     const findProyects = async () => {
         axios.get(`${BASE_URL}/proyects`)
             .then((res) => {
-                console.log(res)
-                console.log(res.data)
-                console.log(res.status)
+                // console.log(res)
+                // console.log(res.data)
+                // console.log(res.status)
                 setProyects(res.data.data)
             })
             .catch(err => console.log(err))

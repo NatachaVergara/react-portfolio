@@ -8,7 +8,6 @@ const RoutesCPanel = () => {
     return (
         <div className='d-flex flex-column flex-md-row  h-0 h-md-100 bg-warning'>
 
-
             <MenuCPanel />
             <Routes>
                 <Route path='/controlPanel' element={<ControlPanel />} >

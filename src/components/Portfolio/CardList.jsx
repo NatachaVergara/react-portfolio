@@ -6,12 +6,6 @@ import { useUserContext } from '../../Store/useContext'
 import Spinner from '../Spinner';
 const CardList = () => {
     const { proyects } = useUserContext()
-    
-    console.log(proyects)
-  
-
-
-  
 
     return (
         <>
