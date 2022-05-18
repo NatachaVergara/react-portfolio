@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react'
 import CpanelCards from './CpanelCards'
-//import { getUrl } from '../../Utils/CRUD'
 import Spinner from '../Spinner'
 import axios from 'axios'
 import { BASE_URL } from '../../Utils/URL'
 import { useUserContext } from '../../Store/useContext'
+import Swal from 'sweetalert2';
 
-//import axios from 'axios'
 
 
 const ProyectosContainer = () => {
-    const {proyects, setProyects} = useUserContext()
+    const { proyects, setProyects } = useUserContext()
     /// llamada a mi propio servidor!
+
     const findProyects = async () => {
         axios.get(`${BASE_URL}/proyects`)
             .then((res) => {
@@ -23,12 +23,66 @@ const ProyectosContainer = () => {
             .catch(err => console.log(err))
     }
 
+
+
+    const onHandleDelete = async (id) => {
+        try {
+            await axios.delete(`${BASE_URL}/proyects/${id}`)
+                .then(response => {
+                    console.log(response)
+                    setProyects(response.data.fulldata)
+                })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+
+
+    const deleteFile = async ({ id }) => {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+        })
+
+        await swalWithBootstrapButtons.fire({
+            title: '¿Está seguro/a que quiere borrar el archivo?',
+            text: "¡No Podrá revertirlo!",
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Borrar!',
+            cancelButtonText: 'Cancelar!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire(
+                    'Borrado!',
+                    'Su archivo ha sido borrado exitosamente',
+                    onHandleDelete(id)
+                )
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Cancelado',
+                    'Su archivo no ha sido eliminado'
+
+                )
+            }
+        })
+
+    }
+
     useEffect(() => {
         findProyects()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-  
 
     return (
         <>
@@ -43,7 +97,8 @@ const ProyectosContainer = () => {
                         tec={item.tec}
                         title={item.title}
                         logo={item.logo}
-                      
+                        deleteFile={deleteFile}
+
                     />))}
                 </div>}
         </>

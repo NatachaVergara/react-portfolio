@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
@@ -6,6 +6,7 @@ import '../Styles/EditModal.scss'
 
 import axios from 'axios';
 import { BASE_URL } from '../../Utils/URL';
+import { useUserContext } from '../../Store/useContext';
 
 
 
@@ -18,20 +19,12 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
     const [elogo, setEditLogo] = useState(logo)
     const [etec, setEditTec] = useState(tec)
 
- //falta corregir el tema de la actualizacion 
-    const onHandleClick = async () => {
-        //console.log(id, etitulo, elink, eimg, elogo, etec)
-        //await updateProyect(id, etitulo, elink, eimg, elogo)
-        const values = {
-            etitulo,
-            elink,
-            eimg,
-            elogo,
-            etec
-        }
-      
-        console.log(values, id)
 
+    const {  setProyects } = useUserContext()
+
+    //falta corregir el tema de la actualizacion 
+    const onHandleClick = async () => {
+        const values = { etitulo, elink, eimg, elogo, etec }
         axios.put(`${BASE_URL}/proyects/${id}`, {
             title: values.etitulo,
             link: values.elink,
@@ -39,19 +32,13 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
             img: values.eimg,
             tec: values.etec
         }).then((res) => {
-            console.log(res)
             console.log(res.data)
             console.log(res.data.message)
             console.log(res.status)
-        }).catch(err => console.log(err))
-        handleClose()
+            setProyects(res.data.fulldata)
+        }).catch(err => console.log(err))       
+        handleClose()    
     }
-
- 
-    // useEffect(() => {
-    //     onHandleClick()
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [])
 
     return (
 
@@ -114,7 +101,6 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
                         </div>
                         <button type='submit' className='btn'
                             onClick={onHandleClick}>Enviar cambios</button>
-
                     </div>
                 </Box>
             </Modal>

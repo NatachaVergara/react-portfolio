@@ -32,11 +32,7 @@ const ExpandMore = styled((props) => {
 
 
 const CardBody = ({ id, title, link, img, tec, logo }) => {
-
-
-
     const [expanded, setExpanded] = useState(false);
-
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
@@ -82,9 +78,7 @@ const CardBody = ({ id, title, link, img, tec, logo }) => {
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
                         <Typography paragraph>Tecnologías aplicadas</Typography>
-                        <ul className='tecList'>
-                            <li key={id}>{tec.map(t => <li>{t}</li>)} </li>
-                        </ul>
+                        {tec}
                     </CardContent>
                 </Collapse>
             </Card>

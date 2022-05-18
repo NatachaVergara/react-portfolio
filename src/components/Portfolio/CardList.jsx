@@ -1,41 +1,37 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import CardBody from './CardBody'
 import Grid from '@mui/material/Grid';
-import { getUrl } from '../../Utils/CRUD';
 
+import { useUserContext } from '../../Store/useContext'
+import Spinner from '../Spinner';
 const CardList = () => {
-    const [urls, setUrls] = useState([])
-
-    useEffect(() => {
-
-        getUrl(setUrls)
-
-    }, [])
+    const { proyects } = useUserContext()
+    
+    console.log(proyects)
+  
 
 
-
-    console.log(urls)
+  
 
     return (
-        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8, md: 12 }}> 
-
-            {
-                urls.map
-                    ((url) =>
-                        
+        <>
+            {!proyects ?
+                <Spinner text='Cargando....' /> :
+                <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8, md: 12 }}>
+                    {proyects.map(((proyect, i) => (
                         <CardBody
-                            id={url.id}
-                            title={url.data.titulo}
-                            link={url.data.link}
-                            img={url.data.img}
-                            tec={url.data.tec}
-                            logo={url.data.logo} />
-                    )
-               
+                            key={i}
+                            title={proyect.title}
+                            id={proyect.id}
+                            link={proyect.link}
+                            img={proyect.img}
+                            tec={proyect.tec}
+                            logo={proyect.logo}
+                        />
+                    )))}
+                </Grid>
             }
-
-
-        </Grid>
+        </>
     )
 }
 
