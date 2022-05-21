@@ -7,7 +7,7 @@ import { useUserContext } from '../../Store/useContext';
 
 import './Formulario.scss'
 import { loginError, successTimeout } from '../sweetAlerts/alert';
-const AdminLoginForm = () => {
+const AdminLoginForm = ({fetchLogin}) => {
   const navigate = useNavigate()
   const { setUserId } = useUserContext()
 
@@ -39,24 +39,24 @@ const AdminLoginForm = () => {
         }}
 
         onSubmit={(values, { resetForm }) => {
+         fetchLogin(values)
 
+          // const auth = getAuth();
+          // signInWithEmailAndPassword(auth, values.email, values.password)
+          //   .then((userCredential) => {
+          //     // Signed in 
+          //     const user = userCredential.user;
+          //    console.log(user)
+          //     setUserId(user.uid)
+          //     successTimeout('Bienvenido/a', user.email)
+          //     navigate('/controlPanel')
+          //   })
+          //   .catch((error) => {
+          //     console.log(error.code)
+          //     console.log(error.message)
 
-          const auth = getAuth();
-          signInWithEmailAndPassword(auth, values.email, values.password)
-            .then((userCredential) => {
-              // Signed in 
-              const user = userCredential.user;
-             console.log(user)
-              setUserId(user.uid)
-              successTimeout('Bienvenido/a', user.email)
-              navigate('/controlPanel')
-            })
-            .catch((error) => {
-              console.log(error.code)
-              console.log(error.message)
-
-              loginError(error.code, error.message )
-            });
+          //     loginError(error.code, error.message )
+          //   });
 
         }} //End of the email validation onSubmit
 
