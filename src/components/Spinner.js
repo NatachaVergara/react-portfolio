@@ -1,10 +1,12 @@
 import React from 'react'
 
-const Spinner = ({text}) => {
+const Spinner = ({ text }) => {
   return (
-      <div className="spinner-border text-danger" role="status">
-          <span className="visually-hidden">{text} </span>
+    <div className="d-flex justify-content-center mt-5 fs-2" >
+      <div className="spinner-grow  text-success" role="status">
+        <span className="m-5 p-5 fs-3">Cargando...</span>
       </div>
+    </div>
   )
 }
 

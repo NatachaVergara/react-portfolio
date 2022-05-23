@@ -8,14 +8,8 @@ import Login from '../Views/Login'
 import RoutesCPanel from './RoutesCPanel';
 import { useUserContext } from '../Store/useContext';
 
-
-
-
-
-
-
 const RouterApp = () => {
-    const { userId } = useUserContext()
+    const { isUser } = useUserContext()
     return (
         <>
             <Routes>
@@ -24,9 +18,9 @@ const RouterApp = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/login" element={<Login />} />
-                {userId ? <Route path='/*' element={<RoutesCPanel />} />  : null}
-                             
-               
+                {isUser ? <Route path='/*' element={<RoutesCPanel />} /> : null}
+
+
             </Routes>
         </>
 
