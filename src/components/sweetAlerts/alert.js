@@ -29,3 +29,6 @@ export const successTimeout = async (title, html) => {
 
 
 
+export const errorLogin = (message) => {
+    Swal.fire(`${message}`)
+}
