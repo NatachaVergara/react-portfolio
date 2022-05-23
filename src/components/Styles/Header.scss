@@ -1,25 +1,25 @@
-.navBar{
+.navBar {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     height: 8vh;
     box-shadow: 2px 2px 2px rgb(189, 170, 170);
 
-    .left{
+    .left {
         display: flex;
         align-items: center;
         margin-left: 10px;
 
-        .menu-icon{
+        .menu-icon {
             font-size: 3em;
             margin-right: 1em;
-            display:flex;
+            display: flex;
             position: relative;
             cursor: pointer;
-           
+
         }
     }
 
-    .rigth{
+    .rigth {
         margin-right: 20px;
         padding-right: 20px;
         text-shadow: 2px 2px 20px rgb(12, 12, 12);
@@ -28,128 +28,140 @@
 }
 
 
-.nav-item{
+.nav-ul{
+    padding-left:0px
+}
+
+
+.nav-item {
     position: fixed;
     top: -100%;
     display: flex;
-    width: 15%;
-    height: 55vh;
+    width:auto;
+    height: 30vh;
     background-color: transparent;
     z-index: 1000;
-    transition: 1s ease-in-out;  
+    transition: 1s ease-in-out;
 }
 
-    .nav-item.active{
-        left: 4%;           
-        top: 5px;
-        transition: 1s ease-in-out; 
-        border: 1px black solid;
-        background-color: black;
-         border-radius: 10px;
-        }
-        .menu-item{           
-            height: 40px;
-            list-style: none;
-            padding: 40px;
-            width: 100%;
-            font-size: 1em;
-        }
-       .menu-item a{
-            text-decoration: none;
-            color: rgb(175, 60, 60);
-            font-weight: bolder;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 15px #fff;
-            
-            padding: 10px;
-            border-radius: 10px;
-            
-        }
+.nav-item.active {
+    width:auto;
+    height: 30vh;
+    left: 0%;
+    top: 0px;
+    transition: 1s ease-in-out;
+    border: 1px black solid;
+    background-color: black;
+    border-radius: 0px;
+}
 
-$breakpoint-cell: 500px;
-@media (max-width: $breakpoint-cell)
-{
-    .navBar{
-        .rigth{
-            font-size: 10px;
-            text-shadow: 2px 2px 10px rgb(12, 12, 12);
-        }
-        
-    }
+.menu-item {
+    height: 40px;
+    list-style: none;
+    margin: 10px;
+    padding: 0px;
+    width: 100%;
+    font-size: 1em;
+}
 
-    .nav-item.active{
-        left: 15%;
-    }
-    
-    .nav-item{
-        width: 50%;
-        height: 50vh;
-        
-    }
+.menu-item a {
+    text-decoration: none;
+    color: rgb(175, 60, 60);
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 15px #fff;
 
-
-    
-    .menu-item{
-        font-size: 1em;        
-    }
-
-    .menu-item a{
-        border: 1px black solid;
-        padding: 10px;
-        border-radius: 10px;
-        background-color: black;
-    }
-
+    padding: 10px;
+    border-radius: 10px;
 
 }
 
-@media screen  and (min-width: 680px) and (max-width: 688px)
-{ 
-.navBar{
-    margin: 15px 0;
-    padding: 20px 0;
-    
-        .left .menu-icon{
-            bottom: 6px;
-        }
-    
+// $breakpoint-cell: 500px;
 
-        .rigth h1{
-            font-size: 1em;
-            text-shadow: 2px 2px 10px rgb(12, 12, 12);
-            
-            }
+// @media (max-width: $breakpoint-cell) {
+//     .navBar {
+//         .rigth {
+//             font-size: 10px;
+//             text-shadow: 2px 2px 10px rgb(12, 12, 12);
+//         }
 
-}
+//     }
+
+//     .nav-item.active {
+//         left: 15%;
+//     }
+
+//     .nav-item {
+//         width: 50%;
+//         height: 50vh;
+
+//     }
 
 
-.nav-item{
-    width: 30%;
-    top: -110%;
-    height: 93vh; 
-}
 
-.nav-item.active{
-    top: 2px;
-    left: 55px;       
-    }
-        .menu-item{
-            font-size: 1em;        
-        }
+//     .menu-item {
+//         font-size: 1em;
+//     }
 
-}
+//     .menu-item a {
+//         border: 1px black solid;
+//         padding: 10px;
+//         border-radius: 10px;
+//         background-color: black;
+//     }
 
-$breakpoint-tablet0: 690px;
-$breakpoint-tablet1: 850px;
-@media (min-width: $breakpoint-tablet0) and (max-width: $breakpoint-tablet1){
-.nav-item{
-    width: 25%;
-    height: 25vh;    
-}
-    .nav-item.active{
-        top: 2px;
-        left: 55px;
-       
-    }
 
-}
+// }
+
+// @media screen and (min-width: 680px) and (max-width: 688px) {
+//     .navBar {
+//         margin: 15px 0;
+//         padding: 20px 0;
+
+//         .left .menu-icon {
+//             bottom: 6px;
+//         }
+
+
+//         .rigth h1 {
+//             font-size: 1em;
+//             text-shadow: 2px 2px 10px rgb(12, 12, 12);
+
+//         }
+
+//     }
+
+
+//     .nav-item {
+//         width: 30%;
+//         top: -110%;
+//         height: 93vh;
+//     }
+
+//     .nav-item.active {
+//         top: 2px;
+//         left: 55px;
+//     }
+
+//     .menu-item {
+//         font-size: 1em;
+//     }
+
+// }
+
+// $breakpoint-tablet0: 690px;
+// $breakpoint-tablet1: 850px;
+
+// @media (min-width: $breakpoint-tablet0) and (max-width: $breakpoint-tablet1) {
+//     .nav-item {
+//         width: 25%;
+//         height: 25vh;
+//     }
+
+//     .nav-item.active {
+//         top: 2px;
+//         left: 55px;
+
+//     }
+
+// }

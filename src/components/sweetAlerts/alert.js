@@ -29,15 +29,3 @@ export const successTimeout = async (title, html) => {
 
 
 
-
-export const loginError =  async (code, message) => {
-
- await    Swal.fire({
-        icon: 'error',
-        title: `${code}`,
-        text: `${message}`,
-       
-    })
-
-
-}

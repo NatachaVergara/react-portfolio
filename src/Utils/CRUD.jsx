@@ -4,12 +4,12 @@ import { db } from '../Firebase/Firebase'
 import { collection, addDoc, Timestamp } from 'firebase/firestore'
 
 
-export const postMsg = async (usuario) => {
+export const postMsg = async (mensaje) => {
 
     try {
         await addDoc(collection(db, 'mensajes'),
             {
-                mensaje: usuario,
+                mensaje: mensaje,
                 created: Timestamp.now()
             }
         )
