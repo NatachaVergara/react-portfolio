@@ -1,6 +1,6 @@
 import React from 'react'
-import AdminLoginContainer from '../components/AdminLogin/AdminLoginContainer'
-import AdminLogout from '../components/AdminLogout/AdminLogout'
+import AdminLogout from '../components/Panel_Control/AdminLogout/AdminLogout'
+import AdminLoginContainer from '../components/Panel_Control/AdminLogin/AdminLoginContainer'
 import { useUserContext } from '../Store/useContext'
 
 
@@ -8,7 +8,7 @@ const Login = () => {
   const { userId } = useUserContext()
   return (
       <>      
-      {!userId ?  <AdminLoginContainer/>: <AdminLogout/>}
+      {!userId ?  <AdminLoginContainer/> : <AdminLogout/>}
     </>
   )
 }

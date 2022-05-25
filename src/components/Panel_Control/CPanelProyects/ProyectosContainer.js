@@ -1,18 +1,20 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import CpanelCards from './CpanelCards'
-import Spinner from '../Spinner'
 import axios from 'axios'
-import { BASE_URL } from '../../Utils/URL'
-import { useUserContext } from '../../Store/useContext'
 import Swal from 'sweetalert2';
+import { useUserContext } from '../../../Store/useContext'
+import { BASE_URL } from '../../../Utils/URL';
+import Spinner from '../../Spinner';
 
 
 
 const ProyectosContainer = () => {
     const { proyects, setProyects } = useUserContext()
+    const [loading, setLoading] = useState(false)
     /// llamada a mi propio servidor!
 
     const findProyects = async () => {
+        setLoading(true)
         axios.get(`${BASE_URL}/proyects`)
             .then((res) => {
                 // console.log(res)
@@ -21,6 +23,8 @@ const ProyectosContainer = () => {
                 setProyects(res.data.data)
             })
             .catch(err => console.log(err))
+            .finally(() => setLoading(false));
+
     }
 
 
@@ -86,7 +90,7 @@ const ProyectosContainer = () => {
 
     return (
         <>
-            {!proyects ? <Spinner text='Cargando....' /> :
+            {loading ? <Spinner text='Cargando....' /> :
 
 
                 <div className='row row-cols-4 m-0 ps-5'>

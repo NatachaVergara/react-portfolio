@@ -6,11 +6,11 @@ import { Outlet } from 'react-router-dom'
 
 const ControlPanel = () => {
     return (
-        <>
-            <div className="">                
+       
+            <div>   
                 <Outlet />
             </div>
-        </>
+       
     )
 }
 

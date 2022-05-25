@@ -3,20 +3,23 @@ import ContactForm from './ContactForm'
 import '../Styles/Contact.css'
 import { postMsg } from '../../Utils/CRUD'
 import MsgModal from '../Modal/MsgModal'
+import { BASE_URL } from '../../Utils/URL'
+import axios from 'axios'
+import { errorLogin } from '../sweetAlerts/alert'
 
 const ContactContainer = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [razon, setRazon] = useState('')
     const [msg, setMsg] = useState('')
-  
+
     //Modal
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
 
-    const sendForm = (e) => {
+    const sendForm = async (e) => {
         e.preventDefault();
         const usuario = {}
         usuario.mensaje = { name, email, razon, msg }
@@ -30,8 +33,21 @@ const ContactContainer = () => {
         //Modal
         handleOpen()
 
+        await axios.post(`${BASE_URL}/contacto`,
+            {
+                name, email, razon, msg
+            },
+            {
+                headers: { 'Content-Type': 'application/json' }
+            }).then(res => {
+                console.log(res)
+                console.log(res.data)
+            }).catch(err => {
+                console.log(err)
+                errorLogin(err.response.data)
+            })
     }
-  
+
 
 
     return (
@@ -46,9 +62,9 @@ const ContactContainer = () => {
                 msg={msg}
                 setMsg={setMsg}
                 sendForm={sendForm}
-                
+
             />
-            <MsgModal open={open} handleClose={handleClose}  />
+            <MsgModal open={open} handleClose={handleClose} />
 
 
 

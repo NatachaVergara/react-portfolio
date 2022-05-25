@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
-import AdminLoginForm from './AdminLoginForm'
+import AdminLoginForm from '../AdminLogin/AdminLoginForm'
 import './Formulario.scss'
 import axios from 'axios'
-import { BASE_URL } from '../../Utils/URL'
-import { useUserContext } from '../../Store/useContext'
 import { useNavigate } from 'react-router-dom'
-import { errorLogin } from '../sweetAlerts/alert'
+import { errorLogin } from '../../sweetAlerts/alert'
+import { BASE_URL } from '../../../Utils/URL'
+import { useUserContext } from '../../../Store/useContext'
 
 const AdminContainer = () => {
   const { setUserId, setIsUser } = useUserContext()
@@ -16,15 +16,18 @@ const AdminContainer = () => {
 
   const fetchLogin = async (values) => {
     setLoading(true)
-    axios.post(`${BASE_URL}/signin`,
+    await axios.post(`${BASE_URL}/signin`,
       {
         email: values.email,
         password: values.password
       },
       {
-        // withCredentials: true,
-        headers: { 'Content-Type': 'application/json' }
-      },
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Credentials': true
+        }
+      }
     ).then(res => {
       // console.log(res)
       // console.log(res.data)
@@ -40,9 +43,7 @@ const AdminContainer = () => {
       .catch(error => {
         console.log(error.response.data)
         errorLogin(error.response.data)
-      }
-
-      )
+      })
       .finally(() => setLoading(false));
 
   }

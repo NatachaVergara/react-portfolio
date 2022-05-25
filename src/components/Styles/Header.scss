@@ -38,7 +38,7 @@
     top: -100%;
     display: flex;
     width:auto;
-    height: 30vh;
+    height: auto;
     background-color: transparent;
     z-index: 1000;
     transition: 1s ease-in-out;
@@ -46,7 +46,7 @@
 
 .nav-item.active {
     width:auto;
-    height: 30vh;
+    height: auto;
     left: 0%;
     top: 0px;
     transition: 1s ease-in-out;

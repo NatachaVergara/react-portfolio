@@ -1,7 +1,7 @@
 import React from 'react'
-import { useUserContext } from '../../Store/useContext';
 import { RiLogoutBoxLine } from 'react-icons/ri';
 import {useNavigate} from 'react-router-dom'
+import { useUserContext } from '../../../Store/useContext';
 import './Logout.scss'
 const AdminLogout = () => {
     const { setUserId, setIsUser} = useUserContext()

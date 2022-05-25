@@ -1,14 +1,10 @@
 import React from 'react'
 import { Formik, Form, Field } from 'formik'
 import { MdLogin } from "react-icons/md";
-
-
 import './Formulario.scss'
-import Spinner from '../Spinner';
+import Spinner from '../../Spinner';
 
 const AdminLoginForm = ({ fetchLogin, loading }) => {
-
-
 
   return (
     <>

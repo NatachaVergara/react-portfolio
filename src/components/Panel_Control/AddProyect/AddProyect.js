@@ -1,9 +1,9 @@
 import React from 'react'
 import NewProyectForm from './NewProyectForm'
-import '../Styles/AddProyectForm.scss'
+import '../../Styles/AddProyectForm.scss'
 import axios from 'axios'
-import { BASE_URL } from '../../Utils/URL'
 import Swal from 'sweetalert2'
+import { BASE_URL } from '../../../Utils/URL'
 
 
 const AddProyect = () => {

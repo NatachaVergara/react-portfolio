@@ -1,9 +1,12 @@
 import React from 'react'
 import ControlPanel from '../Views/ControlPanel'
-import MenuCPanel from '../components/MenuCPanel/MenuCPanel'
 import { Route, Routes } from 'react-router-dom'
-import AddProyect from '../components/AddProyect/AddProyect'
-import ProyectosContainer from '../components/CPanelProyects/ProyectosContainer'
+import MenuCPanel from '../components/Panel_Control/MenuCPanel/MenuCPanel'
+import AddProyect from '../components/Panel_Control/AddProyect/AddProyect'
+import ProyectosContainer from '../components/Panel_Control/CPanelProyects/ProyectosContainer'
+
+
+
 const RoutesCPanel = () => {
     return (
         <div className='d-flex flex-column flex-md-row  h-0 h-md-100 bg-warning'>

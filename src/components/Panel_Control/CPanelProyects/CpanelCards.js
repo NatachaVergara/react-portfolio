@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { MdModeEdit, MdOutlineDelete } from 'react-icons/md';
 
-import EditModal from '../Modal/EditModal';
+import EditModal from '../../Modal/EditModal';
 
 
 const CpanelCards = ({ id, img, link, tec, title, logo, deleteFile }) => {
@@ -34,7 +34,7 @@ const CpanelCards = ({ id, img, link, tec, title, logo, deleteFile }) => {
                 tec={tec}
                 titulo={title}
                 logo={logo}
-              
+                
             />
         </>
     )
