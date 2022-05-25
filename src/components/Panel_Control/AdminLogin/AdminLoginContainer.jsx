@@ -15,12 +15,10 @@ const AdminContainer = () => {
 
 
   const fetchLogin = async (values) => {
+   
     setLoading(true)
     await axios.post(`${BASE_URL}/signin`,
-      {
-        email: values.email,
-        password: values.password
-      },
+      values,
       {
         credentials: 'include',
         headers: {
