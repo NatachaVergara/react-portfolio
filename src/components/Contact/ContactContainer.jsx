@@ -22,7 +22,7 @@ const ContactContainer = () => {
         e.preventDefault();
         const usuario = {}
         usuario.mensaje = { name, email, razon, msg }
-       
+      
 
         //Erase form
         setName('')
