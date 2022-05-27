@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import ContactForm from './ContactForm'
 import '../Styles/Contact.css'
-import { postMsg } from '../../Utils/CRUD'
 import MsgModal from '../Modal/MsgModal'
 import { BASE_URL } from '../../Utils/URL'
 import axios from 'axios'
@@ -23,7 +22,7 @@ const ContactContainer = () => {
         e.preventDefault();
         const usuario = {}
         usuario.mensaje = { name, email, razon, msg }
-        postMsg(usuario)
+       
 
         //Erase form
         setName('')
