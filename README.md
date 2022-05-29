@@ -13,17 +13,22 @@
 
 ### Dependencias usuadas
 
-
 |  Dependencia |  Versión   | Uso  |
 | ------------ | ------------ | ------------ |
 | react  | 17.0.2   |  Libreria principal del proyecto   |
 | react-dom  | 17.0.2   |  Renderización  |
 | react-router-dom  |  6.0.1  | Permite la navegación dentro del sitio |
+| axios | 0.27.2 | Api |
+| formik | 2.2.9 | Formularios |
 | materialize-css | 1.0.0 | Estilos|
-| node-sass  |  5.1.1 | Estilos|
+| styled-components | 5.3.3 | Estilos|
+| sass | 1.49.10| Estilos|
+| sweetalert2 |11.4.14|  Alertas|
 | material-ui/icons| 4.11.2  | Íconos|
+| react-icons| 4.3.1  | Íconos|
 
 ### Conexión con el backend
+
 | ------------ | ------------ | ------------ |
 | Node | 16.14.2  | Backend personal|
 | Mysql | 2.18.1  | base de datos|
