@@ -32,26 +32,8 @@ const AdminLoginForm = ({ fetchLogin, loading }) => {
             return isError
           }}
 
-          onSubmit={(values, { resetForm }) => {
+          onSubmit={(values) => {
             fetchLogin(values)
-
-            // const auth = getAuth();
-            // signInWithEmailAndPassword(auth, values.email, values.password)
-            //   .then((userCredential) => {
-            //     // Signed in 
-            //     const user = userCredential.user;
-            //    console.log(user)
-            //     setUserId(user.uid)
-            //     successTimeout('Bienvenido/a', user.email)
-            //     navigate('/controlPanel')
-            //   })
-            //   .catch((error) => {
-            //     console.log(error.code)
-            //     console.log(error.message)
-
-            //     loginError(error.code, error.message )
-            //   });
-
           }} //End of the email validation onSubmit
 
         >

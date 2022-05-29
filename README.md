@@ -19,11 +19,14 @@
 | react  | 17.0.2   |  Libreria principal del proyecto   |
 | react-dom  | 17.0.2   |  Renderización  |
 | react-router-dom  |  6.0.1  | Permite la navegación dentro del sitio |
-| Node | 16.14.2  | Backend personal|
-| Mysql | 2.18.1  | base de datos|
 | materialize-css | 1.0.0 | Estilos|
 | node-sass  |  5.1.1 | Estilos|
 | material-ui/icons| 4.11.2  | Íconos|
+
+### Conexión con el backend
+| ------------ | ------------ | ------------ |
+| Node | 16.14.2  | Backend personal|
+| Mysql | 2.18.1  | base de datos|
 
 
 

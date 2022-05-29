@@ -45,17 +45,16 @@ footer{
 }
 
 .footer-basic .social > a {
-  font-size:24px;
+  font-size:30px;
   width:40px;
   height:40px;
   line-height:40px;
   display:inline-block;
   text-align:center;
-  border-radius:50%;
-  border:1px solid #ccc;
+  border-radius:50%;  
   margin:0 8px;
   padding-top: 1px;
-  color:inherit;
+  color:black;
   opacity:0.75;
 }
 
