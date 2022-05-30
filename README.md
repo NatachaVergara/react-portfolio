@@ -28,7 +28,7 @@
 | react-icons| 4.3.1  | Íconos|
 
 ### Conexión con el backend
-
+|  Dependencia |  Versión   | Uso  |
 | ------------ | ------------ | ------------ |
 | Node | 16.14.2  | Backend personal|
 | Mysql | 2.18.1  | base de datos|
