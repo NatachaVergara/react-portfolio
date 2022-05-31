@@ -17,25 +17,19 @@ const AdminContainer = () => {
   const fetchLogin = async (values) => {
 
     setLoading(true)
-    await axios.post(`${BASE_URL}/signin`,
-      values,
-      {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      }
-    ).then(res => {
-      // console.log(res)
-      // console.log(res.data)
-      // console.log(res.status)
-      // console.log(res.data.isUser)
-      // console.log(res.data.user.id)
+    await axios.post(`${BASE_URL}/signin`, values)
+      .then(res => {
+        // console.log(res)
+        // console.log(res.data)
+        // console.log(res.status)
+        // console.log(res.data.isUser)
+        // console.log(res.data.user.id)
 
-      setIsUser(res.data.isUser)
-      setUserId(res.data.user.id)
-      navigate('/controlPanel/proyectos')
+        setIsUser(res.data.isUser)
+        setUserId(res.data.user.id)
+        navigate('/controlPanel/proyectos')
 
-    })
+      })
       .catch(error => {
         console.log(error.response.data)
         errorLogin(error.response.data)
