@@ -19,8 +19,6 @@ const RouterApp = () => {
                 <Route path="/about" element={<About />} />
                 <Route path="/login" element={<Login />} />
                 {isUser ? <Route path='/*' element={<RoutesCPanel />} /> : null}
-
-
             </Routes>
         </>
 

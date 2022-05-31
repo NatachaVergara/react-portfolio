@@ -16,11 +16,10 @@ const MenuCPanel = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to='/controlPanel/add' className="nav-link text-white">
-                            Agregar Proyecto
+                        <Link to='/controlPanel/addproyecto' className="nav-link text-white">
+                            Agregar proyecto
                         </Link>
                     </li>
-
                 </ul>
             </div>
         </div>
