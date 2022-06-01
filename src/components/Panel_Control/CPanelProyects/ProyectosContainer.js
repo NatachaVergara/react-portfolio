@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { useUserContext } from '../../../Store/useContext'
 import { BASE_URL } from '../../../Utils/URL';
 import Spinner from '../../Spinner';
+import MenuCPanel from '../MenuCPanel/MenuCPanel';
 
 
 
@@ -90,9 +91,8 @@ const ProyectosContainer = () => {
 
     return (
         <>
+            <MenuCPanel  linktTo='/controlPanel/addproyecto'   name='Agregar proyecto'   />
             {loading ? <Spinner text='Cargando....' /> :
-
-
                 <div className='row row-cols-4 m-0 ps-5'>
                     {proyects.map(item => (<CpanelCards key={item.id}
                         id={item.id}

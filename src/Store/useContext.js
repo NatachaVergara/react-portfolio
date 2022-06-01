@@ -21,14 +21,27 @@ const getLocalUserID = () => {
 }
 
 
-const getSSUser = () =>{
-let isUser = sessionStorage.getItem('isUserSS')
+const getSSUser = () => {
+    let isUser = sessionStorage.getItem('isUserSS')
 
-if(isUser){
-    return JSON.parse(sessionStorage.getItem('isUserSS'))
-}else{
-    return null
+    if (isUser) {
+        return JSON.parse(sessionStorage.getItem('isUserSS'))
+    } else {
+        return null
+    }
+
 }
+
+
+const getUserTypeSS = () => {
+    let userType = sessionStorage.getItem('userTypeSS')
+
+    if (userType) {
+        return JSON.parse(sessionStorage.getItem('userTypeSS'))
+    } else {
+        return null
+    }
+
 
 }
 
@@ -36,8 +49,8 @@ if(isUser){
 const UserContextProvider = ({ children }) => {
     const [userId, setUserId] = useState(getLocalUserID())
     const [isUser, setIsUser] = useState(getSSUser())
-
-    const [ proyects, setProyects] = useState([])
+    const [userType, setUserType] = useState(getUserTypeSS())
+    const [proyects, setProyects] = useState([])
 
     useEffect(() => {
         sessionStorage.setItem('userIDSS', JSON.stringify(userId))
@@ -46,6 +59,10 @@ const UserContextProvider = ({ children }) => {
     useEffect(() => {
         sessionStorage.setItem('isUserSS', JSON.stringify(isUser))
     }, [isUser])
+
+    useEffect(() => {
+        sessionStorage.setItem('userTypeSS', JSON.stringify(userType))
+    }, [userType])
 
 
     const findProyects = async () => {
@@ -60,9 +77,9 @@ const UserContextProvider = ({ children }) => {
     }
 
 
-    useEffect(()=>{
+    useEffect(() => {
         findProyects()
-    },[])
+    }, [])
 
 
 
@@ -70,7 +87,7 @@ const UserContextProvider = ({ children }) => {
 
     return (
         <UserContext.Provider
-            value={{ userId, setUserId, proyects, setProyects, isUser, setIsUser }}
+            value={{ userId, setUserId, proyects, setProyects, isUser, setIsUser, userType, setUserType }}
         >
 
             {children}

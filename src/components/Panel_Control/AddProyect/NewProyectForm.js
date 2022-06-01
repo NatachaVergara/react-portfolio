@@ -1,8 +1,12 @@
 import React from 'react'
 import { Field, Form, Formik } from 'formik'
+import { useUserContext } from '../../../Store/useContext'
 
 
-const NewProyectForm = ({addProyect}) => {
+const NewProyectForm = ({ addProyect }) => {
+    const { userType } = useUserContext()
+
+
 
     return (
         <Formik
@@ -35,8 +39,8 @@ const NewProyectForm = ({addProyect}) => {
             }}
 
 
-            onSubmit={(values, { resetForm }) => {            
-                  addProyect(values, resetForm)
+            onSubmit={(values, { resetForm }) => {
+                addProyect(values, resetForm)
             }}
         >
 
@@ -111,14 +115,14 @@ const NewProyectForm = ({addProyect}) => {
                                         {touched.tec ? <div className="form-text text-warning fs-6">{errors.tec}</div> : null}
                                     </div>
                                 </div>
+                                {userType === 'TEST' ? <button type='button' disable="true" className='btn btn-success bg-danger m-2 align-self-center'  >Agregar</button> : <button type='button' className='btn btn-success bg-danger m-2 align-self-center'>Agregar</button>}
 
-                                <button type='submit' className='btn btn-success bg-danger m-2 align-self-center'>Agregar</button>
                             </div>
 
                         </Form>
 
-                   </div>
-             ) }
+                    </div>
+                )}
         </Formik>
     )
 }

@@ -8,14 +8,14 @@ import { BASE_URL } from '../../../Utils/URL'
 import { useUserContext } from '../../../Store/useContext'
 
 const AdminContainer = () => {
-  const { setUserId, setIsUser } = useUserContext()
+  const { setUserId, setIsUser, setUserType } = useUserContext()
   const [loading, setLoading] = useState(false)
   let navigate = useNavigate()
 
 
 
   const fetchLogin = async (values) => {
-
+    
     setLoading(true)
     await axios.post(`${BASE_URL}/signin`, values)
       .then(res => {
@@ -24,10 +24,11 @@ const AdminContainer = () => {
         // console.log(res.status)
         // console.log(res.data.isUser)
         // console.log(res.data.user.id)
-
+        
         setIsUser(res.data.isUser)
         setUserId(res.data.user.id)
-        navigate('/controlPanel/proyectos')
+        setUserType(res.data.userType)
+        navigate('/controlPanel/inicio')
 
       })
       .catch(error => {

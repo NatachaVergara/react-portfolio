@@ -4,6 +4,7 @@ import '../../Styles/AddProyectForm.scss'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { BASE_URL } from '../../../Utils/URL'
+import MenuCPanel from '../MenuCPanel/MenuCPanel'
 
 
 const AddProyect = () => {
@@ -69,18 +70,16 @@ const AddProyect = () => {
 
   }
 
-
-
-
-
-
-
   return (
-    <div className='AddProyectContainer'>
-      <h1 className='mb-1'>Agregar proyecto</h1>
-      <NewProyectForm addProyect={addProyect} />
 
-    </div>
+    <><MenuCPanel linktTo='/controlPanel/proyectos' name='Proyectos' />
+      <div className='AddProyectContainer'>
+
+        <h1 className='mb-1'>Agregar proyecto</h1>
+        <NewProyectForm addProyect={addProyect} />
+
+      </div>
+    </>
   )
 }
 

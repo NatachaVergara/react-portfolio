@@ -13,6 +13,8 @@ import { useUserContext } from '../../Store/useContext';
 
 
 const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
+
+
     const [etitulo, setEditTitulo] = useState(titulo)
     const [elink, setEditLink] = useState(link)
     const [eimg, setEditImg] = useState(img)
@@ -20,7 +22,7 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
     const [etec, setEditTec] = useState(tec)
 
 
-    const {  setProyects } = useUserContext()
+    const { setProyects, userType } = useUserContext()
 
     //falta corregir el tema de la actualizacion 
     const onHandleClick = async () => {
@@ -36,8 +38,8 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
             // console.log(res.data.message)
             // console.log(res.status)
             setProyects(res.data.fulldata)
-        }).catch(err => console.log(err))       
-        handleClose()    
+        }).catch(err => console.log(err))
+        handleClose()
     }
 
     return (
@@ -99,8 +101,17 @@ const EditModal = ({ open, handleClose, id, img, link, tec, titulo, logo }) => {
                                 onChange={(e) => setEditTec(e.target.value)}
                             />
                         </div>
-                        <button type='submit' className='btn'
-                            onClick={onHandleClick}>Enviar cambios</button>
+
+
+                        {userType === 'TEST' ?
+                            <button type='button' disable='true' className='btn'>Enviar cambios</button>
+                            :
+                            <button type='submit' className='btn'
+                                onClick={onHandleClick}>Enviar cambios</button>}
+
+
+                        {/* <button type='submit' className='btn'
+                            onClick={onHandleClick}>Enviar cambios</button> */}
                     </div>
                 </Box>
             </Modal>

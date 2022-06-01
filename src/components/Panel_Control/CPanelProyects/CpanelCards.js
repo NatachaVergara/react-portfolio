@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { MdModeEdit, MdOutlineDelete } from 'react-icons/md';
+import { useUserContext } from '../../../Store/useContext';
 
 import EditModal from '../../Modal/EditModal';
 
 
 const CpanelCards = ({ id, img, link, tec, title, logo, deleteFile }) => {
-
+    const { userType } = useUserContext()
     const [open, setOpen] = useState(false)
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -20,8 +21,19 @@ const CpanelCards = ({ id, img, link, tec, title, logo, deleteFile }) => {
                     <h5 className="card-title text-center">{title} </h5>
                     <span className="card-title text-center fs-5">{tec} </span>
                     <div>
-                        <button className="btn btn-danger me-5" onClick={() => handleOpen()}   ><MdModeEdit /></button>
-                        <button className="btn btn-success" onClick={() => deleteFile({ id })}  ><MdOutlineDelete /> </button>
+                        {userType === 'TEST' ?
+                            <> <button type='button'  className="btn btn-danger me-5" onClick={() => handleOpen()} ><MdModeEdit />
+                            </button>
+                                <button type='button' className="btn btn-success" ><MdOutlineDelete />
+                                </button></>
+                            :
+                            <><button type='button' className="btn btn-danger me-5" onClick={() => handleOpen()}   ><MdModeEdit />
+                            </button>
+                                <button type='button' className="btn btn-success" onClick={() => deleteFile({ id })}  ><MdOutlineDelete />
+                                </button></>
+
+                        }
+
                     </div>
                 </div>
             </div>
@@ -34,7 +46,7 @@ const CpanelCards = ({ id, img, link, tec, title, logo, deleteFile }) => {
                 tec={tec}
                 titulo={title}
                 logo={logo}
-                
+
             />
         </>
     )
