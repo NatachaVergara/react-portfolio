@@ -13,6 +13,7 @@
     "axios": "^0.27.2",
     "emailjs-com": "^3.2.0",
     "formik": "^2.2.9",
+    "formik-file-and-image-input": "^0.0.6",
     "materialize-css": "^1.0.0-rc.2",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
