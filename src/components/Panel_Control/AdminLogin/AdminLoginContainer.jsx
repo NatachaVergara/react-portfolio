@@ -14,17 +14,10 @@ const AdminContainer = () => {
 
 
 
-  const fetchLogin = async (values) => {
-    
+  const fetchLogin = (values) => {
     setLoading(true)
-    await axios.post(`${BASE_URL}/signin`, values)
+    axios.post(`${BASE_URL}/signin`, values)
       .then(res => {
-        // console.log(res)
-        // console.log(res.data)
-        // console.log(res.status)
-        // console.log(res.data.isUser)
-        // console.log(res.data.user.id)
-        
         setIsUser(res.data.isUser)
         setUserId(res.data.user.id)
         setUserType(res.data.userType)
