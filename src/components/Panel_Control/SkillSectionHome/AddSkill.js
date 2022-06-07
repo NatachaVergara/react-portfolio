@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { Form, Formik } from 'formik'
 import React from 'react'
-import { AiFillFileAdd } from 'react-icons/ai'
 import { BASE_URL } from '../../../Utils/URL'
 import MenuCPanel from '../MenuCPanel/MenuCPanel'
 import { ImageInput } from "formik-file-and-image-input/lib";
