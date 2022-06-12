@@ -4,11 +4,15 @@ import React from 'react'
 import { BASE_URL } from '../../../Utils/URL'
 import MenuCPanel from '../MenuCPanel/MenuCPanel'
 import { ImageInput } from "formik-file-and-image-input/lib";
+
+
+
 const AddSkill = () => {
     const imageFormats = ["image/png", "image/svg", "image/jpeg"];
 
     const uploadImg = (values) => {
-        axios.post(`${BASE_URL}/images/upload`, values, {
+        console.log(values)
+        axios.post(`${BASE_URL}/images`, values, {
             headers: {
                 'content-type': 'multipart/form-data'
             }
@@ -18,7 +22,6 @@ const AddSkill = () => {
     }
 
 
-
     return (
         <>
             <MenuCPanel linktTo='/controlPanel/homeskills' name='Skills' />
@@ -26,10 +29,10 @@ const AddSkill = () => {
 
                 <Formik
                     initialValues={{
-                        images: null
+                        image: null
                     }}
                     onSubmit={(values) => {
-                        console.log(values)
+                        
                         uploadImg(values)
                     }}
 
@@ -37,8 +40,7 @@ const AddSkill = () => {
                     <Form>
                         <div className='d-flex flex-column justify-content-center align-items-center'>
                             <ImageInput
-
-                            name="images"
+                            name="image"
                             validFormats={imageFormats}
                         />
                             <button type='submit' className='btn btn-outline-success text-dark  img-button'>Agregar</button></div>
