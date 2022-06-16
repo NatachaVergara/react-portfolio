@@ -1,24 +1,11 @@
 import axios from 'axios'
-import React, { useEffect} from 'react'
+import React from 'react'
 import { useUserContext } from '../../../Store/useContext'
 import { BASE_URL } from '../../../Utils/URL'
 import ImgSkill from './ImgSkill'
 
 const SkillsCards = () => {
 const {imagenes, setImagenes} = useUserContext()
-
-const getImagenes = async ()=>{
-  const response = await axios.get(`${BASE_URL}/upload/images`)
-  const imgs = await response.data.imgs
-  console.log(imgs)
-  setImagenes(imgs)
-}
-
-useEffect(() => {
-  getImagenes()
-// eslint-disable-next-line react-hooks/exhaustive-deps
-},[])
-
  
 const deleteImg = async (path)=>{
   const response = await axios.delete(`${BASE_URL}/upload/${path}`)

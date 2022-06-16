@@ -69,26 +69,33 @@ const UserContextProvider = ({ children }) => {
     const findProyects = async () => {
         axios.get(`${BASE_URL}/proyects`)
             .then((res) => {
-                // console.log(res)
-                // console.log(res.data)
-                // console.log(res.status)
                 setProyects(res.data.data)
             })
             .catch(err => console.log(err))
     }
-
 
     useEffect(() => {
         findProyects()
     }, [])
 
 
+    const getImagenes = async () => {
+        const response = await axios.get(`${BASE_URL}/upload/images`)
+        const imgs = await response.data.imgs
+        setImagenes(imgs)
+    }
+
+    useEffect(() => {
+        getImagenes()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
 
 
 
     return (
         <UserContext.Provider
-            value={{ userId, setUserId, proyects, setProyects, isUser, setIsUser, userType, setUserType,imagenes, setImagenes }}
+            value={{ userId, setUserId, proyects, setProyects, isUser, setIsUser, userType, setUserType, imagenes, setImagenes }}
         >
 
             {children}
