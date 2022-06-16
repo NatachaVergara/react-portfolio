@@ -26,12 +26,14 @@
 | sweetalert2 |11.4.14|  Alertas|
 | material-ui/icons| 4.11.2  | Íconos|
 | react-icons| 4.3.1  | Íconos|
+| AOS | 2.3.4  | efectos css/js|
 
 ### Conexión con el backend
 |  Dependencia |  Versión   | Uso  |
 | ------------ | ------------ | ------------ |
 | Node | 16.14.2  | Backend personal|
 | Mysql | 2.18.1  | base de datos|
+
 
 
 

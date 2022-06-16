@@ -51,6 +51,7 @@ const UserContextProvider = ({ children }) => {
     const [isUser, setIsUser] = useState(getSSUser())
     const [userType, setUserType] = useState(getUserTypeSS())
     const [proyects, setProyects] = useState([])
+    const [imagenes, setImagenes] = useState([])
 
     useEffect(() => {
         sessionStorage.setItem('userIDSS', JSON.stringify(userId))
@@ -87,7 +88,7 @@ const UserContextProvider = ({ children }) => {
 
     return (
         <UserContext.Provider
-            value={{ userId, setUserId, proyects, setProyects, isUser, setIsUser, userType, setUserType }}
+            value={{ userId, setUserId, proyects, setProyects, isUser, setIsUser, userType, setUserType,imagenes, setImagenes }}
         >
 
             {children}

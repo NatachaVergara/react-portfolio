@@ -5,11 +5,15 @@ import './imgSkills.css'
 
 
 
+
 const SkillContainer = () => {
+
   return (
     <>
       <MenuCPanel linktTo='/controlPanel/addskill' name='Agregar una imagen de skill' />
-      <div className='skillContainer'> <SkillsCards /></div>
+      <div className='skillContainer'>
+         <SkillsCards />
+         </div>
 
     </>
   )

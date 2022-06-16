@@ -8,11 +8,11 @@ import { ImageInput } from "formik-file-and-image-input/lib";
 
 
 const AddSkill = () => {
-    const imageFormats = ["image/png", "image/svg", "image/jpeg"];
+    const imageFormats = ["image/png", "image/svg", "image/jpeg", "image/jpg"];
 
     const uploadImg = (values) => {
         console.log(values)
-        axios.post(`${BASE_URL}/images`, values, {
+        axios.post(`${BASE_URL}/upload`, values, {
             headers: {
                 'content-type': 'multipart/form-data'
             }
