@@ -1,128 +1,122 @@
 import React from 'react'
-import { Field, Form, Formik } from 'formik'
+import { Formik } from 'formik'
 import { useUserContext } from '../../../Store/useContext'
+import styles from '../../Styles/formularios.module.scss'
 
-
-const NewProyectForm = ({ addProyect }) => {
+const NewProyectForm = ({ addProyect, handleImg }) => {
     const { userType } = useUserContext()
-
-
 
     return (
         <Formik
             initialValues={{
+                image: null,
                 title: '',
                 link: '',
                 logo: '',
-                img: '',
-                tec: ''
+                tec: '',
             }}
+            validate={values => {
+                const errors = {};
 
-            validate={(values) => {
-                let isError = {}
                 if (!values.title) {
-                    isError.title = 'Ingrese un título'
+                    errors.title = 'Ingrese un título'
                 }
                 if (!values.link) {
-                    isError.link = 'Ingrese un link'
+                    errors.link = 'Ingrese un link'
                 }
                 if (!values.logo) {
-                    isError.logo = 'Ingrese un logo'
-                }
-                if (!values.img) {
-                    isError.img = 'Ingrese una imagen'
+                    errors.logo = 'Ingrese un logo'
                 }
                 if (!values.tec) {
-                    isError.tec = 'Ingrese las tecnologías usadas en el sitio'
+                    errors.tec = 'Ingrese las tecnologias usadas'
                 }
-                return isError
+
+                return errors;
             }}
 
-
-            onSubmit={(values, { resetForm }) => {
+            onSubmit={(values, { setSubmitting, resetForm }) => {
+                setSubmitting(true)
                 addProyect(values, resetForm)
+                setSubmitting(false)
+
             }}
         >
+            {({
+                values,
+                handleChange,
+                handleBlur,
+                handleSubmit,
+                isSubmitting,
+                errors, touched
 
+            }) => (
+                <form onSubmit={handleSubmit}
+                    className={styles.formulario}
+                >
+                    {errors.title && touched.title ? (
+                        <div className='text-danger m-1'>{errors.title}</div>
+                    ) : <label htmlFor="title">Título</label>}
 
+                    <input
+                        type="text"
+                        name="title"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.title}
+                    />
 
+                    <label htmlFor="image">Imagen</label>
 
-            {
-                ({ errors, touched }) => (
-                    <div className="proyectAddForm">
-                        <Form>
-                            <div className='formBody'>
-                                <div className="formFields">
-                                    <label htmlFor="title">Title: </label>
-                                    <div className="error">
-                                        <Field
-                                            type="text"
-                                            id='title'
-                                            name='title'
-                                        />
-                                        {touched.title ? <div className="form-text text-warning fs-6">{errors.title}</div> : null}
-                                    </div>
+                    <input
+                        type="file"
+                        name="image"
+                        accept="image/*"
+                        onChange={handleImg}
+                        onBlur={handleBlur}
 
-                                </div>
+                    />
+                    {errors.link && touched.link ? (
+                        <div className='text-danger m-1'>{errors.link}</div>
+                    ) : <label htmlFor="link">Link</label>}
+                    <input
+                        type="text"
+                        name="link"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.link}
+                    />
+                    {errors.logo && touched.logo ? (
+                        <div className='text-danger m-1'>{errors.logo}</div>
+                    ) : <label htmlFor="logo">Logo</label>}
+                    <input
+                        type="text"
+                        name="logo"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.logo}
+                    />
+                    {errors.tec && touched.tec ? (
+                        <div className='text-danger m-1'>{errors.tec}</div>
+                    ) : <label htmlFor="tec">Tecnologías</label>}
+                    <input
+                        type="text"
+                        name="tec"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.tec}
+                    />
 
+                    {userType === 'TEST' ? <button type="submit" className='btn btn-outline-danger' disabled='true'>
+                        btn deshabilitado
+                    </button> :
 
-                                <div className="formFields">
-                                    <label htmlFor="link">Link: </label>
+                        <button type="submit" className='btn btn-outline-danger' disabled={isSubmitting}>
+                            Crear proyecto
+                        </button>
+                    }
 
-                                    <div className="error">
-                                        <Field
-                                            type="text"
-                                            id='link'
-                                            name='link'
-                                        />
-                                        {touched.link ? <div className="form-text text-warning fs-6">{errors.link}</div> : null}
-                                    </div>
-                                </div>
-
-
-                                <div className="formFields">
-                                    <label htmlFor="link">Logo: </label>
-                                    <div className="error">
-                                        <Field
-                                            type="text"
-                                            id='logo'
-                                            name='logo'
-                                        />
-                                        {touched.logo ? <div className="form-text text-warning fs-6">{errors.logo}</div> : null}
-                                    </div>
-                                </div>
-
-                                <div className="formFields">
-                                    <label htmlFor="link">Img: </label>
-                                    <div className="error">
-                                        <Field
-                                            type="text"
-                                            id='img'
-                                            name='img'
-                                        />
-                                        {touched.img ? <div className="form-text text-warning fs-6">{errors.img}</div> : null}
-                                    </div>
-                                </div>
-
-                                <div className="formFields">
-                                    <label htmlFor="tec">Tecnologías: </label>
-                                    <div className="error">
-                                        <Field
-                                            type="text"
-                                            id='tec'
-                                            name='tec'
-                                        />
-                                        {touched.tec ? <div className="form-text text-warning fs-6">{errors.tec}</div> : null}
-                                    </div>
-                                </div>
-                                {userType === 'TEST' ? <button type='button' disable="true" className='btn btn-success bg-danger m-2 align-self-center'  >Agregar</button> : <button type='button' className='btn btn-success bg-danger m-2 align-self-center'>Agregar</button>}
-
-                            </div>
-
-                        </Form>
-
-                    </div>
-                )}
+                </form>
+            )}
         </Formik>
     )
 }

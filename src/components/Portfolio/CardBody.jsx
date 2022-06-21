@@ -16,6 +16,7 @@ import '../Styles/CardBody.css'
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { BASE_URL } from '../../Utils/URL';
 AOS.init();
 
 const ExpandMore = styled((props) => {
@@ -56,7 +57,8 @@ const CardBody = ({ id, title, link, img, tec, logo }) => {
                 <CardMedia
                     component="img"
                     height="194"
-                    image={img}
+                    image={`${BASE_URL}/proyects/${img}`}
+                    // src={`${BASE_URL}/proyects/${img}`}
                     alt="logo"
                 />
                 <CardActions disableSpacing>

@@ -11,6 +11,8 @@ const AddSkill = () => {
     const imageFormats = ["image/png", "image/svg", "image/jpeg", "image/jpg"];
 
     const uploadImg = (values) => {
+
+        
         console.log(values)
         axios.post(`${BASE_URL}/upload`, values, {
             headers: {
@@ -31,8 +33,7 @@ const AddSkill = () => {
                     initialValues={{
                         image: null
                     }}
-                    onSubmit={(values) => {
-                        
+                    onSubmit={(values) => {                        
                         uploadImg(values)
                     }}
 

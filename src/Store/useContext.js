@@ -75,8 +75,9 @@ const UserContextProvider = ({ children }) => {
     }
 
     useEffect(() => {
+        console.log('useEffect')
         findProyects()
-    }, [])
+    }, [imagenes])
 
 
     const getImagenes = async () => {
@@ -86,8 +87,7 @@ const UserContextProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        getImagenes()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+        getImagenes()        
     }, [])
 
 

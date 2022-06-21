@@ -9,7 +9,7 @@ const Skills = () => {
     const { imagenes } = useUserContext()
 
     return (
-        <section className="skills">
+        <section className="skills ">
             <h1>Skills</h1>
             <div className="skill-container mb-5">
                 {imagenes === 0 ? null :

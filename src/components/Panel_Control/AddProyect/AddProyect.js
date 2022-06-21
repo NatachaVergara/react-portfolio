@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NewProyectForm from './NewProyectForm'
 import '../../Styles/AddProyectForm.scss'
 import axios from 'axios'
@@ -8,18 +8,31 @@ import MenuCPanel from '../MenuCPanel/MenuCPanel'
 
 
 const AddProyect = () => {
+  const [img, setImg] = useState(null)
+
+  const handleImg = (e) => {
+    const imagen = e.target.files[0]
+    if (imagen) {
+      setImg(imagen)
+    }
+  }
 
   const createProyect = async (values) => {
-    console.log(values)
+    const { title, link, logo, tec } = values
+    const formData = new FormData()
+
+    formData.append('image', img)
+    formData.append('title', title)
+    formData.append('link', link)
+    formData.append('logo', logo)
+    formData.append('tec', tec)
+
+    console.log(formData)
+    console.log(img)
     axios
-      .post(`${BASE_URL}/proyects`,
-        {
-          title: values.title,
-          link: values.link,
-          logo: values.logo,
-          img: values.img,
-          tec: values.tec,
-        })
+      .post(`${BASE_URL}/proyects`, formData, {
+        headers: { 'content-type': 'multipart/form-data' }
+      })
       .then((res) => {
         console.log(res)
         console.log(res.data)
@@ -39,7 +52,7 @@ const AddProyect = () => {
       buttonsStyling: false
     })
 
-    await swalWithBootstrapButtons.fire({
+    swalWithBootstrapButtons.fire({
       title: '¿Está segura/o de que quiere agregar el archivo?',
       icon: 'question',
       showCancelButton: true,
@@ -76,7 +89,10 @@ const AddProyect = () => {
       <div className='AddProyectContainer'>
 
         <h1 className='mb-1'>Agregar proyecto</h1>
-        <NewProyectForm addProyect={addProyect} />
+        <NewProyectForm
+          addProyect={addProyect}
+          handleImg={handleImg}
+        />
 
       </div>
     </>
