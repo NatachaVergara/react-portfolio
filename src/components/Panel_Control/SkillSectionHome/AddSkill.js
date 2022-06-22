@@ -7,11 +7,11 @@ import { useUserContext } from '../../../Store/useContext'
 
 
 const AddSkill = () => {
-    const { uploadImg} = useUserContext()
+    const { uploadImg, userType } = useUserContext()
     const imageFormats = ["image/png", "image/svg", "image/jpeg", "image/jpg"];
 
- 
-    const onhandleSubmit = (values)=>{
+
+    const onhandleSubmit = (values) => {
         uploadImg(values)
     }
 
@@ -38,7 +38,10 @@ const AddSkill = () => {
                                 name="image"
                                 validFormats={imageFormats}
                             />
-                            <button type='submit' className='btn btn-outline-success text-dark  img-button'>Agregar</button></div>
+                            {userType === 'TEST' ? <button type='submit' disabled='true' className='btn btn-outline-success text-dark  img-button'>btn desabilitado</button> : <button type='submit' className='btn btn-outline-success text-dark  img-button'>Agregar</button>}
+                         
+
+                        </div>
 
                     </Form>
 
@@ -48,12 +51,6 @@ const AddSkill = () => {
                 </Formik>
 
 
-
-                {/* <form>
-                    <label htmlFor='file' className='fs-1'><AiFillFileAdd /></label>
-                    <input type='file' name='images' required autoComplete='off' multiple />
-                    <button className='btn btn-outline-success text-dark  img-button'>Agregar </button>
-                </form> */}
             </div>
 
 

@@ -7,8 +7,7 @@ const AboutContainer = () => {
     return (
         <section className='aboutMe-section'>
             <AboutSlaider />
-            <AboutMe />
-            
+            <AboutMe />            
         </section>
     )
 }

@@ -33,14 +33,14 @@ const EditModal = (props) => {
         }
     }
 
-    const onHandleClick = async (values) => {        
+    const onHandleClick = async (values) => {
         const { title, link, logo, tec } = values
         const formData = new FormData()
 
         formData.append('image', img)
         formData.append('title', title)
         formData.append('link', link)
-        formData.append('logo', logo)        
+        formData.append('logo', logo)
         formData.append('tec', tec)
 
         // for (const value of formData.values()) {
@@ -95,7 +95,7 @@ const EditModal = (props) => {
                             handleBlur,
                             handleSubmit,
                             isSubmitting,
-                          
+
                         }) => (
                             <form onSubmit={handleSubmit}
                                 className={styles.formulario}
@@ -167,10 +167,19 @@ const EditModal = (props) => {
                                     onBlur={handleBlur}
                                     value={values.tec}
                                 />
-                                <Button type="submit" disabled={isSubmitting}>
-                                    Submit
+                                {userType === 'TEST' ? <><Button type="submit" disabled='true'>
+                                    desabilitado
                                 </Button>
-                                <Button variant="warning" onClick={props.handleclose}>Cancelar</Button>
+                                    <Button variant="warning" onClick={props.handleclose}>Cancelar</Button></> :
+
+
+                                    <><Button type="submit" disabled={isSubmitting}>
+                                        Submit
+                                    </Button>
+                                        <Button variant="warning" onClick={props.handleclose}>Cancelar</Button></>}
+
+
+
                             </form>
                         )}
                     </Formik>
