@@ -3,6 +3,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../Utils/URL'
 
+
 const UserContext = createContext()
 
 export const useUserContext = () => {
@@ -45,6 +46,9 @@ const getUserTypeSS = () => {
 }
 
 
+
+
+
 const UserContextProvider = ({ children }) => {
     const [userId, setUserId] = useState(getLocalUserID())
     const [isUser, setIsUser] = useState(getSSUser())
@@ -52,6 +56,7 @@ const UserContextProvider = ({ children }) => {
     const [proyects, setProyects] = useState([])
     const [imagenes, setImagenes] = useState([])
     const [loading, setLoading] = useState(false)
+
 
     useEffect(() => {
         sessionStorage.setItem('userIDSS', JSON.stringify(userId))
@@ -83,35 +88,35 @@ const UserContextProvider = ({ children }) => {
     const [img, setImg] = useState(null)
 
     const handleImg = (e) => {
-      const imagen = e.target.files[0]
-      if (imagen) {
-        setImg(imagen)
-      }
+        const imagen = e.target.files[0]
+        if (imagen) {
+            setImg(imagen)
+        }
     }
-  
+
     const createProyect = async (values) => {
-      const { title, link, logo, tec } = values
-      const formData = new FormData()
-  
-      formData.append('image', img)
-      formData.append('title', title)
-      formData.append('link', link)
-      formData.append('logo', logo)
-      formData.append('tec', tec)
-  
-      console.log(formData)
-      console.log(img)
-      axios
-        .post(`${BASE_URL}/proyects`, formData, {
-          headers: { 'content-type': 'multipart/form-data' }
-        })
-        .then((res) => {
-          console.log(res)
-          console.log(res.data)
-          console.log(res.data.message)
-          console.log(res.status)
-        })
-        .catch(err => console.log(err))
+        const { title, link, logo, tec } = values
+        const formData = new FormData()
+
+        formData.append('image', img)
+        formData.append('title', title)
+        formData.append('link', link)
+        formData.append('logo', logo)
+        formData.append('tec', tec)
+
+        console.log(formData)
+        console.log(img)
+        axios
+            .post(`${BASE_URL}/proyects`, formData, {
+                headers: { 'content-type': 'multipart/form-data' }
+            })
+            .then((res) => {
+                console.log(res)
+                console.log(res.data)
+                console.log(res.data.message)
+                console.log(res.status)
+            })
+            .catch(err => console.log(err))
     }
 
 
@@ -150,13 +155,20 @@ const UserContextProvider = ({ children }) => {
             .catch(err => console.log(err))
     }
 
-  
+
 
     const deleteImg = async (path) => {
         const response = await axios.delete(`${BASE_URL}/upload/${path}`)
         const img = await response.data.imagenes
         console.log(img)
         setImagenes(img)
+    }
+
+    const logOut = () => {
+        console.log('Logout success')
+        setUserId(null)
+        setIsUser(null)
+
     }
 
 
@@ -179,9 +191,10 @@ const UserContextProvider = ({ children }) => {
                 loading,
                 uploadImg,
                 deleteProyectbyId,
-                deleteImg, 
+                deleteImg,
                 handleImg,
-                createProyect
+                createProyect,
+                logOut
             }}
         >
 

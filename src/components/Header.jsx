@@ -2,16 +2,25 @@ import { MenuOutlined } from '@material-ui/icons'
 import React, { useState } from 'react'
 import './Styles/Header.scss'
 import { MenuData } from '../Data/MenuData'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useUserContext } from '../Store/useContext'
+import Btn from './Buttons/Btn'
+
 
 
 const Header = () => {
     const [show, setShow] = useState(false)
-    const { isUser } = useUserContext()
+    const { isUser, logOut } = useUserContext()
+    let navigate = useNavigate()
 
     const showMenu = () => {
         setShow(!show)
+    }
+
+    const onHandleLogout = () => {
+        logOut()
+        navigate('/')
+
     }
 
     return (
@@ -25,6 +34,16 @@ const Header = () => {
 
                     <div className="rigth">
                         <h1 >Natacha Vergara</h1>
+                        {
+                            isUser ? <Btn
+                             onHandleLogout={onHandleLogout}
+                             btnstyle='btn btn-outline-danger'
+                             btnName='Salir'
+                             /> :
+                                null
+                        }
+
+
                     </div>
 
                 </div>

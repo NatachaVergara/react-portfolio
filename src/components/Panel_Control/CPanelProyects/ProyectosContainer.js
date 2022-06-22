@@ -5,8 +5,8 @@ import CpanelCards from './CpanelCards'
 import Swal from 'sweetalert2';
 import { useUserContext } from '../../../Store/useContext'
 import Spinner from '../../Spinner';
-import MenuCPanel from '../MenuCPanel/MenuCPanel';
-
+import MenuCPanel from '../MenuCPanel/MenuCPanel'
+import style from './CardProyects.module.scss'
 
 
 const ProyectosContainer = () => {
@@ -72,7 +72,7 @@ const ProyectosContainer = () => {
         <>
             <MenuCPanel  linktTo='/controlPanel/addproyecto'   name='Agregar proyecto'   />
             {loading ? <Spinner text='Cargando....' /> :
-                <div className='row row-cols-4 m-0 ps-5'>
+                <div className={style.row}>
                     {proyects.map(item => (<CpanelCards key={item.id}
                         id={item.id}
                         img={item.img}
@@ -81,6 +81,7 @@ const ProyectosContainer = () => {
                         title={item.title}
                         logo={item.logo}
                         deleteFile={deleteFile}
+                        style={style}
 
                     />))}
                 </div>}
