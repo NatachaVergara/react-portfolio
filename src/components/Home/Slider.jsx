@@ -7,28 +7,12 @@ import '../Styles/Section.scss'
 
 function Slider({slides}) {
     const [current, setCurrent] = useState(0)
-
     const length = slides.length
-
-
-
     useEffect(() => {
         setTimeout(() =>
             setCurrent(current === length - 1 ? 0 : current + 1), 5000
         )
-
-
     },)
-
-  
-    // const leftArrow = () => {
-    //     setCurrent(current === length - 1 ? 0 : current + 1)
-    // }
-
-    // const rightArrow = () => {
-    //     setCurrent(current === 0 ? length - 1 : current - 1)
-    // }
-
 
 
     return (

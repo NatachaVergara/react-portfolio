@@ -1,7 +1,5 @@
-import axios from 'axios'
 import { Form, Formik } from 'formik'
 import React from 'react'
-import { BASE_URL } from '../../../Utils/URL'
 import MenuCPanel from '../MenuCPanel/MenuCPanel'
 import { ImageInput } from "formik-file-and-image-input/lib";
 import { useUserContext } from '../../../Store/useContext'
@@ -9,23 +7,12 @@ import { useUserContext } from '../../../Store/useContext'
 
 
 const AddSkill = () => {
-    const {setImagenes} = useUserContext()
+    const { uploadImg} = useUserContext()
     const imageFormats = ["image/png", "image/svg", "image/jpeg", "image/jpg"];
 
-    const uploadImg = (values) => {
-
-
-        console.log(values)
-        axios.post(`${BASE_URL}/upload`, values, {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        })
-            .then(res => {
-                // console.log(res.data)
-                setImagenes(res.data.imagenes)
-            })
-            .catch(err => console.log(err))
+ 
+    const onhandleSubmit = (values)=>{
+        uploadImg(values)
     }
 
 
@@ -41,7 +28,7 @@ const AddSkill = () => {
                     onSubmit={(values) => {
                         console.log(values)
                         values.image === null && alert('ingrese una imagen')
-                        uploadImg(values)
+                        onhandleSubmit(values)
                     }}
 
                 >

@@ -1,46 +1,25 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
 import CpanelCards from './CpanelCards'
-import axios from 'axios'
 import Swal from 'sweetalert2';
 import { useUserContext } from '../../../Store/useContext'
-import { BASE_URL } from '../../../Utils/URL';
 import Spinner from '../../Spinner';
 import MenuCPanel from '../MenuCPanel/MenuCPanel';
 
 
 
 const ProyectosContainer = () => {
-    const { proyects, setProyects } = useUserContext()
-    const [loading, setLoading] = useState(false)
-    /// llamada a mi propio servidor!
-
-    const findProyects = async () => {
-        setLoading(true)
-        axios.get(`${BASE_URL}/proyects`)
-            .then((res) => {
-               
-                setProyects(res.data.data)
-            })
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false));
-
-    }
-
+    const { proyects, loading, findProyects, deleteProyectbyId } = useUserContext()
+    useEffect(()=>{
+        console.log('loading proyects')
+        findProyects()
+    }, [])
 
 
     // const onHandleDelete = async (id) => {
-    //     try {
-    //         await axios.delete(`${BASE_URL}/proyects/${id}`)
-    //             .then(response => {
-    //                 console.log(response)
-    //                 setProyects(response.data.fulldata)
-    //             })
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
+    //     deleteProyectbyId(id)
     // }
-
-
 
 
     const deleteFile = async ({ id }) => {

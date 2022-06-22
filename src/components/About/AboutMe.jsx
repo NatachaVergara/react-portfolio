@@ -5,9 +5,7 @@ const AboutMe = () => {
     return (
         <div className='aboutMe'>
             <div className='infoContainer'>
-                <img src='https://firebasestorage.googleapis.com/v0/b/portfolio-c32fd.appspot.com/o/aboutMe%2F20190602_103414.jpg?alt=media&token=5a57236f-1cc1-4f50-b8bc-fc7a2816013f' alt=''></img>
-
-
+                <img src='https://firebasestorage.googleapis.com/v0/b/portfolio-c32fd.appspot.com/o/aboutMe%2F20190602_103414.jpg?alt=media&token=5a57236f-1cc1-4f50-b8bc-fc7a2816013f' alt='aboutme'></img>
                 <div className='aboutMeInfo'>
                     <h2>Sobre Mi</h2>
                     <p>Soy una mujer que a los 34 años se animó a la programación.<br></br>

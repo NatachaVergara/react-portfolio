@@ -13,12 +13,10 @@ const EditModal = (props) => {
     const { setProyects, userType } = useUserContext()
     const [img, setImg] = useState(props.img)
     const [show, setShow] = useState(true)
-
+    let id = props.id
 
     const handleImg = (e) => {
-
         const imagen = e.target.files[0]
-
         if (imagen) {
             setImg(imagen)
         }
@@ -35,22 +33,21 @@ const EditModal = (props) => {
         }
     }
 
-    const onHandleClick = async (values) => {
-
+    const onHandleClick = async (values) => {        
         const { title, link, logo, tec } = values
         const formData = new FormData()
 
         formData.append('image', img)
         formData.append('title', title)
         formData.append('link', link)
-        formData.append('logo', logo)
-        // formData.append('imagen', props.img)
+        formData.append('logo', logo)        
         formData.append('tec', tec)
 
-        for (const value of formData.values()) {
-            console.log(value);
-        }
-        axios.put(`${BASE_URL}/proyects/${props.id}`, formData, {
+        // for (const value of formData.values()) {
+        //     console.log(value);
+        // }
+
+        axios.put(`${BASE_URL}/proyects/${id}`, formData, {
             headers: { 'content-type': 'multipart/form-data' }
         },
         ).then((res) => {
@@ -98,7 +95,7 @@ const EditModal = (props) => {
                             handleBlur,
                             handleSubmit,
                             isSubmitting,
-                            /* and other goodies */
+                          
                         }) => (
                             <form onSubmit={handleSubmit}
                                 className={styles.formulario}

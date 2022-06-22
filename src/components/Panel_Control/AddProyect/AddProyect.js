@@ -1,49 +1,16 @@
-import React, { useState } from 'react'
+import React  from 'react'
 import NewProyectForm from './NewProyectForm'
 import '../../Styles/AddProyectForm.scss'
-import axios from 'axios'
 import Swal from 'sweetalert2'
-import { BASE_URL } from '../../../Utils/URL'
 import MenuCPanel from '../MenuCPanel/MenuCPanel'
+import { useUserContext } from '../../../Store/useContext'
 
 
 const AddProyect = () => {
-  const [img, setImg] = useState(null)
-
-  const handleImg = (e) => {
-    const imagen = e.target.files[0]
-    if (imagen) {
-      setImg(imagen)
-    }
-  }
-
-  const createProyect = async (values) => {
-    const { title, link, logo, tec } = values
-    const formData = new FormData()
-
-    formData.append('image', img)
-    formData.append('title', title)
-    formData.append('link', link)
-    formData.append('logo', logo)
-    formData.append('tec', tec)
-
-    console.log(formData)
-    console.log(img)
-    axios
-      .post(`${BASE_URL}/proyects`, formData, {
-        headers: { 'content-type': 'multipart/form-data' }
-      })
-      .then((res) => {
-        console.log(res)
-        console.log(res.data)
-        console.log(res.data.message)
-        console.log(res.status)
-      })
-      .catch(err => console.log(err))
-  }
+  const { handleImg, createProyect } = useUserContext()
 
 
-  const addProyect = async (values, resetForm) => {
+  const onCreateProyect = async (values, resetForm) => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -90,7 +57,7 @@ const AddProyect = () => {
 
         <h1 className='mb-1'>Agregar proyecto</h1>
         <NewProyectForm
-          addProyect={addProyect}
+          addProyect={onCreateProyect}
           handleImg={handleImg}
         />
 

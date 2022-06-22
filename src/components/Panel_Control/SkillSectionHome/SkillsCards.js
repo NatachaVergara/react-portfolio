@@ -1,19 +1,13 @@
-import axios from 'axios'
 import React from 'react'
 import { useUserContext } from '../../../Store/useContext'
-import { BASE_URL } from '../../../Utils/URL'
 import ImgSkill from './ImgSkill'
 
 const SkillsCards = () => {
-const {imagenes, setImagenes} = useUserContext()
- 
-const deleteImg = async (path)=>{
-  const response = await axios.delete(`${BASE_URL}/upload/${path}`)
-  const img = await response.data.imagenes
-  console.log(img)
-  setImagenes(img)
-}
+  const { imagenes, deleteImg } = useUserContext()
 
+  const onHandleDelete = (path) => {
+    deleteImg(path)
+  }
 
   return (
     <div className="imgSkillContainer">
@@ -21,8 +15,7 @@ const deleteImg = async (path)=>{
 
 
       <div className="skill">
-        <ImgSkill imagenes={imagenes} onDelete={deleteImg} />
-  
+        <ImgSkill imagenes={imagenes} onDelete={onHandleDelete} />
       </div>
 
     </div>
