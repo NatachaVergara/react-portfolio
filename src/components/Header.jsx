@@ -24,7 +24,7 @@ const Header = () => {
 
 
                     <div className="rigth">
-                        <h1>Natacha Vergara</h1>
+                        <h1 >Natacha Vergara</h1>
                     </div>
 
                 </div>

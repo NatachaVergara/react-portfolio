@@ -12,7 +12,6 @@ export const useUserContext = () => {
 const getLocalUserID = () => {
     let userID = sessionStorage.getItem('userIDSS')
 
-
     if (userID) {
         return JSON.parse(sessionStorage.getItem('userIDSS'))
     } else {

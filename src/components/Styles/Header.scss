@@ -24,12 +24,14 @@
         padding-right: 20px;
         text-shadow: 2px 2px 20px rgb(12, 12, 12);
         align-self: center;
+
     }
+
 }
 
 
-.nav-ul{
-    padding-left:0px
+.nav-ul {
+    padding-left: 0px
 }
 
 
@@ -37,7 +39,7 @@
     position: fixed;
     top: -100%;
     display: flex;
-    width:auto;
+    width: auto;
     height: auto;
     background-color: transparent;
     z-index: 1000;
@@ -45,7 +47,7 @@
 }
 
 .nav-item.active {
-    width:auto;
+    width: auto;
     height: auto;
     left: 0%;
     top: 0px;

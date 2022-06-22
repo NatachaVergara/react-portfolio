@@ -5,7 +5,7 @@ const MenuCPanel = ({ linktTo, name }) => {
     return (
         <div className="d-flex flex-column h-md-100 p-3 text-white bg-dark">
             <div className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <span className="fs-4 ">Panel de administración</span>
+                <span className="fs-4 ">Dashboard</span>
             </div>
             <hr />
             <div className="d-flex flex-row flex-md-column">
