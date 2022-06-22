@@ -7,14 +7,14 @@ import EditModal from '../../Modal/EditModal';
 
 
 const CpanelCards = ({ id, img, link, tec, title, logo, deleteFile }) => {
-    console.log(img)
+    
     const { userType } = useUserContext()
     const [show, setShow] = useState(false);
 
     const handleOpen = () => setShow(true);
     const handleClose = () => setShow(false);
 
-
+    
 
     return (
         <>
@@ -32,7 +32,7 @@ const CpanelCards = ({ id, img, link, tec, title, logo, deleteFile }) => {
                             :
                             <><button type='button' className="btn btn-danger me-5" onClick={() => handleOpen()}   ><MdModeEdit />
                             </button>
-                                <button type='button' className="btn btn-success" onClick={() => deleteFile({ img })}  ><MdOutlineDelete />
+                                <button type='button' className="btn btn-success" onClick={() => deleteFile( img )}  ><MdOutlineDelete />
                                 </button>
                                 
                             </>
@@ -46,7 +46,7 @@ const CpanelCards = ({ id, img, link, tec, title, logo, deleteFile }) => {
 
             <EditModal
                 show={show}
-                handleClose={handleClose}
+                handleclose={handleClose}
                 id={id}
                 img={img}
                 link={link}

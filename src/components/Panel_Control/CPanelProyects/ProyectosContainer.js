@@ -28,17 +28,17 @@ const ProyectosContainer = () => {
 
 
 
-    const onHandleDelete = async (id) => {
-        try {
-            await axios.delete(`${BASE_URL}/proyects/${id}`)
-                .then(response => {
-                    console.log(response)
-                    setProyects(response.data.fulldata)
-                })
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    // const onHandleDelete = async (id) => {
+    //     try {
+    //         await axios.delete(`${BASE_URL}/proyects/${id}`)
+    //             .then(response => {
+    //                 console.log(response)
+    //                 setProyects(response.data.fulldata)
+    //             })
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
 
 
 
@@ -63,9 +63,11 @@ const ProyectosContainer = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 swalWithBootstrapButtons.fire(
-                    'Borrado!',
-                    'Su archivo ha sido borrado exitosamente',
-                    onHandleDelete(id)
+                     // onHandleDelete(id)
+                     alert('No estoy funcionando por ahora'),
+                    // 'Borrado!',
+                    // 'Su archivo ha sido borrado exitosamente',
+                   
                 )
             } else if (
                 /* Read more about handling dismissals below */

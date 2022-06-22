@@ -11,38 +11,56 @@ import { useUserContext } from '../../Store/useContext';
 const EditModal = (props) => {
     // eslint-disable-next-line no-unused-vars
     const { setProyects, userType } = useUserContext()
-    const [img, setImg] = useState(null)
+    const [img, setImg] = useState(props.img)
+    const [show, setShow] = useState(true)
 
 
-    const handleImg = (e)=>{
+    const handleImg = (e) => {
+
         const imagen = e.target.files[0]
-        console.log(imagen)
-        if(imagen){
+
+        if (imagen) {
             setImg(imagen)
         }
     }
 
+    const onShow = () => {
+        if (show) {
+            setShow(false)
+
+        } else {
+            setShow(true)
+            setImg(props.img)
+
+        }
+    }
 
     const onHandleClick = async (values) => {
-      
-        const { title, link, logo, tec } = values
-        console.log(img)
 
+        const { title, link, logo, tec } = values
         const formData = new FormData()
 
         formData.append('image', img)
         formData.append('title', title)
         formData.append('link', link)
         formData.append('logo', logo)
+        // formData.append('imagen', props.img)
         formData.append('tec', tec)
 
-        console.log(formData)
+        for (const value of formData.values()) {
+            console.log(value);
+        }
         axios.put(`${BASE_URL}/proyects/${props.id}`, formData, {
             headers: { 'content-type': 'multipart/form-data' }
         },
         ).then((res) => {
             setProyects(res.data.fulldata)
-        }).catch(err => console.log(err))
+            props.handleclose()
+        }).catch(err => {
+            console.log(err)
+            alert(err.message)
+            props.handleclose()
+        })
 
     }
 
@@ -57,7 +75,7 @@ const EditModal = (props) => {
                     className="text-success fs-5 bg-dark">
                     <Formik
                         initialValues={{
-                            image: null,
+                            image: props.img,
                             title: props.titulo,
                             link: props.link,
                             logo: props.logo,
@@ -93,16 +111,41 @@ const EditModal = (props) => {
                                     onBlur={handleBlur}
                                     value={values.title}
                                 />
-                                <label htmlFor="image">Imagen</label>
 
-                                <input
-                                    type="file"
-                                    name="image"
-                                    accept="image/*"
-                                    onChange={handleImg}
-                                    onBlur={handleBlur}
 
-                                />
+                                <span className='btn btn-outline-warning' onClick={onShow}>{show ? 'Cambiar imagen' : 'Cancelar'} </span>
+
+                                {show ? <>  <label htmlFor="file">Dejar imagen anterior</label>
+                                    <div className='d-flex '>
+                                        <input
+                                            type="text"
+                                            name="image"
+                                            onChange={handleChange}
+                                            onBlur={handleBlur}
+                                            value={values.image}
+
+                                        />
+                                        <img src={`${BASE_URL}/proyects/${props.img}`} style={{ width: "4rem" }} className="card-img-top p-1" alt="imagen de la card" />
+                                    </div></> :
+                                    <>
+                                        <label htmlFor="file">Elegir nueva Imagen</label>
+
+                                        <input
+                                            type="file"
+                                            name="file"
+                                            accept="image/*"
+                                            onChange={handleImg}
+                                            onBlur={handleBlur}
+
+
+                                        />
+                                    </>
+                                }
+
+
+
+
+
                                 <label htmlFor="link">Link</label>
                                 <input
                                     type="text"
@@ -130,7 +173,7 @@ const EditModal = (props) => {
                                 <Button type="submit" disabled={isSubmitting}>
                                     Submit
                                 </Button>
-                                <Button variant="warning" onClick={props.handleClose}>Cancelar</Button>
+                                <Button variant="warning" onClick={props.handleclose}>Cancelar</Button>
                             </form>
                         )}
                     </Formik>
