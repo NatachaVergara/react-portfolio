@@ -11,18 +11,18 @@ import style from './CardProyects.module.scss'
 
 const ProyectosContainer = () => {
     const { proyects, loading, findProyects, deleteProyectbyId } = useUserContext()
-    useEffect(()=>{
+    useEffect(() => {
         console.log('loading proyects')
         findProyects()
     }, [])
 
 
-    // const onHandleDelete = async (id) => {
-    //     deleteProyectbyId(id)
-    // }
+    const onHandleDelete = async (img) => {
+        deleteProyectbyId(img)
+    }
 
 
-    const deleteFile = async ({ id }) => {
+    const deleteFile = async (img) => {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
                 confirmButton: 'btn btn-success',
@@ -42,11 +42,11 @@ const ProyectosContainer = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 swalWithBootstrapButtons.fire(
-                     // onHandleDelete(id)
-                     alert('No estoy funcionando por ahora'),
-                    // 'Borrado!',
-                    // 'Su archivo ha sido borrado exitosamente',
-                   
+                    'Borrado!',
+                    'Su archivo ha sido borrado exitosamente',
+                    onHandleDelete(img),
+
+
                 )
             } else if (
                 /* Read more about handling dismissals below */
@@ -62,15 +62,11 @@ const ProyectosContainer = () => {
 
     }
 
-    useEffect(() => {
-        findProyects()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
 
 
     return (
         <>
-            <MenuCPanel  linktTo='/controlPanel/addproyecto'   name='Agregar proyecto'   />
+            <MenuCPanel linktTo='/controlPanel/addproyecto' name='Agregar proyecto' />
             {loading ? <Spinner text='Cargando....' /> :
                 <div className={style.row}>
                     {proyects.map(item => (<CpanelCards key={item.id}

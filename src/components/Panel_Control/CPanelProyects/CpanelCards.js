@@ -7,7 +7,6 @@ import EditModal from '../../Modal/EditModal';
 
 
 const CpanelCards = ({ id, img, link, tec, title, logo, deleteFile, style }) => {
-    
     const { userType } = useUserContext()
     const [show, setShow] = useState(false);
 

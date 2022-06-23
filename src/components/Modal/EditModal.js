@@ -11,7 +11,7 @@ import { useUserContext } from '../../Store/useContext';
 const EditModal = (props) => {
     // eslint-disable-next-line no-unused-vars
     const { setProyects, userType } = useUserContext()
-    const [img, setImg] = useState(props.img)
+    const [path, setImg] = useState(props.img)
     const [show, setShow] = useState(true)
     let id = props.id
 
@@ -35,17 +35,20 @@ const EditModal = (props) => {
 
     const onHandleClick = async (values) => {
         const { title, link, logo, tec } = values
+        let imagenPath = props.img
         const formData = new FormData()
 
-        formData.append('image', img)
+        formData.append('image', path)
+        formData.append('imagenPath', imagenPath)
         formData.append('title', title)
         formData.append('link', link)
         formData.append('logo', logo)
         formData.append('tec', tec)
 
-        // for (const value of formData.values()) {
-        //     console.log(value);
-        // }
+        
+        for (const value of formData.values()) {
+            console.log(value);
+        }
 
         axios.put(`${BASE_URL}/proyects/${id}`, formData, {
             headers: { 'content-type': 'multipart/form-data' }

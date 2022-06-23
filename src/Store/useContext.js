@@ -122,9 +122,9 @@ const UserContextProvider = ({ children }) => {
 
 
 
-    const deleteProyectbyId = async (id) => {
+    const deleteProyectbyId = async (path) => {
         try {
-            await axios.delete(`${BASE_URL}/proyects/${id}`)
+            await axios.delete(`${BASE_URL}/proyects/${path}`)
                 .then(response => {
                     console.log(response)
                     setProyects(response.data.fulldata)
