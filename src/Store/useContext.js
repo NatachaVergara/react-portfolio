@@ -166,7 +166,6 @@ const UserContextProvider = ({ children }) => {
     const logOut = () => {
         setUserId(null)
         setIsUser(null)
-
         Swal.fire('Se ha deslogueado exitosamente')
 
     }

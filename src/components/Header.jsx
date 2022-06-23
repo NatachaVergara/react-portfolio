@@ -19,7 +19,7 @@ const Header = () => {
 
     const onHandleLogout = () => {
         logOut()
-        navigate('/')
+        navigate('/home')
 
     }
 
