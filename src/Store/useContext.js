@@ -1,8 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-
 import axios from 'axios'
 import { BASE_URL } from '../Utils/URL'
-
+import Swal from 'sweetalert2'
 
 const UserContext = createContext()
 
@@ -104,8 +103,8 @@ const UserContextProvider = ({ children }) => {
         formData.append('logo', logo)
         formData.append('tec', tec)
 
-        console.log(formData)
-        console.log(img)
+        // console.log(formData)
+        // console.log(img)
         axios
             .post(`${BASE_URL}/proyects`, formData, {
                 headers: { 'content-type': 'multipart/form-data' }
@@ -160,14 +159,15 @@ const UserContextProvider = ({ children }) => {
     const deleteImg = async (path) => {
         const response = await axios.delete(`${BASE_URL}/upload/${path}`)
         const img = await response.data.imagenes
-        console.log(img)
+        // console.log(img)
         setImagenes(img)
     }
 
     const logOut = () => {
-        console.log('Logout success')
         setUserId(null)
         setIsUser(null)
+
+        Swal.fire('Se ha deslogueado exitosamente')
 
     }
 
