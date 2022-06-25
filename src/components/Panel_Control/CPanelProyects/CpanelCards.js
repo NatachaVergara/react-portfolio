@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { MdModeEdit, MdOutlineDelete } from 'react-icons/md';
 import { useUserContext } from '../../../Store/useContext';
 import { BASE_URL } from '../../../Utils/URL';
+import BtnDelete from '../../Buttons/BtnDelete';
+import BtnEdit from '../../Buttons/BtnEdit';
 
 import EditModal from '../../Modal/EditModal';
 
@@ -13,7 +15,7 @@ const CpanelCards = ({ id, img, link, tec, title, logo, deleteFile, style }) => 
     const handleOpen = () => setShow(true);
     const handleClose = () => setShow(false);
 
-    
+
 
     return (
         <>
@@ -24,16 +26,16 @@ const CpanelCards = ({ id, img, link, tec, title, logo, deleteFile, style }) => 
                     <span className="card-title text-center fs-6" >{tec} </span>
                     <div>
                         {userType === 'TEST' ?
-                            <> <button type='button' className="btn btn-danger me-5" onClick={() => handleOpen()} ><MdModeEdit />
-                            </button>
-                                <button type='button' className="btn btn-success" ><MdOutlineDelete />
-                                </button></>
+                            <>
+                                <BtnEdit onHandleEdit={handleOpen} styles='btn btn-danger me-5' text={<MdModeEdit />} />
+                                <BtnDelete styles='btn btn-success' text={< MdOutlineDelete />} />
+
+                            </>
                             :
-                            <><button type='button' className="btn btn-danger me-5" onClick={() => handleOpen()}   ><MdModeEdit />
-                            </button>
-                                <button type='button' className="btn btn-success" onClick={() => deleteFile( img )}  ><MdOutlineDelete />
-                                </button>
-                                
+                            <>
+                                <BtnEdit onHandleEdit={handleOpen} styles='btn btn-danger me-5' text={<MdModeEdit />} />
+                                <BtnDelete onHandleDelete={() => deleteFile(img)} styles='btn btn-success' text={< MdOutlineDelete />} />
+
                             </>
 
                         }

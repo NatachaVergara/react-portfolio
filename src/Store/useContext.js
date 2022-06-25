@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../Utils/URL'
 import Swal from 'sweetalert2'
+import { agregado } from '../components/sweetAlerts/alert'
 
 const UserContext = createContext()
 
@@ -55,6 +56,7 @@ const UserContextProvider = ({ children }) => {
     const [proyects, setProyects] = useState([])
     const [imagenes, setImagenes] = useState([])
     const [loading, setLoading] = useState(false)
+    const [imgsSlider, setImgsSlider] = useState([])
 
 
     useEffect(() => {
@@ -69,7 +71,12 @@ const UserContextProvider = ({ children }) => {
         sessionStorage.setItem('userTypeSS', JSON.stringify(userType))
     }, [userType])
 
+    const logOut = () => {
+        setUserId(null)
+        setIsUser(null)
+        Swal.fire('Se ha deslogueado exitosamente')
 
+    }
 
 
     const findProyects = async () => {
@@ -163,13 +170,67 @@ const UserContextProvider = ({ children }) => {
         setImagenes(img)
     }
 
-    const logOut = () => {
-        setUserId(null)
-        setIsUser(null)
-        Swal.fire('Se ha deslogueado exitosamente')
+    ///////// CAROUSEL - SLIDERS - IMGS 
+    const getSliders = async () => {
+        try {
+            const response = await axios.get(`${BASE_URL}/upload/sliders`)
+            const sliders = response.data
+            setImgsSlider(sliders)
+        } catch (error) {
+            console.log(error)
+        }
+
+
+
 
     }
 
+
+
+    const uploadNewSlider = async (values) => {
+        console.log(`Context`, values)
+        try {
+            const response = await axios.post(`${BASE_URL}/upload/sliders`, values, {
+                headers: {
+                    'content-type': 'multipart/form-data'
+                }
+            })
+            const sliders = response.data
+            console.log(response)
+
+            if (response.status === 200) {                
+                setImgsSlider(sliders)
+                //mensaje sweetalert2
+                agregado(response.data.message)
+            }
+
+            if (response.status === 304) {
+                //mensaje sweetalert2
+                agregado(response.data)
+            }
+
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+    const deleteSlider = async path => {
+        try {
+            const response = await axios.delete(`${BASE_URL}/upload/slider/${path}`)
+            const slider = await response.data.sliders
+            console.log(slider)
+
+            if(response.status === 200){
+                
+                setImgsSlider(response.data.sliders)
+            }
+
+        } catch (error) {
+            console.log(error)
+        } 
+    }
 
 
     return (
@@ -193,6 +254,11 @@ const UserContextProvider = ({ children }) => {
                 deleteImg,
                 handleImg,
                 createProyect,
+                imgsSlider,
+                setImgsSlider,
+                getSliders,
+                uploadNewSlider,
+                deleteSlider,
                 logOut
             }}
         >

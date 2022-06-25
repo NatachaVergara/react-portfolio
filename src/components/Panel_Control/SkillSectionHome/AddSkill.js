@@ -3,6 +3,7 @@ import React from 'react'
 import MenuCPanel from '../MenuCPanel/MenuCPanel'
 import { ImageInput } from "formik-file-and-image-input/lib";
 import { useUserContext } from '../../../Store/useContext'
+import BtnAdd from '../../Buttons/BtnAdd';
 
 
 
@@ -11,7 +12,7 @@ const AddSkill = () => {
     const imageFormats = ["image/png", "image/svg", "image/jpeg", "image/jpg"];
 
 
-    const onhandleSubmit = (values) => {
+    const onHandleSubmit = (values) => {
         uploadImg(values)
     }
 
@@ -27,8 +28,7 @@ const AddSkill = () => {
                     }}
                     onSubmit={(values) => {
                         console.log(values)
-                        values.image === null && alert('ingrese una imagen')
-                        onhandleSubmit(values)
+                        values.image === null ? alert('ingrese una imagen') : onHandleSubmit(values)
                     }}
 
                 >
@@ -38,9 +38,13 @@ const AddSkill = () => {
                                 name="image"
                                 validFormats={imageFormats}
                             />
-                            {userType === 'TEST' ? <button type='submit' disabled='true' className='btn btn-outline-success text-dark  img-button'>btn desabilitado</button> : <button type='submit' className='btn btn-outline-success text-dark  img-button'>Agregar</button>}
-                         
-
+                            {userType === 'TEST' ?
+                                <BtnAdd type='submit' onHandleClick={() => alert('Esta agregando una imagen')} styles='btn btn-outline-success text-dark  img-button' text='Agregar' />
+                                :
+                                <BtnAdd
+                                    type='submit'
+                                    styles='btn btn-outline-success text-dark  img-button'
+                                    text='Agregar' />}
                         </div>
 
                     </Form>

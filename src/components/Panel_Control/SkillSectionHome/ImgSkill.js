@@ -2,6 +2,7 @@ import React from 'react'
 import { MdOutlineDelete } from 'react-icons/md';
 import { useUserContext } from '../../../Store/useContext';
 import { BASE_URL } from '../../../Utils/URL';
+import BtnDelete from '../../Buttons/BtnDelete';
 
 
 const ImgSkill = ({ imagenes, onDelete }) => {
@@ -19,11 +20,11 @@ const ImgSkill = ({ imagenes, onDelete }) => {
             <img className="img-thumbnail" src={`${BASE_URL}/upload/images/${imagen.path}`} alt="..."></img>
 
 
-            {userType === 'TEST' ? <button className='btn btn-danger img-button' disabled='true' onClick={() => handleDelete(imagen.path)}>
-              <MdOutlineDelete />
-            </button> : <button className='btn btn-danger img-button' onClick={() => handleDelete(imagen.path)}>
-              <MdOutlineDelete />
-            </button>}
+            {userType === 'TEST' ?
+              <BtnDelete onHandleDelete={() => alert('Está eliminando una imagen de skill')} styles='btn btn-danger img-button' text={<MdOutlineDelete />} />
+              :
+              <BtnDelete onHandleDelete={() => handleDelete(imagen.path)} styles='btn btn-danger img-button' text={<MdOutlineDelete />} />
+            }
 
           </div>
         ))}

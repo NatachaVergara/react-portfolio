@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MenuCPanel from '../MenuCPanel/MenuCPanel'
 import SkillsCards from './SkillsCards'
 import './imgSkills.css'
+import { useUserContext } from '../../../Store/useContext'
 
 
 
 
 const SkillContainer = () => {
+  const {getImagenes} = useUserContext()
+
+  useEffect(()=>{
+    getImagenes()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
 
   return (
     <>

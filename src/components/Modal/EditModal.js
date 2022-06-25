@@ -46,9 +46,9 @@ const EditModal = (props) => {
         formData.append('tec', tec)
 
         
-        for (const value of formData.values()) {
-            console.log(value);
-        }
+        // for (const value of formData.values()) {
+        //     console.log(value);
+        // }
 
         axios.put(`${BASE_URL}/proyects/${id}`, formData, {
             headers: { 'content-type': 'multipart/form-data' }
