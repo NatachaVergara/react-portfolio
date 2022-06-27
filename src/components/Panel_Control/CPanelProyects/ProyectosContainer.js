@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react'
-import CpanelCards from './CpanelCards'
 import Swal from 'sweetalert2';
 import { useUserContext } from '../../../Store/useContext'
-import Spinner from '../../Spinner';
-import MenuCPanel from '../MenuCPanel/MenuCPanel'
-import style from './CardProyects.module.scss'
+import { BASE_URL } from '../../../Utils/URL';
+import SectionContainer from '../../SectionContainer';
+
 
 
 const ProyectosContainer = () => {
@@ -66,21 +65,19 @@ const ProyectosContainer = () => {
 
     return (
         <>
-            <MenuCPanel linktTo='/controlPanel/addproyecto' name='Agregar proyecto' />
-            {loading ? <Spinner text='Cargando....' /> :
-                <div className={style.row}>
-                    {proyects.map(item => (<CpanelCards key={item.id}
-                        id={item.id}
-                        img={item.img}
-                        link={item.link}
-                        tec={item.tec}
-                        title={item.title}
-                        logo={item.logo}
-                        deleteFile={deleteFile}
-                        style={style}
+            <SectionContainer
+            to={'/controlPanel/addProyect'}
+            name={'Agregar un proyecto'}
+            title={'Proyectos'}
+            simple={false}
+            imgs={[]}
+            proyects={proyects}
+            imgSrc={`${BASE_URL}/proyects/`}
+            onHandleDelete={deleteFile}
+            
+            />
 
-                    />))}
-                </div>}
+
         </>
 
 

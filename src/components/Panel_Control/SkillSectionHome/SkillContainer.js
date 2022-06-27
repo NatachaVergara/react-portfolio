@@ -1,29 +1,55 @@
 import React, { useEffect } from 'react'
-import MenuCPanel from '../MenuCPanel/MenuCPanel'
-import SkillsCards from './SkillsCards'
-import './imgSkills.css'
 import { useUserContext } from '../../../Store/useContext'
+import SectionContainer from '../../SectionContainer'
+import { BASE_URL } from '../../../Utils/URL'
+import Swal from 'sweetalert2'
 
 
 
 
 const SkillContainer = () => {
-  const {getImagenes} = useUserContext()
+  const { getImagenes, imagenes, deleteImg } = useUserContext()
 
-  useEffect(()=>{
+  useEffect(() => {
     getImagenes()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+
+  const onHandleDelete = (path) => {
+    Swal.fire({
+      title: '¿Está seguro que quiere eliminar?',
+      text: "Una vez eliminado no se puede revertir!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteImg(path)
+        Swal.fire(
+          `Deleted! ${path} `,
+          'Su imagen ha sido eliminada.',
+          'success'
+        )
+      }
+    })
+  }
 
 
   return (
     <>
-      <MenuCPanel linktTo='/controlPanel/addskill' name='Agregar una imagen de skill' />
-      <div className='skillContainer'>
-         <SkillsCards />
-         </div>
-
-    </>
+      <SectionContainer
+        to={'/controlPanel/addskill'}
+        name={'Agregar skill'}
+        title={'Imagenes de skills'}
+        simple={true}
+        imgs={imagenes}
+        imgSrc={`${BASE_URL}/upload/images/`}
+        onHandleDelete={onHandleDelete}
+      />
+   </>
   )
 }
 

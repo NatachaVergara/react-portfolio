@@ -1,0 +1,49 @@
+.container{
+    width: 90%;
+    height: auto;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;    
+    align-items: center; 
+    margin: auto;
+      
+
+    h2{
+        margin:50px auto;      
+    }
+
+
+  
+
+}
+
+.cards{
+    width: 90%;
+    height :auto;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    align-items: center;
+    margin: auto;
+    padding-bottom: 50px; 
+   
+    
+}
+
+.card{
+    border: 1px rgb(116, 115, 115) solid;
+    margin-bottom:15px;
+    background: white;
+    border-radius: 5px;
+    
+} 
+
+
+.buttons{
+    margin: 15px;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    
+}

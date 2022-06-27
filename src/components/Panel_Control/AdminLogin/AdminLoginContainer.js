@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import AdminLoginForm from '../AdminLogin/AdminLoginForm'
+import AdminLoginForm from './AdminLoginForm'
 import './Formulario.scss'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'

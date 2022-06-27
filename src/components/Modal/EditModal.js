@@ -14,7 +14,7 @@ const EditModal = (props) => {
     const [path, setImg] = useState(props.img)
     const [show, setShow] = useState(true)
     let id = props.id
-
+    // console.log(props)
     const handleImg = (e) => {
         const imagen = e.target.files[0]
         if (imagen) {
@@ -45,7 +45,7 @@ const EditModal = (props) => {
         formData.append('logo', logo)
         formData.append('tec', tec)
 
-        
+
         // for (const value of formData.values()) {
         //     console.log(value);
         // }
@@ -170,7 +170,7 @@ const EditModal = (props) => {
                                     onBlur={handleBlur}
                                     value={values.tec}
                                 />
-                                {userType === 'TEST' ? <><Button type="submit" disabled='true'>
+                                {userType === 'TEST' ? <><Button type="submit" disabled={true}>
                                     desabilitado
                                 </Button>
                                     <Button variant="warning" onClick={props.handleclose}>Cancelar</Button></> :

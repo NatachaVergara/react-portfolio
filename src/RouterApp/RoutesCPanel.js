@@ -6,6 +6,7 @@ import CarouselContailer from '../components/Panel_Control/Carousel/CarouselCont
 import ProyectosContainer from '../components/Panel_Control/CPanelProyects/ProyectosContainer'
 import AddSkill from '../components/Panel_Control/SkillSectionHome/AddSkill'
 import SkillContainer from '../components/Panel_Control/SkillSectionHome/SkillContainer'
+import SectionContainer from '../components/SectionContainer'
 import Inicio from '../Views/Inicio'
 
 
@@ -17,12 +18,12 @@ const RoutesCPanel = () => {
                 <Route path='/controlPanel'>
                     <Route path='inicio' element={<Inicio />} />
                     <Route path='proyectos' element={<ProyectosContainer />} />
-                    <Route path='addproyecto' element={<AddProyect />} />
+                    <Route path='addproyect' element={<AddProyect />} />
                     <Route path='homeskills' element={<SkillContainer />} />
                     <Route path='addskill' element={<AddSkill />} />
                     <Route path='carousel' element={<CarouselContailer />} />
                     <Route path='addslider' element={<AddSlider />} />
-
+                    <Route path="prueba" element={<SectionContainer/>} />
 
                 </Route>
             </Routes>

@@ -1,5 +1,5 @@
 import React from 'react'
-import AdminLogout from '../components/Panel_Control/AdminLogout/AdminLogout'
+import AdminLogout from '../components/Panel_Control/AdminLogout'
 import AdminLoginContainer from '../components/Panel_Control/AdminLogin/AdminLoginContainer'
 import { useUserContext } from '../Store/useContext'
 

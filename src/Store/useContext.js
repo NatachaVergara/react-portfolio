@@ -16,7 +16,7 @@ const getLocalUserID = () => {
     if (userID) {
         return JSON.parse(sessionStorage.getItem('userIDSS'))
     } else {
-        return null
+        return []
     }
 }
 
@@ -27,7 +27,7 @@ const getSSUser = () => {
     if (isUser) {
         return JSON.parse(sessionStorage.getItem('isUserSS'))
     } else {
-        return null
+        return []
     }
 
 }
@@ -39,12 +39,35 @@ const getUserTypeSS = () => {
     if (userType) {
         return JSON.parse(sessionStorage.getItem('userTypeSS'))
     } else {
-        return null
+        return []
     }
 
 
 }
 
+
+
+const getSkillSS = () => {
+    let skillSS = sessionStorage.getItem('skillImg')
+
+    if (skillSS) {
+        return JSON.parse(sessionStorage.getItem('skillImg'))
+    } else {
+        return []
+    }
+
+}
+
+const getCarouselSS = () => {
+    let carouselSS = sessionStorage.getItem('carousel')
+
+    if (carouselSS) {
+        return JSON.parse(sessionStorage.getItem('carousel'))
+    } else {
+        return []
+    }
+
+}
 
 
 
@@ -54,10 +77,10 @@ const UserContextProvider = ({ children }) => {
     const [isUser, setIsUser] = useState(getSSUser())
     const [userType, setUserType] = useState(getUserTypeSS())
     const [proyects, setProyects] = useState([])
-    const [imagenes, setImagenes] = useState([])
+    const [imagenes, setImagenes] = useState(getSkillSS())
     const [loading, setLoading] = useState(false)
-    const [imgsSlider, setImgsSlider] = useState([])
-
+    const [imgsSlider, setImgsSlider] = useState(getCarouselSS())
+    
 
     useEffect(() => {
         sessionStorage.setItem('userIDSS', JSON.stringify(userId))
@@ -70,6 +93,16 @@ const UserContextProvider = ({ children }) => {
     useEffect(() => {
         sessionStorage.setItem('userTypeSS', JSON.stringify(userType))
     }, [userType])
+
+    useEffect(() => {
+        sessionStorage.setItem('skillImg', JSON.stringify(imagenes))
+    }, [imagenes])
+
+    useEffect(() => {
+        sessionStorage.setItem('carousel', JSON.stringify(imgsSlider))
+    }, [imgsSlider])
+
+
 
     const logOut = () => {
         setUserId(null)
@@ -90,6 +123,11 @@ const UserContextProvider = ({ children }) => {
             .finally(() => setLoading(false));
 
     }
+
+    useEffect(() => {
+        console.log('loading proyects')
+        findProyects()
+    }, [])
 
     const [img, setImg] = useState(null)
 
@@ -175,7 +213,13 @@ const UserContextProvider = ({ children }) => {
         try {
             const response = await axios.get(`${BASE_URL}/upload/sliders`)
             const sliders = response.data
-            setImgsSlider(sliders)
+
+            if (sliders.length === 0) {
+                setImgsSlider([])
+            } else {
+                setImgsSlider(sliders)
+            }
+
         } catch (error) {
             console.log(error)
         }
@@ -195,18 +239,19 @@ const UserContextProvider = ({ children }) => {
                     'content-type': 'multipart/form-data'
                 }
             })
-            const sliders = response.data
+            const sliders = response.data.sliders
+            const message = response.data.message
             console.log(response)
 
-            if (response.status === 200) {                
+            if (response.status === 200) {
                 setImgsSlider(sliders)
                 //mensaje sweetalert2
-                agregado(response.data.message)
+                agregado(message)
             }
 
             if (response.status === 304) {
                 //mensaje sweetalert2
-                agregado(response.data)
+                agregado(message)
             }
 
 
@@ -222,14 +267,14 @@ const UserContextProvider = ({ children }) => {
             const slider = await response.data.sliders
             console.log(slider)
 
-            if(response.status === 200){
-                
-                setImgsSlider(response.data.sliders)
+            if (response.status === 200) {
+                setImgsSlider(slider)
+
             }
 
         } catch (error) {
             console.log(error)
-        } 
+        }
     }
 
 
