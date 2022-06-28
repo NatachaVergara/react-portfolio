@@ -80,7 +80,7 @@ const UserContextProvider = ({ children }) => {
     const [imagenes, setImagenes] = useState(getSkillSS())
     const [loading, setLoading] = useState(false)
     const [imgsSlider, setImgsSlider] = useState(getCarouselSS())
-    
+
 
     useEffect(() => {
         sessionStorage.setItem('userIDSS', JSON.stringify(userId))
@@ -178,7 +178,7 @@ const UserContextProvider = ({ children }) => {
         }
     }
 
-
+    //Imagenes de skills
     const getImagenes = async () => {
         const response = await axios.get(`${BASE_URL}/upload/images`)
         const imgs = await response.data.imgs
@@ -199,6 +199,27 @@ const UserContextProvider = ({ children }) => {
             .catch(err => console.log(err))
     }
 
+    const updateImg = async (file, path) => {
+        console.log(file, path)
+
+        try {
+            const response = await axios.put(`${BASE_URL}/upload/${path}`, file, { headers: { 'Content-Type': 'multipart/form-data' } })
+            const img = await response.data.imagenes
+            console.log(img)
+
+            if (response.status === 200) {
+                setImagenes(img)
+            }
+
+
+        } catch (error) {
+            console.log(error)
+        }
+
+
+
+
+    }
 
 
     const deleteImg = async (path) => {
@@ -304,6 +325,7 @@ const UserContextProvider = ({ children }) => {
                 getSliders,
                 uploadNewSlider,
                 deleteSlider,
+                updateImg,
                 logOut
             }}
         >

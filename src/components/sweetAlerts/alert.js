@@ -44,6 +44,32 @@ export const onEditAlert = (path) => {
       })
 }
 
+export const moodalEditImg = (imgUrl) =>{
+    Swal.fire({
+        title: '¿Está seguro que quiere actualizar la imagen?',
+         imageUrl: imgUrl,        
+         imageWidth: 100,
+         imageHeight: 100,
+         imageAlt: 'Custom image',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, actualizar!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+           
+            Swal.fire({
+                title: 'Imagen actualizada'               
+              })
+        }
+    })
+
+
+
+
+   
+}
+
 
 export const errorLogin = (message) => {
     Swal.fire(`${message}`)

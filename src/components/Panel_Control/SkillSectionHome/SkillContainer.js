@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
 
 
 const SkillContainer = () => {
-  const { getImagenes, imagenes, deleteImg } = useUserContext()
+  const { getImagenes, imagenes, deleteImg, updateImg } = useUserContext()
 
   useEffect(() => {
     getImagenes()
@@ -48,6 +48,7 @@ const SkillContainer = () => {
         imgs={imagenes}
         imgSrc={`${BASE_URL}/upload/images/`}
         onHandleDelete={onHandleDelete}
+        update={updateImg}
       />
    </>
   )

@@ -6,7 +6,7 @@ const CardsContainer = (props) => {
 
   // console.log('Cards Container', props)
 
-
+const update = props.props.update
 
   return (
     <>
@@ -24,6 +24,7 @@ const CardsContainer = (props) => {
                 path={img.path}
                 src={props.props.imgSrc}
                 onHandleDelete={props.props.onHandleDelete}
+                update={update}
               />
             ))
           }

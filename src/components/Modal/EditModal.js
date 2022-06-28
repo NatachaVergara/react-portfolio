@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 import styles from '../Styles/formularios.module.scss'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
@@ -170,7 +169,8 @@ const EditModal = (props) => {
                                     onBlur={handleBlur}
                                     value={values.tec}
                                 />
-                                {userType === 'TEST' ? <><Button type="submit" disabled={true}>
+                                {userType === 'TEST' ? <>
+                                <Button type="submit" disabled={true}>
                                     desabilitado
                                 </Button>
                                     <Button variant="warning" onClick={props.handleclose}>Cancelar</Button></> :
