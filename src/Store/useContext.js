@@ -215,10 +215,6 @@ const UserContextProvider = ({ children }) => {
         } catch (error) {
             console.log(error)
         }
-
-
-
-
     }
 
 
@@ -244,10 +240,6 @@ const UserContextProvider = ({ children }) => {
         } catch (error) {
             console.log(error)
         }
-
-
-
-
     }
 
 
@@ -282,11 +274,39 @@ const UserContextProvider = ({ children }) => {
     }
 
 
+    const updateSlader = async (file, path) => {
+        console.log('File', file, 'Path', path)
+        const headers = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        };
+
+
+        try {
+            const response = await axios.put(`${BASE_URL}/upload/slider/${path}`, file, headers)
+            const sliders = response.data.sliders
+            const message = response.data.message
+
+            if (response.status === 200) {
+                setImgsSlider(sliders)
+                //mensaje sweetalert2
+                agregado(message)
+            }
+
+            if (response.status === 304) {
+                //mensaje sweetalert2
+                agregado(message)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     const deleteSlider = async path => {
         try {
             const response = await axios.delete(`${BASE_URL}/upload/slider/${path}`)
             const slider = await response.data.sliders
-            console.log(slider)
 
             if (response.status === 200) {
                 setImgsSlider(slider)
@@ -326,6 +346,7 @@ const UserContextProvider = ({ children }) => {
                 uploadNewSlider,
                 deleteSlider,
                 updateImg,
+                updateSlader,
                 logOut
             }}
         >

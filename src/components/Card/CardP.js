@@ -12,8 +12,8 @@ const CardP = (props) => {
     const handleOpen = () => setShow(true);
     const handleClose = () => setShow(false);
 
-    // console.log(props)
-
+    console.log('Card',props)
+    
     return (
         <>
             <div className="card m-2" style={{ width: "15rem" }}>
@@ -31,7 +31,7 @@ const CardP = (props) => {
                             :
                             <>
                                 <BtnEdit onHandleEdit={handleOpen} styles='btn btn-danger me-5' text={<MdModeEdit />} />
-                                <BtnDelete onHandleDelete={() => props.onHandleDelete(props.path)} styles='btn btn-success' text={< MdOutlineDelete />} />
+                                <BtnDelete onHandleDelete={() => props.onhandledelete(props.path)} styles='btn btn-success' text={< MdOutlineDelete />} />
 
                             </>
 

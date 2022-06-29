@@ -8,62 +8,47 @@ import InputFile from '../Inputs/InputFile'
 
 
 const ModalEditImg = (props) => {
- 
-  
-
   let oldPath = props.path
 
-  const onHandleSubmit = (file) =>{
+  const onHandleSubmit = (file) => {
 
     Swal.fire({
       title: '¿Está seguro que quiere actualizar la imagen?',
-       imageUrl: `${props.imgurl}`,        
-       imageWidth: 100,
-       imageHeight: 100,
-       imageAlt: 'Custom image',
+      imageUrl: `${props.imgurl}`,
+      imageWidth: 100,
+      imageHeight: 100,
+      imageAlt: 'Custom image',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Si, actualizar!'
-  }).then((result) => {
+    }).then((result) => {
       if (result.isConfirmed) {
         props.update(file, oldPath)
-          Swal.fire({
-              title: 'Imagen actualizada',
+        Swal.fire({
+          title: 'Imagen actualizada',
 
-            })
+        })
       }
-  })
-    console.log(file)
+    })
+    // console.log(file)
     props.handleclose()
-
-
-
   }
-  
-
 
   return (
-    <Modal  {...props} >   
-    <Modal.Body>
-    <InputFile   
-    onHandleSubmit={onHandleSubmit}
-    
-    />
+    <Modal  {...props} >
+      <Modal.Body>
+        <InputFile
+          onHandleSubmit={onHandleSubmit}
 
-
-
-
-    </Modal.Body>
-    <Modal.Footer>
-      <Button variant="secondary" onClick={props.handleclose}>
-        Close
-      </Button>
-      {/* <Button variant="primary" onClick={props.onHandleclick}>
-        Save Changes
-      </Button> */}
-    </Modal.Footer>
-  </Modal>
+        />
+      </Modal.Body>
+      <Modal.Footer>
+        <Button variant="secondary" onClick={props.handleclose}>
+          Close
+        </Button>
+      </Modal.Footer>
+    </Modal>
   )
 }
 

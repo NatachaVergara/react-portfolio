@@ -57,7 +57,7 @@ const Card = (props) => {
                 onHandleEdit={() => handleShow()}
               />
               <BtnDelete
-                onHandleDelete={() => props.onHandleDelete(props.path)}
+                onHandleDelete={() => props.onhandledelete(props.path)}
                 styles='btn btn-outline-danger'
                 text={<MdOutlineDeleteOutline />} />
 

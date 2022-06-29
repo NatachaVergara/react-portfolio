@@ -43,11 +43,11 @@ const SkillContainer = () => {
       <SectionContainer
         to={'/controlPanel/addskill'}
         name={'Agregar skill'}
-        title={'Imagenes de skills'}
-        simple={true}
-        imgs={imagenes}
-        imgSrc={`${BASE_URL}/upload/images/`}
-        onHandleDelete={onHandleDelete}
+        title={'Imagenes de skills'}        
+        cardp={false}
+        objeto={imagenes}        
+        src={`${BASE_URL}/upload/images/`}
+        onhandledelete={onHandleDelete}
         update={updateImg}
       />
    </>

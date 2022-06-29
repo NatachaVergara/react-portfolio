@@ -4,26 +4,25 @@ import CardP from '../Card/CardP'
 
 const CardsContainer = (props) => {
 
-  // console.log('Cards Container', props)
+  console.log('Cards Container', props)
 
-const update = props.props.update
-
+  const update = props.props.update
+  const cardProyecto = props.props.cardp
   return (
     <>
       <h2>{props.title} </h2>
-      {props.imgs.length !== 0 ?
+      {cardProyecto !== true ?
 
         <div className={props.styles.cards}>
-          {props.imgs === 0 ? <h1> No hay imagenes </h1> :
+          {props.objeto === 0 ? <h1> No hay imagenes </h1> :
 
-            props.imgs.map(img => (
+            props.objeto.map(img => (
               <Card
                 styles={props.styles}
-                simple={props.simple}
                 key={img.id}
                 path={img.path}
-                src={props.props.imgSrc}
-                onHandleDelete={props.props.onHandleDelete}
+                src={props.props.src}
+                onhandledelete={props.props.onhandledelete}
                 update={update}
               />
             ))
@@ -31,22 +30,22 @@ const update = props.props.update
         </div>
         :
         <div className={props.styles.cards}>
-          {props.proyects === 0 ? <>No hay proyectos</> :
+          {props.objeto.length === 0 ? <>No hay proyectos</> :
 
-            props.proyects.map(proyect => (
-              <CardP 
-              styles={props.styles}
-              key={proyect.id}
-              path={proyect.img}
-              id={proyect.id}
-              link={proyect.link}
-              logo={proyect.logo}              
-              title={proyect.title}
-              tec={proyect.tec}
-              src={props.props.imgSrc}
-              onHandleDelete={props.props.onHandleDelete}
+            props.objeto.map(proyect => (
+              <CardP
+                styles={props.styles}
+                key={proyect.id}
+                path={proyect.img}
+                id={proyect.id}
+                link={proyect.link}
+                logo={proyect.logo}
+                title={proyect.title}
+                tec={proyect.tec}
+                src={props.props.src}
+                onhandledelete={props.props.onhandledelete}
 
-              
+
               />
 
             ))

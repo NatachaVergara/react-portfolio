@@ -9,7 +9,7 @@ import SectionContainer from '../../SectionContainer';
 
 
 const ProyectosContainer = () => {
-    const { proyects, loading, findProyects, deleteProyectbyId } = useUserContext()
+    const { proyects,findProyects, deleteProyectbyId } = useUserContext()
     useEffect(() => {
         console.log('loading proyects')
         findProyects()
@@ -37,15 +37,13 @@ const ProyectosContainer = () => {
             showCancelButton: true,
             confirmButtonText: 'Borrar!',
             cancelButtonText: 'Cancelar!',
-            reverseButtons: true
+            reverseButtons: false
         }).then((result) => {
             if (result.isConfirmed) {
                 swalWithBootstrapButtons.fire(
                     'Borrado!',
                     'Su archivo ha sido borrado exitosamente',
-                    onHandleDelete(img),
-
-
+                    onHandleDelete(img)
                 )
             } else if (
                 /* Read more about handling dismissals below */
@@ -66,15 +64,13 @@ const ProyectosContainer = () => {
     return (
         <>
             <SectionContainer
-            to={'/controlPanel/addProyect'}
-            name={'Agregar un proyecto'}
-            title={'Proyectos'}
-            simple={false}
-            imgs={[]}
-            proyects={proyects}
-            imgSrc={`${BASE_URL}/proyects/`}
-            onHandleDelete={deleteFile}
-            
+                to={'/controlPanel/addProyect'}
+                name={'Agregar un proyecto'}
+                title={'Proyectos'}
+                cardp={true}
+                objeto={proyects}                
+                src={`${BASE_URL}/proyects/`}
+                onhandledelete={deleteFile}
             />
 
 

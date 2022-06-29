@@ -7,7 +7,7 @@ import SectionContainer from '../../SectionContainer/SectionContainer'
 
 
 const CarouselContailer = () => {
-    const { getSliders, imgsSlider, deleteSlider } = useUserContext()
+    const { getSliders, imgsSlider, deleteSlider, updateSlader } = useUserContext()
 
 
     useEffect(() => {
@@ -46,11 +46,12 @@ const CarouselContailer = () => {
             <SectionContainer
                 to={'/controlPanel/addslider'}
                 name={'Agregar slider'}
-                title={'Imagenes del carouse'}
-                simple={true}
-                imgs={imgsSlider}
-                imgSrc={`${BASE_URL}/upload/slider/`}
+                title={'Imagenes del carouse'}  
+                cardp={false}              
+                objeto={imgsSlider}
+                src={`${BASE_URL}/upload/slider/`}
                 onHandleDelete={onHandleDelete}
+                update={updateSlader}
 
             />
         </>
