@@ -15,7 +15,7 @@ const RoutesCPanel = () => {
         <div className='d-flex flex-column flex-md-row  h-0 h-md-100 bg-warning'>           
             <Outlet />
             <Routes>
-                <Route path='/controlPanel'>
+                <Route path='/controlpanel'>
                     <Route path='inicio' element={<Inicio />} />
                     <Route path='proyectos' element={<ProyectosContainer />} />
                     <Route path='addproyect' element={<AddProyect />} />

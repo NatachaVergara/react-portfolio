@@ -14,7 +14,7 @@ const AddSkill = () => {
 
     return (
         <>
-            <MenuCPanel linktTo='/controlPanel/homeskills' name='Skills' />
+            <MenuCPanel linktTo='/controlpanel/homeskills' name='Skills' />
             <InputFile
                 onHandleSubmit={onHandleSubmit}
             />

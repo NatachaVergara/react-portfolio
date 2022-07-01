@@ -12,46 +12,40 @@ export const useUserContext = () => {
 
 const getLocalUserID = () => {
     let userID = sessionStorage.getItem('userIDSS')
-
     if (userID) {
         return JSON.parse(sessionStorage.getItem('userIDSS'))
     } else {
-        return []
+        return null
     }
 }
 
 
 const getSSUser = () => {
     let isUser = sessionStorage.getItem('isUserSS')
-
     if (isUser) {
         return JSON.parse(sessionStorage.getItem('isUserSS'))
     } else {
-        return []
+        return null
     }
-
 }
 
 
 const getUserTypeSS = () => {
     let userType = sessionStorage.getItem('userTypeSS')
-
     if (userType) {
         return JSON.parse(sessionStorage.getItem('userTypeSS'))
     } else {
-        return []
+        return null
     }
-
-
 }
 
 
 
 const getSkillSS = () => {
-    let skillSS = sessionStorage.getItem('skillImg')
+    let skillSS = localStorage.getItem('skillImg')
 
     if (skillSS) {
-        return JSON.parse(sessionStorage.getItem('skillImg'))
+        return JSON.parse(localStorage.getItem('skillImg'))
     } else {
         return []
     }
@@ -59,10 +53,10 @@ const getSkillSS = () => {
 }
 
 const getCarouselSS = () => {
-    let carouselSS = sessionStorage.getItem('carousel')
+    let carouselSS = localStorage.getItem('carousel')
 
     if (carouselSS) {
-        return JSON.parse(sessionStorage.getItem('carousel'))
+        return JSON.parse(localStorage.getItem('carousel'))
     } else {
         return []
     }
@@ -95,11 +89,11 @@ const UserContextProvider = ({ children }) => {
     }, [userType])
 
     useEffect(() => {
-        sessionStorage.setItem('skillImg', JSON.stringify(imagenes))
+        localStorage.setItem('skillImg', JSON.stringify(imagenes))
     }, [imagenes])
 
     useEffect(() => {
-        sessionStorage.setItem('carousel', JSON.stringify(imgsSlider))
+        localStorage.setItem('carousel', JSON.stringify(imgsSlider))
     }, [imgsSlider])
 
 
@@ -110,6 +104,27 @@ const UserContextProvider = ({ children }) => {
         Swal.fire('Se ha deslogueado exitosamente')
 
     }
+    //Imagenes de skills
+    const getImagenes = async () => {
+        try {
+            const responseSkills = await axios.get(`${BASE_URL}/upload/images`)
+            const responseSliders = await axios.get(`${BASE_URL}/upload/sliders`)
+            const imgsSkills = await responseSkills.data
+            const sliders = responseSliders.data
+
+            setImagenes(imgsSkills)
+            setImgsSlider(sliders)
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        console.log('context')
+        getImagenes()
+    }, [])
+
 
 
     const findProyects = async () => {
@@ -163,9 +178,6 @@ const UserContextProvider = ({ children }) => {
             .catch(err => console.log(err))
     }
 
-
-
-
     const deleteProyectbyId = async (path) => {
         try {
             await axios.delete(`${BASE_URL}/proyects/${path}`)
@@ -178,40 +190,47 @@ const UserContextProvider = ({ children }) => {
         }
     }
 
-    //Imagenes de skills
-    const getImagenes = async () => {
-        const response = await axios.get(`${BASE_URL}/upload/images`)
-        const imgs = await response.data.imgs
-        setImagenes(imgs)
-    }
 
-    const uploadImg = (values) => {
-        console.log(values)
-        axios.post(`${BASE_URL}/upload`, values, {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        })
-            .then(res => {
-                // console.log(res.data)
-                setImagenes(res.data.imagenes)
+
+
+
+    const uploadImg = async values => {
+        try {
+            const response = await axios.post(`${BASE_URL}/upload`, values, {
+                headers: { 'content-type': 'multipart/form-data' }
             })
-            .catch(err => console.log(err))
-    }
+            const img = await response.data.registros
+            const msg = await response.data.message
+            console.log(response)
+            // console.log(msg)
 
+            if (response.status === 201) {
+                console.log(msg)
+                setImagenes(img)
+            } else {
+                console.log('Ha ocurrido un error')
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
     const updateImg = async (file, path) => {
         console.log(file, path)
 
         try {
             const response = await axios.put(`${BASE_URL}/upload/${path}`, file, { headers: { 'Content-Type': 'multipart/form-data' } })
-            const img = await response.data.imagenes
+            const img = await response.data.registros
+            const msg = await response.data.message
             console.log(img)
+            console.log(msg)
 
             if (response.status === 200) {
+                console.log(msg)
                 setImagenes(img)
+            } else {
+                console.log('Ha ocurrido un error')
             }
-
-
         } catch (error) {
             console.log(error)
         }
@@ -219,28 +238,32 @@ const UserContextProvider = ({ children }) => {
 
 
     const deleteImg = async (path) => {
-        const response = await axios.delete(`${BASE_URL}/upload/${path}`)
-        const img = await response.data.imagenes
-        // console.log(img)
-        setImagenes(img)
-    }
-
-    ///////// CAROUSEL - SLIDERS - IMGS 
-    const getSliders = async () => {
         try {
-            const response = await axios.get(`${BASE_URL}/upload/sliders`)
-            const sliders = response.data
-
-            if (sliders.length === 0) {
-                setImgsSlider([])
+            const response = await axios.delete(`${BASE_URL}/upload/${path}`)
+            const img = await response.data.registros
+            const msg = await response.data.message
+            if (response.status === 200) {
+                console.log(msg)
+                setImagenes(img)
             } else {
-                setImgsSlider(sliders)
+                console.log('Ha ocurrido un error')
             }
-
         } catch (error) {
             console.log(error)
         }
     }
+
+    ///////// CAROUSEL - SLIDERS - IMGS 
+    // const getSliders = async () => {
+    //     try {
+    //         const responseSliders = await axios.get(`${BASE_URL}/upload/sliders`)
+    //         const sliders = responseSliders.data
+    //         setImgsSlider(sliders)
+
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
 
 
 
@@ -252,11 +275,11 @@ const UserContextProvider = ({ children }) => {
                     'content-type': 'multipart/form-data'
                 }
             })
-            const sliders = response.data.sliders
+            const sliders = response.data.registros
             const message = response.data.message
             console.log(response)
 
-            if (response.status === 200) {
+            if (response.status === 201) {
                 setImgsSlider(sliders)
                 //mensaje sweetalert2
                 agregado(message)
@@ -264,7 +287,7 @@ const UserContextProvider = ({ children }) => {
 
             if (response.status === 304) {
                 //mensaje sweetalert2
-                agregado(message)
+                agregado('Ha ocurrido un error')
             }
 
 
@@ -285,7 +308,7 @@ const UserContextProvider = ({ children }) => {
 
         try {
             const response = await axios.put(`${BASE_URL}/upload/slider/${path}`, file, headers)
-            const sliders = response.data.sliders
+            const sliders = response.data.registros
             const message = response.data.message
 
             if (response.status === 200) {
@@ -296,23 +319,29 @@ const UserContextProvider = ({ children }) => {
 
             if (response.status === 304) {
                 //mensaje sweetalert2
-                agregado(message)
+                agregado('Ha ocurrido un error')
             }
         } catch (error) {
             console.log(error)
         }
     }
 
+
+
+
     const deleteSlider = async path => {
         try {
             const response = await axios.delete(`${BASE_URL}/upload/slider/${path}`)
-            const slider = await response.data.sliders
+            const slider = await response.data.registros
 
             if (response.status === 200) {
                 setImgsSlider(slider)
-
             }
 
+            if (response.status === 304) {
+                //mensaje sweetalert2
+                agregado('Ha ocurrido un error')
+            }
         } catch (error) {
             console.log(error)
         }
@@ -332,7 +361,7 @@ const UserContextProvider = ({ children }) => {
                 setUserType,
                 imagenes,
                 setImagenes,
-                getImagenes,
+                //getImagenes,
                 findProyects,
                 loading,
                 uploadImg,
@@ -342,7 +371,7 @@ const UserContextProvider = ({ children }) => {
                 createProyect,
                 imgsSlider,
                 setImgsSlider,
-                getSliders,
+                // getSliders,
                 uploadNewSlider,
                 deleteSlider,
                 updateImg,

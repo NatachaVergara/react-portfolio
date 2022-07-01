@@ -2,18 +2,11 @@ import React from 'react'
 
 
 const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, setMsg, sendForm }) => {
-
-
     const noValidate =
         !(name.length &&
             email.length &&
             razon.length &&
             msg.length > 0)
-
-
-
-
-
     return (
         <form className='formularioContacto'>
             <div className="background">

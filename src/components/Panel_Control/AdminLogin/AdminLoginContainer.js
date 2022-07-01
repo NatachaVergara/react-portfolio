@@ -21,7 +21,7 @@ const AdminContainer = () => {
         setIsUser(res.data.isUser)
         setUserId(res.data.user.id)
         setUserType(res.data.userType)
-        navigate('/controlPanel/inicio')
+        navigate('/controlpanel/inicio')
 
       })
       .catch(error => {

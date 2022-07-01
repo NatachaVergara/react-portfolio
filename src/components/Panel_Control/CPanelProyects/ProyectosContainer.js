@@ -64,7 +64,7 @@ const ProyectosContainer = () => {
     return (
         <>
             <SectionContainer
-                to={'/controlPanel/addProyect'}
+                to={'/controlpanel/addProyect'}
                 name={'Agregar un proyecto'}
                 title={'Proyectos'}
                 cardp={true}

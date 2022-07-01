@@ -7,10 +7,8 @@ const AddSlider = () => {
   const { uploadNewSlider } = useUserContext()
 
   const onHandleSubmit = (values) => {
-    //alert('Esta agregando una imagen')
     uploadNewSlider(values)
-    // console.log(values)
-  }
+   }
 
 
   return (

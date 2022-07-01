@@ -4,7 +4,7 @@ import MenuCPanel from '../Panel_Control/MenuCPanel'
 import styles from './SectionContainer.module.scss'
 
 const SectionContainer = (props) => {
-  console.log('Section Container', props)
+  // console.log('Section Container', props)
   return (
     <>
       <MenuCPanel linktTo={props.to} name={props.name} />

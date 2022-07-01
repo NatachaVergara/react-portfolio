@@ -62,7 +62,7 @@ const Header = () => {
                             )
 
                         })}
-                        {isUser ? <li><Link to='/controlPanel/inicio' className='btn btn-outline-success m-1'>Panel de <br /> administración</Link></li> : null}
+                        {isUser ? <li><Link to='/controlpanel/inicio' className='btn btn-outline-success m-1'>Panel de <br /> administración</Link></li> : null}
 
                     </ul>
 

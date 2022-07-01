@@ -2,7 +2,6 @@ import React from 'react'
 import Button from 'react-bootstrap/esm/Button'
 import Modal from 'react-bootstrap/Modal'
 import Swal from 'sweetalert2'
-
 import InputFile from '../Inputs/InputFile'
 
 

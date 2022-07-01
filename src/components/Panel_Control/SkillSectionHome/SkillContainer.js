@@ -1,20 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useUserContext } from '../../../Store/useContext'
 import SectionContainer from '../../SectionContainer'
 import { BASE_URL } from '../../../Utils/URL'
 import Swal from 'sweetalert2'
 
 
-
-
 const SkillContainer = () => {
-  const { getImagenes, imagenes, deleteImg, updateImg } = useUserContext()
-
-  useEffect(() => {
-    getImagenes()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
+  const {  imagenes, deleteImg, updateImg } = useUserContext()
 
   const onHandleDelete = (path) => {
     Swal.fire({
@@ -41,7 +33,7 @@ const SkillContainer = () => {
   return (
     <>
       <SectionContainer
-        to={'/controlPanel/addskill'}
+        to={'/controlpanel/addskill'}
         name={'Agregar skill'}
         title={'Imagenes de skills'}        
         cardp={false}

@@ -8,7 +8,7 @@ import { BASE_URL } from '../../Utils/URL';
 import { useUserContext } from '../../Store/useContext';
 
 const EditModal = (props) => {
-    // eslint-disable-next-line no-unused-vars
+  
     const { setProyects, userType } = useUserContext()
     const [path, setImg] = useState(props.img)
     const [show, setShow] = useState(true)

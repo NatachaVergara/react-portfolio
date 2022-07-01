@@ -4,7 +4,7 @@ import CardP from '../Card/CardP'
 
 const CardsContainer = (props) => {
 
-  console.log('Cards Container', props)
+  // console.log('Cards Container', props)
 
   const update = props.props.update
   const cardProyecto = props.props.cardp

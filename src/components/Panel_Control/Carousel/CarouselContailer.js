@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react'
+import React from 'react'
 import Swal from 'sweetalert2'
 import { useUserContext } from '../../../Store/useContext'
 import { BASE_URL } from '../../../Utils/URL'
@@ -7,14 +7,7 @@ import SectionContainer from '../../SectionContainer/SectionContainer'
 
 
 const CarouselContailer = () => {
-    const { getSliders, imgsSlider, deleteSlider, updateSlader } = useUserContext()
-
-
-    useEffect(() => {
-        console.log('Cargando sliders')
-        getSliders()
-    }, [])
-
+    const {  imgsSlider, deleteSlider, updateSlader } = useUserContext()
 
     const onHandleDelete = (path) => {
         Swal.fire({
@@ -50,7 +43,7 @@ const CarouselContailer = () => {
                 cardp={false}              
                 objeto={imgsSlider}
                 src={`${BASE_URL}/upload/slider/`}
-                onHandleDelete={onHandleDelete}
+                onhandledelete={onHandleDelete}
                 update={updateSlader}
 
             />

@@ -52,7 +52,7 @@ const AddProyect = () => {
 
   return (
 
-    <><MenuCPanel linktTo='/controlPanel/proyectos' name='Proyectos' />
+    <><MenuCPanel linktTo='/controlpanel/proyectos' name='Proyectos' />
       <div className='AddProyectContainer'>
 
         <h1 className='mb-1'>Agregar proyecto</h1>

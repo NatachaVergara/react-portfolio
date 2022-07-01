@@ -12,7 +12,7 @@ const CardP = (props) => {
     const handleOpen = () => setShow(true);
     const handleClose = () => setShow(false);
 
-    console.log('Card',props)
+    // console.log('Card',props)
     
     return (
         <>
