@@ -36,9 +36,9 @@ const Header = () => {
                         <h1 >Natacha Vergara</h1>
                         {
                             isUser ? <Btn
-                             onHandleLogout={onHandleLogout}
-                             btnstyle='btn btn-outline-danger'
-                             btnName='Salir'
+                             click={onHandleLogout}
+                             styles='btn btn-outline-danger'
+                             text='Salir'
                              /> :
                                 null
                         }

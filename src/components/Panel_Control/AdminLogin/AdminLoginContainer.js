@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import AdminLoginForm from './AdminLoginForm'
-import './Formulario.scss'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { errorLogin } from '../../sweetAlerts/alert'
 import { BASE_URL } from '../../../Utils/URL'
 import { useUserContext } from '../../../Store/useContext'
-
+import styles from './Formulario.module.scss'
 const AdminContainer = () => {
   const { setUserId, setIsUser, setUserType } = useUserContext()
   const [loading, setLoading] = useState(false)
@@ -32,15 +31,11 @@ const AdminContainer = () => {
 
   }
 
-
-
-
-
   return (
-    <>
+    <div className={styles.fondo}>
       <AdminLoginForm fetchLogin={fetchLogin} loading={loading} />
 
-    </>
+    </div>
   )
 }
 

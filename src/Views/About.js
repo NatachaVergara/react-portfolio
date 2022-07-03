@@ -1,10 +1,11 @@
 import React from 'react'
-import AboutContainer from '../components/About/AboutContainer'
+import AboutMeContainer from '../components/AboutMeContainer'
+
 
 const About = () => {
   return (
     <>
-    <AboutContainer/>
+    <AboutMeContainer/>
     </>
   )
 }

@@ -2,9 +2,22 @@
     padding:0; margin:0;box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@300&display=swap');
+
+/*
+Titulos
+font-family: 'Playfair Display', serif;
+Texto
+font-family: 'Raleway', sans-serif;
+
+*/
+
+
 .menuCpanel{
     width: 150px;
 }
+
+
 
 @media screen and (max-width:576px ) {
     .menuCpanel{

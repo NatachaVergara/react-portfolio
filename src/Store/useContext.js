@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../Utils/URL'
@@ -63,6 +64,26 @@ const getCarouselSS = () => {
 
 }
 
+const getAboutMeLS = () => {
+    let aboutMeLS = localStorage.getItem('aboutMe')
+
+    if(aboutMeLS){
+        return JSON.parse(localStorage.getItem('aboutMe'))
+    }else{
+        return []
+    }
+}
+
+const getProyectsLS = () =>{
+    let proyects = localStorage.getItem('proyectsLS')
+
+    if(proyects){
+        return JSON.parse(localStorage.getItem('proyectsLS'))
+    }else{
+        return []
+    }
+}
+
 
 
 
@@ -70,31 +91,23 @@ const UserContextProvider = ({ children }) => {
     const [userId, setUserId] = useState(getLocalUserID())
     const [isUser, setIsUser] = useState(getSSUser())
     const [userType, setUserType] = useState(getUserTypeSS())
-    const [proyects, setProyects] = useState([])
+    const [proyects, setProyects] = useState(getProyectsLS())
     const [imagenes, setImagenes] = useState(getSkillSS())
     const [loading, setLoading] = useState(false)
     const [imgsSlider, setImgsSlider] = useState(getCarouselSS())
+    const [about, setAbout] = useState(getAboutMeLS())
 
 
     useEffect(() => {
         sessionStorage.setItem('userIDSS', JSON.stringify(userId))
-    }, [userId])
-
-    useEffect(() => {
         sessionStorage.setItem('isUserSS', JSON.stringify(isUser))
-    }, [isUser])
-
-    useEffect(() => {
         sessionStorage.setItem('userTypeSS', JSON.stringify(userType))
-    }, [userType])
-
-    useEffect(() => {
         localStorage.setItem('skillImg', JSON.stringify(imagenes))
-    }, [imagenes])
-
-    useEffect(() => {
         localStorage.setItem('carousel', JSON.stringify(imgsSlider))
-    }, [imgsSlider])
+        localStorage.setItem('aboutMe', JSON.stringify(about))
+        localStorage.setItem('proyectsLS', JSON.stringify(proyects))
+
+    }, [userId, isUser, userType, imagenes, imgsSlider, about, proyects])
 
 
 
@@ -110,11 +123,18 @@ const UserContextProvider = ({ children }) => {
             const responseSkills = await axios.get(`${BASE_URL}/upload/images`)
             const responseSliders = await axios.get(`${BASE_URL}/upload/sliders`)
             const responseProyects = await axios.get(`${BASE_URL}/proyects`)
+            const responseAbout = await axios.get(`${BASE_URL}/aboutme`)
+
             const imgsSkills = await responseSkills.data
             const sliders = await responseSliders.data
             const proyects = await responseProyects.data
+            const aboutMe = await responseAbout.data
+
             setImagenes(imgsSkills)
             setImgsSlider(sliders)
+            setAbout(aboutMe)
+            console.log(imgsSkills)
+            console.log(about)
 
 
             if (proyects.length > 0) {
@@ -214,7 +234,7 @@ const UserContextProvider = ({ children }) => {
 
 
 
-//Imaganes de Skills
+    //Imaganes de Skills
     const uploadImg = async values => {
         try {
             const response = await axios.post(`${BASE_URL}/upload`, values, {
@@ -397,6 +417,7 @@ const UserContextProvider = ({ children }) => {
                 deleteSlider,
                 updateImg,
                 updateSlader,
+                about,
                 logOut
             }}
         >

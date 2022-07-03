@@ -1,9 +1,14 @@
 import React from 'react'
 
-const Btn = ({ onHandleLogout, btnstyle, btnName }) => {
+const Btn = ({ click,styles, text, type }) => {
     return (
-        <button className={btnstyle} onClick={onHandleLogout }>
-            {btnName}
+        <button 
+        className={styles} 
+        onClick={click}
+        type={type}
+       
+        > 
+        {text}
         </button>
     )
 }
