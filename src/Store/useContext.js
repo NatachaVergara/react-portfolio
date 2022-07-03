@@ -109,11 +109,20 @@ const UserContextProvider = ({ children }) => {
         try {
             const responseSkills = await axios.get(`${BASE_URL}/upload/images`)
             const responseSliders = await axios.get(`${BASE_URL}/upload/sliders`)
+            const responseProyects = await axios.get(`${BASE_URL}/proyects`)
             const imgsSkills = await responseSkills.data
-            const sliders = responseSliders.data
-
+            const sliders = await responseSliders.data
+            const proyects = await responseProyects.data
             setImagenes(imgsSkills)
             setImgsSlider(sliders)
+
+
+            if (proyects.length > 0) {
+                setLoading(false)
+                setProyects(proyects)
+            } else {
+                setLoading(true)
+            }
 
         } catch (error) {
             console.log(error)
@@ -127,22 +136,25 @@ const UserContextProvider = ({ children }) => {
 
 
 
-    const findProyects = async () => {
-        setLoading(true)
-        axios.get(`${BASE_URL}/proyects`)
-            .then((res) => {
+    // const findProyects = async () => {
+    //     setLoading(true)
 
-                setProyects(res.data.data)
-            })
-            .catch(err => console.log(err))
-            .finally(() => setLoading(false));
 
-    }
 
-    useEffect(() => {
-        console.log('loading proyects')
-        findProyects()
-    }, [])
+    //     axios.get(`${BASE_URL}/proyects`)
+    //         .then((res) => {
+
+    //             setProyects(res.data.registros)
+    //         })
+    //         .catch(err => console.log(err))
+    //         .finally(() => setLoading(false));
+
+    // }
+
+    // useEffect(() => {
+    //     console.log('loading proyects')
+    //     findProyects()
+    // }, [])
 
     const [img, setImg] = useState(null)
 
@@ -163,28 +175,37 @@ const UserContextProvider = ({ children }) => {
         formData.append('logo', logo)
         formData.append('tec', tec)
 
-        // console.log(formData)
-        // console.log(img)
-        axios
-            .post(`${BASE_URL}/proyects`, formData, {
+        try {
+            const response = await axios.post(`${BASE_URL}/proyects`, formData, {
                 headers: { 'content-type': 'multipart/form-data' }
             })
-            .then((res) => {
-                console.log(res)
-                console.log(res.data)
-                console.log(res.data.message)
-                console.log(res.status)
-            })
-            .catch(err => console.log(err))
+            const proyectos = await response.data.registros
+            const msg = await response.data.message
+            if (response.status === 201) {
+                setProyects(proyectos)
+                console.log(msg)
+            } else {
+                console.log('No se ha creado el proyecto')
+            }
+        } catch (error) {
+            console.log(error)
+        }
     }
+
 
     const deleteProyectbyId = async (path) => {
         try {
-            await axios.delete(`${BASE_URL}/proyects/${path}`)
-                .then(response => {
-                    console.log(response)
-                    setProyects(response.data.fulldata)
-                })
+            const response = await axios.delete(`${BASE_URL}/proyects/${path}`)
+            const proyectos = await response.data.registros
+            const msg = await response.data.message
+
+            if (response.status === 200) {
+                setProyects(proyectos)
+                console.log(msg)
+            }
+            else {
+                console.log('No se ha podido eliminar el archivo')
+            }
         } catch (error) {
             console.log(error)
         }
@@ -193,7 +214,7 @@ const UserContextProvider = ({ children }) => {
 
 
 
-
+//Imaganes de Skills
     const uploadImg = async values => {
         try {
             const response = await axios.post(`${BASE_URL}/upload`, values, {
@@ -362,7 +383,7 @@ const UserContextProvider = ({ children }) => {
                 imagenes,
                 setImagenes,
                 //getImagenes,
-                findProyects,
+                // findProyects,
                 loading,
                 uploadImg,
                 deleteProyectbyId,

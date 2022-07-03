@@ -8,7 +8,7 @@ import { BASE_URL } from '../../Utils/URL';
 import { useUserContext } from '../../Store/useContext';
 
 const EditModal = (props) => {
-  
+
     const { setProyects, userType } = useUserContext()
     const [path, setImg] = useState(props.img)
     const [show, setShow] = useState(true)
@@ -49,17 +49,30 @@ const EditModal = (props) => {
         //     console.log(value);
         // }
 
-        axios.put(`${BASE_URL}/proyects/${id}`, formData, {
-            headers: { 'content-type': 'multipart/form-data' }
-        },
-        ).then((res) => {
-            setProyects(res.data.fulldata)
+        try {
+            const response = await axios.put(`${BASE_URL}/proyects/${id}`, formData, {
+                headers: { 'content-type': 'multipart/form-data' }
+            })
+            const proyectos = await response.data.registros
+            const msg = await response.data.message
+
+            if (response.status === 200) {
+                setProyects(proyectos)
+                alert(msg)
+                props.handleclose()
+            } else {
+                alert('Ha ocurrido un error')
+            }
+
+
+        } catch (error) {
+            console.log(error)
+            alert(error.message)
             props.handleclose()
-        }).catch(err => {
-            console.log(err)
-            alert(err.message)
-            props.handleclose()
-        })
+        }
+
+
+
 
     }
 
@@ -170,9 +183,9 @@ const EditModal = (props) => {
                                     value={values.tec}
                                 />
                                 {userType === 'TEST' ? <>
-                                <Button type="submit" disabled={true}>
-                                    desabilitado
-                                </Button>
+                                    <Button type="submit" disabled={true}>
+                                        desabilitado
+                                    </Button>
                                     <Button variant="warning" onClick={props.handleclose}>Cancelar</Button></> :
 
 

@@ -9,11 +9,12 @@ import SectionContainer from '../../SectionContainer';
 
 
 const ProyectosContainer = () => {
-    const { proyects,findProyects, deleteProyectbyId } = useUserContext()
-    useEffect(() => {
-        console.log('loading proyects')
-        findProyects()
-    }, [])
+    const { proyects, deleteProyectbyId } = useUserContext()
+    
+    // useEffect(() => {
+    //     console.log('loading proyects')
+    //     findProyects()
+    // }, [])
 
 
     const onHandleDelete = async (img) => {
@@ -68,7 +69,7 @@ const ProyectosContainer = () => {
                 name={'Agregar un proyecto'}
                 title={'Proyectos'}
                 cardp={true}
-                objeto={proyects}                
+                objeto={proyects}
                 src={`${BASE_URL}/proyects/`}
                 onhandledelete={deleteFile}
             />
