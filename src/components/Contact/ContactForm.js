@@ -27,7 +27,7 @@ const ContactForm = ({ name, setName, email, setEmail, razon, setRazon, msg, set
                         <div className={styles.screenBody}>
                             <div className={[styles.screenBodyItem, styles.left].join(' ')}>
                                 <div className={styles.appTitle}>
-                                    <span>Contáctese</span>
+                                    <span>¡Contactame!</span>
                                 </div>
 
                             </div>
