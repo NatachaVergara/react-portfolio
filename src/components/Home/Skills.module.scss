@@ -1,0 +1,49 @@
+.skills{
+    background-color: black;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    
+
+
+        h1{
+            color: #fff;
+            text-align: center;
+            margin: 20px;
+            padding: 30px;
+            text-shadow: 2px 5px 15px white;
+        }
+        .skillContainer{
+            width:50%;
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 10px;
+
+            img{
+                margin: 10px;
+                padding: 10px;
+                width: 150px;
+                height: 150px;
+                border-radius: 20px;
+            }
+    
+            img:hover{
+               transition: all 0.65s; 
+               transform: rotateY(360deg);
+            }
+            
+        }       
+
+       
+
+    
+
+
+
+}

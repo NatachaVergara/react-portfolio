@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import ContactForm from './ContactForm'
-import '../Styles/Contact.css'
 import MsgModal from '../Modal/MsgModal'
 import { BASE_URL } from '../../Utils/URL'
 import axios from 'axios'
@@ -20,37 +19,35 @@ const ContactContainer = () => {
 
     const sendForm = async (e) => {
         e.preventDefault();
-        const usuario = {}
-        usuario.mensaje = { name, email, razon, msg }
-      
+        let mensaje = {}
+        mensaje = { name, email, razon, msg }
+
 
         //Erase form
         setName('')
         setEmail('')
         setRazon('')
         setMsg('')
-        //Modal
-        handleOpen()
 
-        await axios.post(`${BASE_URL}/contacto`,
-            {
-                name, email, razon, msg
-            },
-            {
-                headers: { 'Content-Type': 'application/json' }
-            }).then(res => {
-                console.log(res)
-                console.log(res.data)
-            }).catch(err => {
-                console.log(err)
-                errorLogin(err.response.data)
-            })
+
+        try {
+            const response = await axios.post(`${BASE_URL}/contacto`, mensaje, { headers: { 'Content-Type': 'application/json' } })
+            console.log(response)
+            if (response.status === 200) {
+                //Modal
+                handleOpen()
+            }
+
+        } catch (error) {
+            console.log(error)
+            errorLogin(error.response.data.msg)
+        }
     }
 
 
 
     return (
-        <section className='form'>
+        <section>
             <ContactForm
                 name={name}
                 setName={setName}
@@ -63,7 +60,7 @@ const ContactContainer = () => {
                 sendForm={sendForm}
 
             />
-            <MsgModal open={open} handleClose={handleClose} />
+            <MsgModal open={open} handleClose={handleClose}/>
 
 
 

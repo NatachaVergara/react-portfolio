@@ -1,5 +1,7 @@
-*{
-    padding:0; margin:0;box-sizing: border-box;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@300&display=swap');
@@ -11,16 +13,14 @@ Texto
 font-family: 'Raleway', sans-serif;
 
 */
-
-
-.menuCpanel{
+.menuCpanel {
     width: 150px;
 }
 
 
 
-@media screen and (max-width:576px ) {
-    .menuCpanel{
-        width:100%;
+@media screen and (max-width:576px) {
+    .menuCpanel {
+        width: 100%;
     }
 }

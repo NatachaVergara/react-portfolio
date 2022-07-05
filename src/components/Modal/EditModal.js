@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from '../Styles/formularios.module.scss'
+import styles from './editModal.module.scss'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import { Formik } from 'formik';

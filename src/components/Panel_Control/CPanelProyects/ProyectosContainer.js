@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Swal from 'sweetalert2';
 import { useUserContext } from '../../../Store/useContext'
 import { BASE_URL } from '../../../Utils/URL';
@@ -10,11 +8,6 @@ import SectionContainer from '../../SectionContainer';
 
 const ProyectosContainer = () => {
     const { proyects, deleteProyectbyId } = useUserContext()
-    
-    // useEffect(() => {
-    //     console.log('loading proyects')
-    //     findProyects()
-    // }, [])
 
 
     const onHandleDelete = async (img) => {

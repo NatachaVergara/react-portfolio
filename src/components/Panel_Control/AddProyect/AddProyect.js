@@ -1,6 +1,6 @@
-import React  from 'react'
+import React from 'react'
 import NewProyectForm from './NewProyectForm'
-import '../../Styles/AddProyectForm.scss'
+import styles from './AddProyectForm.module.scss'
 import Swal from 'sweetalert2'
 import MenuCPanel from '../MenuCPanel/MenuCPanel'
 import { useUserContext } from '../../../Store/useContext'
@@ -52,13 +52,14 @@ const AddProyect = () => {
 
   return (
 
-    <><MenuCPanel linktTo='/controlpanel/proyectos' name='Proyectos' />
-      <div className='AddProyectContainer'>
-
+    <>
+      <MenuCPanel linktTo='/controlpanel/proyectos' name='Proyectos' />
+      <div className={styles.AddProyectContainer}>
         <h1 className='mb-1'>Agregar proyecto</h1>
         <NewProyectForm
           addProyect={onCreateProyect}
           handleImg={handleImg}
+          styles={styles}
         />
 
       </div>

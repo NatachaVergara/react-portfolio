@@ -1,9 +1,9 @@
 import React from 'react'
 import { Formik } from 'formik'
 import { useUserContext } from '../../../Store/useContext'
-import styles from '../../Styles/formularios.module.scss'
 
-const NewProyectForm = ({ addProyect, handleImg }) => {
+
+const NewProyectForm = ({ addProyect, handleImg, styles }) => {
     const { userType } = useUserContext()
 
     return (

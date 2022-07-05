@@ -41,7 +41,7 @@ const MsgModal = ({ open, handleClose }) => {
                             Mensaje enviado
                         </Typography>
                         <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                            Gracias por contactarse, en la brevedad nos estaremos comunicando. 
+                         Gracias por contactarse, en la brevedad nos estaremos comunicando. 
                         </Typography>
                     </Box>
                 </Fade>
