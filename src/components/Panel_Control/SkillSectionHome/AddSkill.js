@@ -13,12 +13,12 @@ const AddSkill = () => {
 
 
     return (
-        <>
+        <div className='d-flex flex-column flex-md-row'>
             <MenuCPanel linktTo='/controlpanel/homeskills' name='Skills' />
             <InputFile
                 onHandleSubmit={onHandleSubmit}
             />
-        </>
+        </div>
     )
 }
 

@@ -52,7 +52,7 @@ const AddProyect = () => {
 
   return (
 
-    <>
+    <div className='d-flex flex-column flex-md-row'>
       <MenuCPanel linktTo='/controlpanel/proyectos' name='Proyectos' />
       <div className={styles.AddProyectContainer}>
         <h1 className='mb-1'>Agregar proyecto</h1>
@@ -63,7 +63,7 @@ const AddProyect = () => {
         />
 
       </div>
-    </>
+    </div>
   )
 }
 

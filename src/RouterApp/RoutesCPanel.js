@@ -7,16 +7,15 @@ import ProyectosContainer from '../components/Panel_Control/CPanelProyects/Proye
 import AddSkill from '../components/Panel_Control/SkillSectionHome/AddSkill'
 import SkillContainer from '../components/Panel_Control/SkillSectionHome/SkillContainer'
 import SectionContainer from '../components/SectionContainer'
-import Inicio from '../Views/Inicio'
+import Dashboard from '../Views/Dashboard'
 
 
 const RoutesCPanel = () => {
     return (
         <div className='d-flex flex-column flex-md-row  h-0 h-md-100 bg-warning'>           
-            <Outlet />
-            <Routes>
-                <Route path='/controlpanel'>
-                    <Route path='inicio' element={<Inicio />} />
+            <Outlet />            
+                <Route path='/'>
+                    <Route path='inicio' element={<Dashboard />} />
                     <Route path='proyectos' element={<ProyectosContainer />} />
                     <Route path='addproyect' element={<AddProyect />} />
                     <Route path='homeskills' element={<SkillContainer />} />
@@ -26,7 +25,7 @@ const RoutesCPanel = () => {
                     <Route path="prueba" element={<SectionContainer/>} />
 
                 </Route>
-            </Routes>
+            
         </div>
     )
 }

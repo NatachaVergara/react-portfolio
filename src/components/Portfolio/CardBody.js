@@ -1,4 +1,4 @@
-import {useState } from 'react';
+import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import { Grid } from '@mui/material';
 import { ExpandMoreSharp, LinkRounded } from '@material-ui/icons';
-import '../Styles/CardBody.css'
+import styles from './CardBody.module.scss'
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -41,7 +41,7 @@ const CardBody = ({ id, title, link, img, tec, logo }) => {
     return (
 
         <Grid item xs={2} sm={4} md={4} data-aos="fade-down" key={id} >
-            <Card sx={{ maxWidth: 345 }} className="cuerpoEfecto" key={id} >
+            <Card sx={{ maxWidth: 345 }} className={styles.cuerpoEfecto} key={id} >
 
                 <CardHeader
                     key={id}
@@ -58,7 +58,6 @@ const CardBody = ({ id, title, link, img, tec, logo }) => {
                     component="img"
                     height="194"
                     image={`${BASE_URL}/proyects/${img}`}
-                    // src={`${BASE_URL}/proyects/${img}`}
                     alt="logo"
                 />
                 <CardActions disableSpacing>
@@ -66,7 +65,7 @@ const CardBody = ({ id, title, link, img, tec, logo }) => {
                         <LinkRounded />
 
                     </IconButton>
-                    <a href={link} rel="noreferrer" className='visitar' target='_blank' >Visitar</a>
+                    <a href={link} rel="noreferrer" className={styles.visitar} target='_blank' >Visitar</a>
 
                     <ExpandMore
                         expand={expanded}
