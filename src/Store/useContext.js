@@ -133,8 +133,8 @@ const UserContextProvider = ({ children }) => {
             setImagenes(imgsSkills)
             setImgsSlider(sliders)
             setAbout(aboutMe)
-            console.log(imgsSkills)
-            console.log(about)
+            // console.log(imgsSkills)
+            // console.log(about)
 
 
             if (proyects.length > 0) {

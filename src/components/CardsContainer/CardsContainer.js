@@ -10,7 +10,7 @@ const CardsContainer = (props) => {
   const cardProyecto = props.props.cardp
   return (
     <>
-      <h2>{props.title} </h2>
+      <h2> {props.title} </h2>
       {cardProyecto !== true ?
 
         <div className={props.styles.cards}>

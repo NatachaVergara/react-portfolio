@@ -1,6 +1,7 @@
 import React from 'react'
 import { Formik } from 'formik'
 import { useUserContext } from '../../../Store/useContext'
+import BtnAdd from '../../Buttons/BtnAdd'
 
 
 const NewProyectForm = ({ addProyect, handleImg, styles }) => {
@@ -53,67 +54,84 @@ const NewProyectForm = ({ addProyect, handleImg, styles }) => {
                 <form onSubmit={handleSubmit}
                     className={styles.formulario}
                 >
-                    {errors.title && touched.title ? (
-                        <div className='text-danger m-1'>{errors.title}</div>
-                    ) : <label htmlFor="title">Título</label>}
+                    <div>
+                        {errors.title && touched.title ? (
+                            <div className='text-danger m-1'>{errors.title}</div>
+                        ) : <label htmlFor="title">Título</label>}
 
-                    <input
-                        type="text"
-                        name="title"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.title}
-                    />
+                        <input
+                            type="text"
+                            name="title"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.title}
+                        />
+                    </div>
+                    <div>
+                        <input
+                            type="file"
+                            name="image"
+                            accept="image/*"
+                            onChange={handleImg}
+                            onBlur={handleBlur}
 
-                    <label htmlFor="image">Imagen</label>
+                        />
+                    </div>
+                    <div>
+                        {errors.link && touched.link ? (
+                            <div className='text-danger m-1'>{errors.link}</div>
+                        ) : <label htmlFor="link">Link</label>}
+                        <input
+                            type="text"
+                            name="link"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.link}
+                        />
+                    </div>
+                    <div>
+                        {errors.logo && touched.logo ? (
+                            <div className='text-danger m-1'>{errors.logo}</div>
+                        ) : <label htmlFor="logo">Logo</label>}
+                        <input
+                            type="text"
+                            name="logo"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.logo}
+                        />
+                    </div>
+                    <div>
+                        {errors.tec && touched.tec ? (
+                            <div className='text-danger m-1'>{errors.tec}</div>
+                        ) : <label htmlFor="tec">Tecnologías</label>}
+                        <input
+                            type="text"
+                            name="tec"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.tec}
+                        />
+                    </div>
+                    <div className={styles.buttonDiv}>
+                        {userType === 'TEST' ?
 
-                    <input
-                        type="file"
-                        name="image"
-                        accept="image/*"
-                        onChange={handleImg}
-                        onBlur={handleBlur}
+                            <BtnAdd
+                                type={'submit'}
+                                styles={'btn btn-outline-danger'}
+                                text={'btn deshabilitado'}
+                                disabled={'true'}
+                            />
+                            :
+                            <BtnAdd
+                                type={'submit'}
+                                styles={'btn btn-outline-danger'}
+                                text={'Crear proyecto'}
+                                disabled={isSubmitting}
+                            />
 
-                    />
-                    {errors.link && touched.link ? (
-                        <div className='text-danger m-1'>{errors.link}</div>
-                    ) : <label htmlFor="link">Link</label>}
-                    <input
-                        type="text"
-                        name="link"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.link}
-                    />
-                    {errors.logo && touched.logo ? (
-                        <div className='text-danger m-1'>{errors.logo}</div>
-                    ) : <label htmlFor="logo">Logo</label>}
-                    <input
-                        type="text"
-                        name="logo"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.logo}
-                    />
-                    {errors.tec && touched.tec ? (
-                        <div className='text-danger m-1'>{errors.tec}</div>
-                    ) : <label htmlFor="tec">Tecnologías</label>}
-                    <input
-                        type="text"
-                        name="tec"
-                        onChange={handleChange}
-                        onBlur={handleBlur}
-                        value={values.tec}
-                    />
-
-                    {userType === 'TEST' ? <button type="submit" className='btn btn-outline-danger' disabled='true'>
-                        btn deshabilitado
-                    </button> :
-
-                        <button type="submit" className='btn btn-outline-danger' disabled={isSubmitting}>
-                            Crear proyecto
-                        </button>
-                    }
+                        }
+                    </div>
 
                 </form>
             )}

@@ -1,8 +1,10 @@
 import React from 'react'
 
-const BtnAdd = ({ type, onHandleClick, styles, text }) => {
+const BtnAdd = ({ type, onHandleClick, styles, text, disabled }) => {
     return (
-        <button  type={type}  onClick={onHandleClick} className={styles}> {text}  </button>
+        <button 
+        disabled={disabled}
+        type={type}  onClick={onHandleClick} className={styles}> {text}  </button>
     )
 }
 

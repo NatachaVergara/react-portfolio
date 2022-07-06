@@ -6,7 +6,7 @@ import styles from './SectionContainer.module.scss'
 const SectionContainer = (props) => {
   // console.log('Section Container', props)
   return (
-    <div className='d-flex flex-column flex-md-row'>
+    <div className='d-flex flex-column flex-lg-row'>
       <MenuCPanel linktTo={props.to} name={props.name} />
       <div className={styles.container}>
         <CardsContainer 

@@ -52,10 +52,10 @@ const AddProyect = () => {
 
   return (
 
-    <div className='d-flex flex-column flex-md-row'>
+    <div className='d-flex flex-column flex-lg-row'>
       <MenuCPanel linktTo='/controlpanel/proyectos' name='Proyectos' />
       <div className={styles.AddProyectContainer}>
-        <h1 className='mb-1'>Agregar proyecto</h1>
+        <h1 className={styles.h2}>Agregar proyecto</h1>
         <NewProyectForm
           addProyect={onCreateProyect}
           handleImg={handleImg}
