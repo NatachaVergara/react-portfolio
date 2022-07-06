@@ -5,8 +5,12 @@ import { useNavigate } from 'react-router-dom'
 import { errorLogin } from '../../sweetAlerts/alert'
 import { BASE_URL } from '../../../Utils/URL'
 import { useUserContext } from '../../../Store/useContext'
-import styles from './Formulario.module.scss'
-const AdminContainer = () => {
+import Spinner from '../../Spinner';
+
+
+
+
+const AdminContainer = ({styles}) => {
   const { setUserId, setIsUser, setUserType } = useUserContext()
   const [loading, setLoading] = useState(false)
   let navigate = useNavigate()
@@ -32,10 +36,10 @@ const AdminContainer = () => {
   }
 
   return (
-    <div className={styles.fondo}>
-      <AdminLoginForm fetchLogin={fetchLogin} loading={loading} />
+    <>
+      {loading ? <Spinner styles={styles}/> : <AdminLoginForm fetchLogin={fetchLogin} />}
 
-    </div>
+    </>
   )
 }
 

@@ -5,8 +5,7 @@ const Btn = ({ click,styles, text, type }) => {
         <button 
         className={styles} 
         onClick={click}
-        type={type}
-       
+        type={type}       
         > 
         {text}
         </button>

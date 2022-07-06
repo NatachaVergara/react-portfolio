@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { BiHomeAlt, BiDuplicate } from "react-icons/bi";
+import { BiHomeAlt, BiDuplicate, BiArrowBack } from "react-icons/bi";
 import styles from './MenuCPanel.module.scss'
 
 const MenuCPanel = ({ linktTo, name }) => {
@@ -14,7 +14,7 @@ const MenuCPanel = ({ linktTo, name }) => {
             </div>
             <hr />
             <div className={styles.linkContainer}>
-                <BiDuplicate />
+                {name === 'Volver' ? <BiArrowBack />: <BiDuplicate /> }                
                 <Link to={linktTo}>
                     {name}
                 </Link>

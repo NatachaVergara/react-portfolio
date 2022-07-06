@@ -21,7 +21,7 @@ import SectionContainer from '../components/SectionContainer'
 import Dashboard from '../Views/Dashboard'
 
 const RouterApp = () => {
-    const { userType } = useUserContext()
+    const { isUser } = useUserContext()
     return (
         <>
             <Outlet />
@@ -36,7 +36,7 @@ const RouterApp = () => {
 
 
 
-                {userType === 'ADMIN' ?
+                {isUser  ?
                     <Route path='/controlpanel'>
                         <Route path='inicio' element={<Dashboard />} />
                         <Route path='proyectos' element={<ProyectosContainer />} />

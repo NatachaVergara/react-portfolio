@@ -22,6 +22,10 @@ const NewProyectForm = ({ addProyect, handleImg, styles }) => {
                 if (!values.title) {
                     errors.title = 'Ingrese un título'
                 }
+
+                if (!values.image) {
+                    errors.image = 'Ingrese una imagen'
+                }
                 if (!values.link) {
                     errors.link = 'Ingrese un link'
                 }
@@ -29,7 +33,7 @@ const NewProyectForm = ({ addProyect, handleImg, styles }) => {
                     errors.logo = 'Ingrese un logo'
                 }
                 if (!values.tec) {
-                    errors.tec = 'Ingrese las tecnologias usadas'
+                    errors.tec = 'Ingrese las tecnologías usadas'
                 }
 
                 return errors;
@@ -68,6 +72,7 @@ const NewProyectForm = ({ addProyect, handleImg, styles }) => {
                         />
                     </div>
                     <div>
+                        {errors.image && touched.image && (<div className='text-danger m-1'>{errors.image}</div>)}
                         <input
                             type="file"
                             name="image"

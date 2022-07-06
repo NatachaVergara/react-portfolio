@@ -14,7 +14,7 @@ const AddSkill = () => {
 
     return (
         <div className='d-flex flex-column flex-lg-row'>
-            <MenuCPanel linktTo='/controlpanel/homeskills' name='Skills' />
+            <MenuCPanel linktTo='/controlpanel/homeskills' name='Volver' />
             <InputFile
                 onHandleSubmit={onHandleSubmit}
             />

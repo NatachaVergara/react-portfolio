@@ -13,7 +13,7 @@ const AddSlider = () => {
 
   return (
     <div className='d-flex flex-column flex-lg-row'>
-      <MenuCPanel linktTo='/controlPanel/carousel' name='Carousel' />
+      <MenuCPanel linktTo='/controlPanel/carousel' name='Volver' />
       <InputFile
         onHandleSubmit={onHandleSubmit}
       />

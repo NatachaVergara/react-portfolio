@@ -14,7 +14,7 @@ const InputFile = (props) => {
 
     return (
 
-        <div>
+        <div className={styles.formBackgound}>
             <Formik
                 initialValues={{
                     image: null
@@ -31,18 +31,18 @@ const InputFile = (props) => {
 
             >
                 <Form className={styles.form} >
-                    <div className='d-flex flex-column justify-content-center align-items-center'>
+                    <div >
                         <ImageInput
                             name="image"
                             validFormats={imageFormats}
                         />
                         {userType === 'TEST' ?
                             <span className="btn btn-outline-success" onClick={() => alert('Agregado con exito')}>agregar</span>
-                                                   
+
                             :
                             <BtnAdd
                                 type='submit'
-                                styles='btn btn-outline-success text-dark  img-button'
+                                styles='btn btn-outline-success text-dark  img-button mt-3'
                                 text='Agregar' />}
                     </div>
                 </Form>

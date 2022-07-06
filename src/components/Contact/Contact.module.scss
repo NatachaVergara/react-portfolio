@@ -1,13 +1,12 @@
 .formularioContacto {
   margin-top: 0px;
-  // background: linear-gradient(to right, #434343 0%, #eb466b 100%);
   font-size: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
 
   background-image: url('../../img/bg1.png');
-  background-position-x: -650px;
+  background-position-x: -750px;
   background-position-y: 850px;
 
   @media screen and (max-width: 780px) {
@@ -38,9 +37,10 @@
 }
 
 .screen {
-  position: relative;
-  background: #3e3e3e;
-  border-radius: 15px;
+  // position: relative;
+  // background: #3e3e3e;
+  // border-radius: 15px;
+  
 
   &:after {
     content: '';
@@ -112,6 +112,7 @@
 
   .screenBody {
     display: flex;
+   
 
 
     .screenBodyItem {

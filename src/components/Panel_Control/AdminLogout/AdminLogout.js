@@ -2,20 +2,26 @@ import React from 'react'
 import { RiLogoutBoxLine } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 import { useUserContext } from '../../../Store/useContext';
-import './Logout.scss'
+import Btn from '../../Buttons/Btn';
+import styles from './Logout.module.scss'
 const AdminLogout = () => {
     const { logOut } = useUserContext()
     let navigate = useNavigate()
     const onHandleClick = () => {
         logOut()
-        navigate('/login')  
+        navigate('/login')
     }
 
     return (
-        <div className='logout'>
-            <button type="submit" className='logout-btn' onClick={onHandleClick}>
-                <RiLogoutBoxLine />
-            </button>
+        <div className={styles.logout}>
+            <h4>Salir del dashboard</h4>
+            <Btn
+                styles={styles.logoutBtn}
+                text={<RiLogoutBoxLine />}
+                type={"submit"}
+                click={onHandleClick}
+            />
+           
         </div>
     )
 }

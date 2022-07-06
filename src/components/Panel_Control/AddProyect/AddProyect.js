@@ -53,7 +53,7 @@ const AddProyect = () => {
   return (
 
     <div className='d-flex flex-column flex-lg-row'>
-      <MenuCPanel linktTo='/controlpanel/proyectos' name='Proyectos' />
+      <MenuCPanel linktTo='/controlpanel/proyectos' name={`Volver`} />
       <div className={styles.AddProyectContainer}>
         <h1 className={styles.h2}>Agregar proyecto</h1>
         <NewProyectForm

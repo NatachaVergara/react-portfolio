@@ -1,11 +1,9 @@
 import React from 'react'
 
-const Spinner = ({ text }) => {
+const Spinner = ({ styles }) => {
   return (
-    <div className="d-flex justify-content-center mt-5 fs-2" >
-      <div className="spinner-grow  text-success" role="status">
-        <span className="visually-hidden">...</span>
-      </div>
+    <div className={`spinner-grow text-dark ${styles.spinner}`} role="status">
+      <span className="visually-hidden">Loading...</span>
     </div>
   )
 }
