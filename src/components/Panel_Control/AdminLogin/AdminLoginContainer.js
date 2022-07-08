@@ -10,13 +10,13 @@ import Spinner from '../../Spinner';
 
 
 
-const AdminContainer = ({styles}) => {
+const AdminContainer = ({ styles }) => {
   const { setUserId, setIsUser, setUserType } = useUserContext()
   const [loading, setLoading] = useState(false)
   let navigate = useNavigate()
 
-
-
+  //<div className={styles.spinner}>Entrando....</div>
+  // 
   const fetchLogin = (values) => {
     setLoading(true)
     axios.post(`${BASE_URL}/signin`, values)
@@ -37,8 +37,7 @@ const AdminContainer = ({styles}) => {
 
   return (
     <>
-      {loading ? <Spinner styles={styles}/> : <AdminLoginForm fetchLogin={fetchLogin} />}
-
+      {loading ? <div className='w-25'><Spinner /></div> : <AdminLoginForm fetchLogin={fetchLogin} />}
     </>
   )
 }

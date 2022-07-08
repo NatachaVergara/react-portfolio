@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Btn = ({ click,styles, text, type }) => {
+const Btn = ({ click, styles, text, type }) => {
     return (
         <button 
         className={styles} 

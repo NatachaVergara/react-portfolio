@@ -8,16 +8,15 @@
         width: 50%;
         margin: auto;
 
-        .spinner {
-            width: 20%;
-            margin: auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    }
+        
+       
+    } 
 
-    
+    .spinner {
+        width: -8%;
+        margin: auto;
+        
+    }
 
     @media screen and (max-width: 768px) {
         width: 100%;

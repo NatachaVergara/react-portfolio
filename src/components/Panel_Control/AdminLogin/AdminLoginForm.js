@@ -11,7 +11,7 @@ const AdminLoginForm = ({ fetchLogin, loading }) => {
    
       <div className={styles.fContainer}>
         <div className={styles.formularioLogin}>
-          <h4>Entrar al dashboard</h4>
+          <h4>Login</h4>
 
           <Formik
             initialValues={{
@@ -47,7 +47,7 @@ const AdminLoginForm = ({ fetchLogin, loading }) => {
                     <label htmlFor="email">Email</label>
                     <Field
                       type='email'
-                      className='form-control inputLogin'
+                      className='form-control'
                       id='email'
                       name='email'
                       aria-describedby="emailHelp"
@@ -61,7 +61,7 @@ const AdminLoginForm = ({ fetchLogin, loading }) => {
                     <label htmlFor="password">Contraseña </label>
                     <Field
                       type='password'
-                      className='form-control inputLogin'
+                      className='form-control'
                       id='password'
                       name='password'
                     />
@@ -69,10 +69,9 @@ const AdminLoginForm = ({ fetchLogin, loading }) => {
                   </div>
                   <div className={styles.btn}>
                     <Btn
-                      styles={'btn btn-outline-dark w-25'}
+                      styles={'btn btn-outline-dark w-25 p-2'}
                       type={'submit'}
-                      text={<MdLogin />}
-                      name={'login'}
+                      text={<MdLogin />}                    
                     />
                   </div>
 
