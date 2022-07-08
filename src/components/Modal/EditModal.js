@@ -6,6 +6,7 @@ import { Formik } from 'formik';
 import axios from 'axios';
 import { BASE_URL } from '../../Utils/URL';
 import { useUserContext } from '../../Store/useContext';
+import { agregado } from '../sweetAlerts/alert';
 
 const EditModal = (props) => {
 
@@ -58,10 +59,10 @@ const EditModal = (props) => {
 
             if (response.status === 200) {
                 setProyects(proyectos)
-                alert(msg)
+                agregado(msg)
                 props.handleclose()
             } else {
-                alert('Ha ocurrido un error')
+                agregado('Ha ocurrido un error')
             }
 
 
