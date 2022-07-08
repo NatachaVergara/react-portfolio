@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { MdModeEdit, MdOutlineDelete } from 'react-icons/md';
+
 import { useUserContext } from '../../Store/useContext';
 import BtnDelete from '../Buttons/BtnDelete';
 import BtnEdit from '../Buttons/BtnEdit';
@@ -25,24 +25,21 @@ const CardP = (props) => {
                         {userType === 'TEST' ?
                             <>
                                 <BtnEdit
-                                    onHandleEdit={handleOpen}
-                                    styles='btn btn-danger me-5'
-                                    text={<MdModeEdit />} />
+                                    onedit={handleOpen}
+                                />
                                 <BtnDelete
-                                    styles='btn btn-success'
-                                    text={< MdOutlineDelete />} />
+                                    ondelete={() => alert('Ud quiere eliminar')} />
 
                             </>
                             :
                             <>
                                 <BtnEdit
-                                    onHandleEdit={handleOpen}
-                                    styles='btn btn-danger me-5'
-                                    text={<MdModeEdit />} />
+                                    onedit={handleOpen}
+                                />
                                 <BtnDelete
-                                    onHandleDelete={() => props.onhandledelete(props.path)}
-                                    styles='btn btn-success'
-                                    text={< MdOutlineDelete />} />
+                                    ondelete={() => props.onhandledelete(props.path)}
+
+                                />
 
                             </>
 

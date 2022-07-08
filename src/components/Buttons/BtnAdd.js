@@ -1,10 +1,14 @@
 import React from 'react'
 
-const BtnAdd = ({ type, onHandleClick, styles, text, disabled }) => {
+const BtnAdd = ({ text, disabled, click }) => {
     return (
-        <button 
-        disabled={disabled}
-        type={type}  onClick={onHandleClick} className={styles}> {text}  </button>
+        <button
+            disabled={disabled}
+            type={'submit'}
+            onClick={click}
+            className={'btn btn-outline-danger mt-5'}>
+            {text}
+        </button>
     )
 }
 

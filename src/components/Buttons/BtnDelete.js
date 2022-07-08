@@ -1,8 +1,12 @@
 import React from 'react'
-
-const BtnDelete = ({ onHandleDelete, styles, text }) => {
+import { MdOutlineDelete } from 'react-icons/md';
+const BtnDelete = ({ ondelete }) => {
   return (
-    <button onClick={onHandleDelete} className={styles}> {text} </button>
+    <button
+      onClick={ondelete}
+      className={'btn btn-outline-danger'}>
+      < MdOutlineDelete />
+    </button>
   )
 }
 

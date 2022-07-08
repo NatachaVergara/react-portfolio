@@ -37,6 +37,33 @@ header {
     flex-wrap: wrap;
     align-items: center;
 
+    a{
+        width: auto;
+        height: 60px;
+    }
+
+    // a:nth-child(1) {       
+    //     background-image: url('./../img/design-html-web-design-template-concept.jpg');
+    //     background-size: cover;
+
+    // }
+    // a:nth-child(2) {       
+    //     background-image: url('./../img/hands-working-on-digital-device-network-graphic-overlay.jpg');
+    //     background-size: cover;
+    // }
+
+    // a:nth-child(3) {       
+    //     background-image: url('./../img/baggage-carousel-at-airport-terminal.jpg');
+    //     background-size: cover;
+    // }
+    a:nth-child(4) {       
+        background-image: url('./../img/IMG-20190730-WA0011.jpg');
+        background-size: cover;
+        background-position-y: -132px ;
+        width: 60px;
+    }
+
+
     .btns {
         color: white;
         font-size: 20px;

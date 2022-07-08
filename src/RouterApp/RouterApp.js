@@ -5,7 +5,6 @@ import Portfolio from '../Views/Portfolio'
 import Contact from '../Views/Contact'
 import About from '../Views/About'
 import Login from '../Views/Login'
-import RoutesCPanel from './RoutesCPanel';
 import { useUserContext } from '../Store/useContext';
 import NotFound404 from '../Views/NotFound404';
 
@@ -19,6 +18,7 @@ import AddSkill from '../components/Panel_Control/SkillSectionHome/AddSkill'
 import SkillContainer from '../components/Panel_Control/SkillSectionHome/SkillContainer'
 import SectionContainer from '../components/SectionContainer'
 import Dashboard from '../Views/Dashboard'
+import Perfil from '../components/Panel_Control/Perfil';
 
 const RouterApp = () => {
     const { isUser } = useUserContext()
@@ -46,8 +46,8 @@ const RouterApp = () => {
                         <Route path='carousel' element={<CarouselContailer />} />
                         <Route path='addslider' element={<AddSlider />} />
                         <Route path="prueba" element={<SectionContainer />} />
+                        <Route path="perfil" element={<Perfil />} />
                     </Route>
-
                     :
                     null}
 

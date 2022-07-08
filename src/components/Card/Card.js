@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { MdModeEdit, MdOutlineDeleteOutline } from 'react-icons/md'
 import { useUserContext } from '../../Store/useContext'
 import BtnDelete from '../Buttons/BtnDelete'
 import BtnEdit from '../Buttons/BtnEdit'
@@ -9,12 +8,12 @@ import ModalEditImg from '../Modal/ModalEditImg'
 
 const Card = (props) => {
   const { userType } = useUserContext()
-  const [ show, setShow ] = useState(false)
+  const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  let imgUrl = `${props.src}${props.path}`  
+  let imgUrl = `${props.src}${props.path}`
   let path = props.path
 
 
@@ -22,7 +21,7 @@ const Card = (props) => {
 
     <>
       <ModalEditImg
-        show={show}        
+        show={show}
         handleclose={handleClose}
         imgurl={imgUrl}
         path={path}
@@ -36,31 +35,21 @@ const Card = (props) => {
           {userType === 'TEST' ?
             <>
               <BtnEdit
-                styles={'btn btn-outline-success'}
-                text={<MdModeEdit />}
-                onHandleEdit={() => alert('Esta editando (si efecto)')}
+                onedit={() => alert('Esta editando (sin efecto)')}
 
               />
               <BtnDelete
-                onHandleDelete={() => alert('Está eliminado la imagen (sin efecto)')}
-                styles='btn btn-outline-danger'
-                text={<MdOutlineDeleteOutline />} />
-
+                ondelete={() => alert('Está eliminado la imagen (sin efecto)')}
+              />
             </>
-
             :
-
             <>
               <BtnEdit
-                styles={'btn btn-outline-success me-1'}
-                text={<MdModeEdit />}
-                onHandleEdit={() => handleShow()}
+                onedit={() => handleShow()}
               />
               <BtnDelete
-                onHandleDelete={() => props.onhandledelete(props.path)}
-                styles='btn btn-outline-danger'
-                text={<MdOutlineDeleteOutline />} />
-
+                ondelete={() => props.onhandledelete(props.path)}
+              />
             </>
           }
 

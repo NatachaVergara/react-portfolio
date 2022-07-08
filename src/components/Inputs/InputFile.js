@@ -14,7 +14,7 @@ const InputFile = (props) => {
 
     return (
 
-        <div className={styles.formBackgound}>
+        <div className={styles.formBack}>
             <Formik
                 initialValues={{
                     image: null
@@ -38,12 +38,9 @@ const InputFile = (props) => {
                         />
                         {userType === 'TEST' ?
                             <span className="btn btn-outline-success" onClick={() => alert('Agregado con exito')}>agregar</span>
-
                             :
                             <BtnAdd
-                                type='submit'
-                                styles='btn btn-outline-success text-dark  img-button mt-3'
-                                text='Agregar' />}
+                               text='Agregar' />}
                     </div>
                 </Form>
             </Formik>

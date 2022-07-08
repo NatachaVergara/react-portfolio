@@ -15,7 +15,6 @@ const Header = () => {
 
     const showMenu = () => {
         setShow(!show)
-
     }
 
     const onHandleLogout = () => {

@@ -23,9 +23,6 @@ const NewProyectForm = ({ addProyect, handleImg, styles }) => {
                     errors.title = 'Ingrese un título'
                 }
 
-                if (!values.image) {
-                    errors.image = 'Ingrese una imagen'
-                }
                 if (!values.link) {
                     errors.link = 'Ingrese un link'
                 }
@@ -72,7 +69,7 @@ const NewProyectForm = ({ addProyect, handleImg, styles }) => {
                         />
                     </div>
                     <div>
-                        {errors.image && touched.image && (<div className='text-danger m-1'>{errors.image}</div>)}
+
                         <input
                             type="file"
                             name="image"
@@ -81,6 +78,7 @@ const NewProyectForm = ({ addProyect, handleImg, styles }) => {
                             onBlur={handleBlur}
 
                         />
+
                     </div>
                     <div>
                         {errors.link && touched.link ? (
@@ -122,16 +120,12 @@ const NewProyectForm = ({ addProyect, handleImg, styles }) => {
                         {userType === 'TEST' ?
 
                             <BtnAdd
-                                type={'submit'}
-                                styles={'btn btn-outline-danger'}
-                                text={'btn deshabilitado'}
+                                text={'Deshabilitado'}
                                 disabled={'true'}
                             />
                             :
                             <BtnAdd
-                                type={'submit'}
-                                styles={'btn btn-outline-danger'}
-                                text={'Crear proyecto'}
+                                text={'Crear'}
                                 disabled={isSubmitting}
                             />
 

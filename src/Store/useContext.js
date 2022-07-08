@@ -156,25 +156,6 @@ const UserContextProvider = ({ children }) => {
 
 
 
-    // const findProyects = async () => {
-    //     setLoading(true)
-
-
-
-    //     axios.get(`${BASE_URL}/proyects`)
-    //         .then((res) => {
-
-    //             setProyects(res.data.registros)
-    //         })
-    //         .catch(err => console.log(err))
-    //         .finally(() => setLoading(false));
-
-    // }
-
-    // useEffect(() => {
-    //     console.log('loading proyects')
-    //     findProyects()
-    // }, [])
 
     const [img, setImg] = useState(null)
 
@@ -248,6 +229,7 @@ const UserContextProvider = ({ children }) => {
             if (response.status === 201) {
                 console.log(msg)
                 setImagenes(img)
+                agregado(msg)
             } else {
                 console.log('Ha ocurrido un error')
             }
@@ -295,19 +277,7 @@ const UserContextProvider = ({ children }) => {
     }
 
     ///////// CAROUSEL - SLIDERS - IMGS 
-    // const getSliders = async () => {
-    //     try {
-    //         const responseSliders = await axios.get(`${BASE_URL}/upload/sliders`)
-    //         const sliders = responseSliders.data
-    //         setImgsSlider(sliders)
-
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
-
-
-
+ 
     const uploadNewSlider = async (values) => {
         console.log(`Context`, values)
         try {
