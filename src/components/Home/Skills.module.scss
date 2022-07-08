@@ -40,7 +40,17 @@
             
         }       
 
-       
+    @media screen and (max-width: 768px){
+        .skillContainer{
+            width: 100%;
+            justify-content:center;
+
+            img{
+                width: 120px;
+                padding: 5px;
+            }
+        }
+    }   
 
     
 
