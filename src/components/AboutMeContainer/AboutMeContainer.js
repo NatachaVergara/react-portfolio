@@ -5,7 +5,7 @@ import { useUserContext } from '../../Store/useContext'
 
 const AboutMeContainer = () => {
     const { about } = useUserContext()
-    console.log(about)
+   
     return (
         <section className={styles.AboutContainer}>
             {about.length > 0 ? about.map(data => (

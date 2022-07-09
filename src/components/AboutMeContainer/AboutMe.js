@@ -12,7 +12,7 @@ const AboutMe = ({ titulo, texto, path, styles }) => {
                     <span>lorem ipsum dolor sit amet, consectetur <br></br>
                         lorem ipsum dolor sit amet lorem ipsum dolor</span>
                 </div>
-                <div classNAme={styles.imgContainer}>
+                <div className={styles.imgContainer}>
                     <img src={`${BASE_URL}/aboutme/${path}`} alt='imagen personal' className={styles.img} />
                 </div>
 

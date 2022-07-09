@@ -29,6 +29,14 @@ const getSSUser = () => {
         return null
     }
 }
+    // const getUserDataLS = () => {
+    // let isUser = sessionStorage.getItem('userDataLS')
+    // if (isUser) {
+    //     return JSON.parse(sessionStorage.getItem('userDataLS'))
+    // } else {
+    //     return []
+    // }
+    // }
 
 
 const getUserTypeSS = () => {
@@ -43,10 +51,10 @@ const getUserTypeSS = () => {
 
 
 const getSkillSS = () => {
-    let skillSS = localStorage.getItem('skillImg')
+    let skillSS = sessionStorage.getItem('skillImg')
 
     if (skillSS) {
-        return JSON.parse(localStorage.getItem('skillImg'))
+        return JSON.parse(sessionStorage.getItem('skillImg'))
     } else {
         return []
     }
@@ -54,10 +62,10 @@ const getSkillSS = () => {
 }
 
 const getCarouselSS = () => {
-    let carouselSS = localStorage.getItem('carousel')
+    let carouselSS = sessionStorage.getItem('carousel')
 
     if (carouselSS) {
-        return JSON.parse(localStorage.getItem('carousel'))
+        return JSON.parse(sessionStorage.getItem('carousel'))
     } else {
         return []
     }
@@ -65,21 +73,21 @@ const getCarouselSS = () => {
 }
 
 const getAboutMeLS = () => {
-    let aboutMeLS = localStorage.getItem('aboutMe')
+    let aboutMeLS = sessionStorage.getItem('aboutMe')
 
-    if(aboutMeLS){
-        return JSON.parse(localStorage.getItem('aboutMe'))
-    }else{
+    if (aboutMeLS) {
+        return JSON.parse(sessionStorage.getItem('aboutMe'))
+    } else {
         return []
     }
 }
 
-const getProyectsLS = () =>{
-    let proyects = localStorage.getItem('proyectsLS')
+const getProyectsLS = () => {
+    let proyects = sessionStorage.getItem('proyectsLS')
 
-    if(proyects){
-        return JSON.parse(localStorage.getItem('proyectsLS'))
-    }else{
+    if (proyects) {
+        return JSON.parse(sessionStorage.getItem('proyectsLS'))
+    } else {
         return []
     }
 }
@@ -96,16 +104,18 @@ const UserContextProvider = ({ children }) => {
     const [loading, setLoading] = useState(false)
     const [imgsSlider, setImgsSlider] = useState(getCarouselSS())
     const [about, setAbout] = useState(getAboutMeLS())
+     //const [userData, setUserData] = useState(getUserDataLS())
 
 
     useEffect(() => {
         sessionStorage.setItem('userIDSS', JSON.stringify(userId))
         sessionStorage.setItem('isUserSS', JSON.stringify(isUser))
         sessionStorage.setItem('userTypeSS', JSON.stringify(userType))
-        localStorage.setItem('skillImg', JSON.stringify(imagenes))
-        localStorage.setItem('carousel', JSON.stringify(imgsSlider))
-        localStorage.setItem('aboutMe', JSON.stringify(about))
-        localStorage.setItem('proyectsLS', JSON.stringify(proyects))
+        sessionStorage.setItem('skillImg', JSON.stringify(imagenes))
+        sessionStorage.setItem('carousel', JSON.stringify(imgsSlider))
+        sessionStorage.setItem('aboutMe', JSON.stringify(about))
+        sessionStorage.setItem('proyectsLS', JSON.stringify(proyects))
+       // sessionStorage.setItem('userDataLS', JSON.stringify(userData))
 
     }, [userId, isUser, userType, imagenes, imgsSlider, about, proyects])
 
@@ -133,8 +143,7 @@ const UserContextProvider = ({ children }) => {
             setImagenes(imgsSkills)
             setImgsSlider(sliders)
             setAbout(aboutMe)
-            // console.log(imgsSkills)
-            // console.log(about)
+
 
 
             if (proyects.length > 0) {
@@ -277,7 +286,7 @@ const UserContextProvider = ({ children }) => {
     }
 
     ///////// CAROUSEL - SLIDERS - IMGS 
- 
+
     const uploadNewSlider = async (values) => {
         console.log(`Context`, values)
         try {
@@ -388,7 +397,10 @@ const UserContextProvider = ({ children }) => {
                 updateImg,
                 updateSlader,
                 about,
-                logOut
+                logOut,
+                setAbout
+                // userData,
+                // setUserData
             }}
         >
 

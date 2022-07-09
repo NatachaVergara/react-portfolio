@@ -24,6 +24,7 @@ const AdminContainer = ({ styles }) => {
         setIsUser(res.data.isUser)
         setUserId(res.data.user.id)
         setUserType(res.data.userType)
+        
         navigate('/controlpanel/inicio')
 
       })
