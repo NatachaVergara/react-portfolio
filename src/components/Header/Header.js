@@ -26,13 +26,13 @@ const Header = () => {
     return (
 
         <>
-            <div className={styles.navBar}>
+            <div className={styles.navBar} >
                 <div className={styles.left}>
                     <MenuOutlined className={styles.menuIcon} onClick={showMenu} />
                 </div>
 
 
-                <div className={styles.rigth}>
+                <div className={styles.rigth}  >
                     <h1>Natacha Vergara</h1>
                     {
                         isUser ? <Btn
@@ -45,7 +45,7 @@ const Header = () => {
                 </div>
 
             </div>
-            <nav className={show ? [styles.navItem, styles.active].join(' ') : styles.navItem}>
+            <nav className={show ? [styles.navItem, styles.active].join(' ') : styles.navItem} onClick={showMenu}>
                 <ul onClick={showMenu}>
 
                     {MenuData.map((item, index) => {
@@ -67,12 +67,11 @@ const Header = () => {
                                 Panel de <br /> administración</Link>
                         </li> :
                         null}
-
                 </ul>
-
-
             </nav>
+            {/* <div className={show ? [styles.fondo, styles.fondoActive].join('') : styles.fondoOff} onClick={showMenu}>
 
+            </div> */}
 
         </>
 
