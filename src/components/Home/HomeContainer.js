@@ -22,7 +22,7 @@ const HomeContainer = () => {
 
             <section className='container mt-2 mt-md-0' >
 
-                <div className="row row-cols-1 row-cols-md-3  row-cols-lg-5 mb-3 text-center d-flex justify-content-center" >
+                <div className="row row-cols-1 row-cols-md-3  row-cols-lg-4 mb-3 text-center d-flex justify-content-center" >
                     <div className="col" data-aos="zoom-in-down">
                         <div className="card mb-4 rounded-3 shadow-sm">
                             <div className="card-header py-3">
