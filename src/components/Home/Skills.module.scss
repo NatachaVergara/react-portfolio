@@ -1,5 +1,5 @@
 .skills{
-    background-color: black;
+    // background-color: black;
     width: 100%;
     height: auto;
     display: flex;
@@ -41,6 +41,9 @@
         }       
 
     @media screen and (max-width: 768px){
+        
+            display:none;
+        
         .skillContainer{
             width: 100%;
             justify-content:center;

@@ -2,6 +2,7 @@ import React from 'react'
 import { MdDone } from 'react-icons/md';
 import { BsWhatsapp } from 'react-icons/bs';
 import styles from './Home.module.scss'
+import Skills from './Skills';
 
 const HomeContainer = () => {
     return (
@@ -150,9 +151,12 @@ const HomeContainer = () => {
                         </tbody>
                     </table>
                 </div>
-
             </section>
-
+        
+           
+            <Skills/>
+            
+         
         </main>
     )
 }
