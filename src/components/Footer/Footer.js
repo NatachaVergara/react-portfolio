@@ -41,7 +41,7 @@ const Footer = () => {
 
                 </ul>
                 <div className="container">
-                    <div className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                    <div className="d-flex  flex-column flex-md-row flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
                         <div className="col-md-4 d-flex justify-content-between align-items-center">
                             <span className="mb-3 mb-md-0 text-muted"> Natacha Vergara  {new Date().getFullYear()} </span>
                             <span className="mb-3 mb-md-0 text-muted">
