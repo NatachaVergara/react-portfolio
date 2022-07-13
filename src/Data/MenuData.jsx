@@ -9,11 +9,11 @@ export const MenuData = [
         path: '/portfolio',
         className: 'menu-item'
     },
-    {
-        title: 'Contacto',
-        path: '/contact',
-        className: 'menu-item'
-    },
+    // {
+    //     title: 'Contacto',
+    //     path: '/contact',
+    //     className: 'menu-item'
+    // },
     {
         title: 'Sobre mi',
         path: '/about',

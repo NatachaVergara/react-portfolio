@@ -22,8 +22,15 @@
         background-size: cover;
     }
 
-    @media screen and (max-width: 769px) {
-        z-index: -1;
+    @media screen and (max-width: 1000px) {
+        position: absolute;
+        right: 10%;
+        bottom: -20%;
+        width: 200px;
+        height: 340px;
+        background-color: #333;
+        border-radius: 21px;
+        transform: rotate(30deg);
     }
 
 }
@@ -42,7 +49,19 @@
     }
 
 
-    @media screen and (max-width: 769px) {
-        z-index: -1;
+    // @media screen and (max-width: 1000px) {
+    //     z-index: -1;
+    // }
+}
+
+.linkWhatsapp {
+    color: green;
+
+    &:hover {
+        color: green;
+        font-size: 20px;
+
     }
 }
+
+
