@@ -53,7 +53,7 @@ const Footer = () => {
                 <ul className="list-inline">
                     <li className="list-inline-item btn btn-warning"><Link to='/'>Home</Link></li>
                     <li className="list-inline-item btn btn-warning"><Link to='/portfolio'>Portfolio</Link></li>
-                    <li className="list-inline-item btn btn-warning"><Link to='/contact'>Contacto</Link></li>
+                    {/* <li className="list-inline-item btn btn-warning"><Link to='/contact'>Contacto</Link></li> */}
                     <li className="list-inline-item btn btn-warning"><Link to='/about'>Sobre Mi</Link></li>
 
                 </ul>
