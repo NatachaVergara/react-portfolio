@@ -1,10 +1,8 @@
 import React from 'react'
 import { MdDone } from 'react-icons/md';
 import { BsWhatsapp } from 'react-icons/bs';
-// import Skills from './Skills'
-// import Slider from './Slider'
 import styles from './Home.module.scss'
-// import { Link } from 'react-router-dom'
+
 const HomeContainer = () => {
     return (
         <main data-aos="fade-down" >
@@ -154,8 +152,7 @@ const HomeContainer = () => {
                 </div>
 
             </section>
-            {/* <Slider  />
-            <Skills /> */}
+
         </main>
     )
 }
