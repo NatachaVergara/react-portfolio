@@ -11,7 +11,7 @@ const HomeContainer = () => {
                     <h1 className="display-4 fw-normal text-light">Desarrollo Web Integral</h1>
                     <p className="lead fw-normal text-light">Asesoría de Contenido  <br></br> Diseño Web Personalizado</p>
                     <p className="lead fw-normal text-light fs-6">Atención especial a org sin fines de lucro</p>
-                    <a href="https://api.whatsapp.com/send?phone=5492284733603&text=Hola Natacha, te contacto desde tu Portfolio."
+                    <a href="https://api.whatsapp.com/send?phone=5491124971986&text=Hola Natacha, te contacto desde tu Portfolio."
                         target="_blank" rel="noreferrer"
                         className='btn btn-warning'>Contacto
                     </a>
@@ -24,7 +24,7 @@ const HomeContainer = () => {
 
                 <div className="row row-cols-1 row-cols-md-3  row-cols-lg-5 mb-3 text-center d-flex justify-content-center" >
                     <div className="col" data-aos="zoom-in-down">
-                        <div className={`card mb-4 rounded-3 shadow-sm`}>
+                        <div className="card mb-4 rounded-3 shadow-sm">
                             <div className="card-header py-3">
                                 <span className="my-0 fw-normal fs-4">Landing Page</span>
                             </div>
@@ -37,7 +37,7 @@ const HomeContainer = () => {
                                     <li >Amigable con Google</li>
                                     <li> y más ...</li>
                                 </ul>
-                                <a href="https://api.whatsapp.com/send?phone=5492284733603&text=Hola Natacha, te contacto desde tu Portfolio." alt='logo-whatsup'
+                                <a href="https://api.whatsapp.com/send?phone=5491124971986&text=Hola Natacha, te contacto desde tu Portfolio." alt='logo-whatsup'
                                     target="_blank" rel="noreferrer"
                                     className={styles.linkWhatsapp}><BsWhatsapp />
                                 </a>
@@ -59,7 +59,7 @@ const HomeContainer = () => {
                                     <li> y más ...</li>
                                 </ul>
 
-                                <a href="https://api.whatsapp.com/send?phone=5492284733603&text=Hola Natacha, te contacto desde tu Portfolio." className={styles.linkWhatsapp}
+                                <a href="https://api.whatsapp.com/send?phone=5491124971986&text=Hola Natacha, te contacto desde tu Portfolio." className={styles.linkWhatsapp}
                                     target="_blank" rel="noreferrer" alt='logo-whatsup'><BsWhatsapp />
                                 </a>
 
@@ -80,7 +80,7 @@ const HomeContainer = () => {
                                     <li>200gb de almacenamiento</li>
                                     <li> y más ...</li>
                                 </ul>
-                                <a href="https://api.whatsapp.com/send?phone=5492284733603&text=Hola Natacha, te contacto desde tu Portfolio." className={styles.linkWhatsapp}
+                                <a href="https://api.whatsapp.com/send?phone=5491124971986&text=Hola Natacha, te contacto desde tu Portfolio." className={styles.linkWhatsapp}
                                     target="_blank" rel="noreferrer" alt='logo-whatsup'><BsWhatsapp />
                                 </a>
                             </div>
