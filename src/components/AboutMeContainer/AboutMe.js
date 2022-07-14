@@ -7,10 +7,10 @@ const AboutMe = ({ titulo, texto, path, styles }) => {
         <div className={styles.infoContainer}>
             <div className={styles.wraper}>
                 <div className={styles.title}>
-                    <span>Programadora web</span>
+                    <span>Desarrolladora web</span>
                     <h2>Natacha Vergara </h2>
-                    <span>lorem ipsum dolor sit amet, consectetur <br></br>
-                        lorem ipsum dolor sit amet lorem ipsum dolor</span>
+                    <span>"" Si funciona</span>
+                    <span>No se toca "" </span>
                 </div>
                 <div className={styles.imgContainer}>
                     <img src={`${BASE_URL}/aboutme/${path}`} alt='imagen personal' className={styles.img} />
