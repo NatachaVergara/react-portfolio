@@ -17,7 +17,9 @@ font-family: 'Raleway', sans-serif;
     width: 150px;
 }
 
-
+.bgColorSections{
+    background-color: rgb(26, 20, 20); 
+}
 
 @media screen and (max-width:576px) {
     .menuCpanel {

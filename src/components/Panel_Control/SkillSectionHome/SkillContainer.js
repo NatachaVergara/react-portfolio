@@ -3,11 +3,12 @@ import { useUserContext } from '../../../Store/useContext'
 import SectionContainer from '../../SectionContainer'
 import { BASE_URL } from '../../../Utils/URL'
 import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
 
 
 const SkillContainer = () => {
   const {  imagenes, deleteImg, updateImg } = useUserContext()
-
+  const navigate = useNavigate()
   const onHandleDelete = (path) => {
     Swal.fire({
       title: '¿Está seguro que quiere eliminar?',
@@ -30,6 +31,7 @@ const SkillContainer = () => {
   }
 
 
+
   return (
     <>
       <SectionContainer
@@ -41,6 +43,7 @@ const SkillContainer = () => {
         src={`${BASE_URL}/upload/images/`}
         onhandledelete={onHandleDelete}
         update={updateImg}
+       
       />
    </>
   )

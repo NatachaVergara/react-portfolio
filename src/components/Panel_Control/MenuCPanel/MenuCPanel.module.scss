@@ -1,37 +1,87 @@
 .panelContainer {
-    width: 20%;
+    width: 10%;
     height: auto;
     padding: 25px;
 
-    color:white;
+    color: white;
     background-color: black;
 
     display: flex;
-    flex-direction: column;   
+    flex-direction: column;
     align-items: center;
 
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1000px) {
         width: 100%;
-        flex-direction: row;
-        
+        flex-direction: column;
+        padding: 0px;
+
+
     }
 
 
 }
 
-.homeContainer, .linkContainer {
-    width: 100%;
-    display: flex;      
-    align-items: center;
-    justify-content:flex-start;
-
+.perfil {
+    width: 250px;
+    margin: 20px;
+    
     a{
-        width:100%;
-        margin-left: 7px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-decoration: none;
         color:white;
+
+        img{
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin: 15px;
+        }
+
+        &:link{
+            color:white;
+        }
     }
+ 
+
+
 }
 
+.links{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
 
+    @media screen and (max-width: 1000px){
+        display: flex;
+        flex-direction: row;        
+        justify-content:center;
+        align-items: center;
+        padding:15px;
+        margin:15px;
+        color:red;
+    }
+  
+
+
+
+
+}
+.homeContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    a {
+        width: 100%;
+        margin-left: 7px;
+        text-decoration: none;
+        color: white;
+        padding:10px;
+        margin:5px;
+    }
+}

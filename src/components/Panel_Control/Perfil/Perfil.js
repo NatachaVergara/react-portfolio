@@ -28,7 +28,7 @@ const Perfil = () => {
 
     return (
         <div className={styles.perfilContainer}>
-            <MenuCPanel linktTo={'#'} name={'Perfil'} />
+            <MenuCPanel />
             {about.length < 0 ? <h4>Cargando....</h4> :
                 about.map(e => (
                     <ContenidoPerfil key={e.id} titulo={e.titulo} path={e.path} texto={e.texto} postAboutme={postAboutme} />

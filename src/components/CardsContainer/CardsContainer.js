@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Card from '../Card'
 import CardP from '../Card/CardP'
 
@@ -8,9 +9,11 @@ const CardsContainer = (props) => {
 
   const update = props.props.update
   const cardProyecto = props.props.cardp
+  const to = props.props.to
   return (
     <>
       <h2> {props.title} </h2>
+      <Link className='btn btn-warning mb-5' to={to} >+</Link>
       {cardProyecto !== true ?
 
         <div className={props.styles.cards}>

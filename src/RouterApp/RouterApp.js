@@ -20,6 +20,7 @@ import SectionContainer from '../components/SectionContainer'
 import Dashboard from '../Views/Dashboard'
 import Perfil from '../components/Panel_Control/Perfil';
 
+
 const RouterApp = () => {
     const { isUser } = useUserContext()
     return (
@@ -35,22 +36,23 @@ const RouterApp = () => {
                 <Route path="/login" element={<Login />} />
 
 
-
-                {isUser  ?
-                    <Route path='/controlpanel'>
-                        <Route path='inicio' element={<Dashboard />} />
-                        <Route path='proyectos' element={<ProyectosContainer />} />
-                        <Route path='addproyect' element={<AddProyect />} />
-                        <Route path='homeskills' element={<SkillContainer />} />
-                        <Route path='addskill' element={<AddSkill />} />
-                        <Route path='carousel' element={<CarouselContailer />} />
-                        <Route path='addslider' element={<AddSlider />} />
-                        <Route path="prueba" element={<SectionContainer />} />
-                        <Route path="perfil" element={<Perfil />} />
-                    </Route>
-                    :
-                    null}
-
+                <>
+                  
+                    {isUser ?
+                        <Route path='/controlpanel'>
+                            <Route path='inicio' element={<Dashboard />} />
+                            <Route path='proyectos' element={<ProyectosContainer />} />
+                            <Route path='addproyect' element={<AddProyect />} />
+                            <Route path='homeskills' element={<SkillContainer />} />
+                            <Route path='addskill' element={<AddSkill />} />
+                            <Route path='carousel' element={<CarouselContailer />} />
+                            <Route path='addslider' element={<AddSlider />} />
+                            <Route path="prueba" element={<SectionContainer />} />
+                            <Route path="perfil" element={<Perfil />} />
+                        </Route>
+                        :
+                        null}
+                </>
             </Routes>
 
 

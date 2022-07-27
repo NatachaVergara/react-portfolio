@@ -13,7 +13,7 @@ const AddSkill = () => {
 
 
     return (
-        <div className='d-flex flex-column flex-lg-row'>
+        <div className='d-flex flex-column flex-lg-row bgColorSections'>
             <MenuCPanel linktTo='/controlpanel/homeskills' name='Volver' />
             <InputFile
                 onHandleSubmit={onHandleSubmit}

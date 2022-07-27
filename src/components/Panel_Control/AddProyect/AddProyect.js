@@ -54,7 +54,7 @@ const AddProyect = () => {
 
     <div className='d-flex flex-column flex-lg-row'>
       <MenuCPanel linktTo='/controlpanel/proyectos' name={`Volver`} />
-      <div className={styles.AddProyectContainer}>
+      <div className={`${styles.AddProyectContainer} bgColorSections`}>
         <h1 className={styles.h2}>Agregar proyecto</h1>
         <NewProyectForm
           addProyect={onCreateProyect}
