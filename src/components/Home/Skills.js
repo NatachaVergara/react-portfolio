@@ -18,7 +18,7 @@ const Skills = () => {
 
                         {imagenes.legth < 0 ? <h4>Cargando....</h4> :
                             imagenes.map(img => (
-                                <div key={img.id} className="col d-flex align-items-start">
+                                <div key={img.id} className="col d-flex align-items-start" data-aos="zoom-in-down">
                                  <img src={`${BASE_URL}/upload/images/${img.path}`} alt="logos"/>
                                 </div>
                             ))
