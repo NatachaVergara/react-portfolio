@@ -30,7 +30,7 @@ const Card = (props) => {
       />
 
       <div className={props.styles.card} style={{ width: "10rem" }}>
-        <img src={`${props.src}${props.path}`} className="card-img-top  img-thumbnail rounded" alt="..." />
+        <img src={`${props.src}${props.path}`} className="card-img-top d-flex  rounded" style={{width:"3rem", margin:"auto", marginTop:"10px"}} alt="..." />
         <div className={props.styles.buttons}>
           {userType === 'TEST' ?
             <>

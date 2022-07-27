@@ -16,8 +16,8 @@ const CardP = (props) => {
 
     return (
         <>
-            <div className="card m-2" style={{ width: "15rem" }}>
-                <img src={`${props.src}/${props.path}`} className="card-img-top p-1 mw-50 mh-50 img-fluid" alt="imagen de la card" />
+            <div className="card m-2" style={{ width: "15rem", height: "25rem"}}>
+                <img src={`${props.src}/${props.path}`} className="card-img-top p-1 mw-50 mh-50 img-fluid" alt="imagen de la card"  style={{ width: "15rem", height: "10rem"}} />
                 <div className="card-body d-flex flex-column justify-content-between align-items-center">
                     <h5 className="card-title text-center">{props.title} </h5>
                     <span className="card-title text-center fs-6" >{props.tec} </span>

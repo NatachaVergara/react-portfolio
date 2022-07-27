@@ -41,11 +41,7 @@ const ContenidoPerfil = ({ titulo, path, texto, postAboutme }) => {
   return (
     <div className={styles.perfil}>
       <div>
-        <img src={foto} alt='#' />
-        {/* <ul>
-          <li>Natacha Vergara</li><BtnEdit />
-          <li>ntchvergara@gmail.com </li><BtnEdit />
-        </ul> */}
+        <img src={foto} alt='#' />   
 
         <h4>Natacha Vergara</h4> <BtnEdit />
         <h4>ntchvergara@gmail.com</h4> <BtnEdit />

@@ -37,7 +37,7 @@ const SkillContainer = () => {
       <SectionContainer
         to={'/controlpanel/addskill'}
         name={'Agregar skill'}
-        title={'Imagenes de skills'}        
+        title={'Skills'}        
         cardp={false}
         objeto={imagenes}        
         src={`${BASE_URL}/upload/images/`}
