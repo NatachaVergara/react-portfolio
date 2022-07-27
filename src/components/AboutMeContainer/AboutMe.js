@@ -20,7 +20,6 @@ const AboutMe = ({ titulo, texto, path, styles }) => {
             <div className={styles.textoBody}>
                 <h2>{titulo} </h2>
                 <span>{texto} </span>
-
             </div>
         </div>
 

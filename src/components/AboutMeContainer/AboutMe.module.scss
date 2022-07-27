@@ -82,8 +82,8 @@
         width: 90%;
         flex-direction: column-reverse;
         padding: 15px auto;
-        margin-bottom: 20px;
-        border-radius: 15px 15px 15px 15px;
+        // margin-bottom: 20px;
+        border-radius: 15px 15px 0px 0px;
 
         .title {
             span:nth-child(1) {
@@ -189,7 +189,20 @@
     }
 
     @media screen and (max-width: 560px) {
-        display: none;
+        width: 90%;
+        border-radius: 15px 15 0px 0px;
+        h2 {
+            font-size: 20px;
+            margin: 40px auto 0px;           
+        }
+        span{
+            width:100%;
+            padding: 10px;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+
     }
 
 }
