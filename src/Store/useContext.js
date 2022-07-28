@@ -29,14 +29,7 @@ const getSSUser = () => {
         return null
     }
 }
-    // const getUserDataLS = () => {
-    // let isUser = sessionStorage.getItem('userDataLS')
-    // if (isUser) {
-    //     return JSON.parse(sessionStorage.getItem('userDataLS'))
-    // } else {
-    //     return []
-    // }
-    // }
+
 
 
 const getUserTypeSS = () => {
@@ -104,6 +97,9 @@ const UserContextProvider = ({ children }) => {
     const [loading, setLoading] = useState(false)
     const [imgsSlider, setImgsSlider] = useState(getCarouselSS())
     const [about, setAbout] = useState(getAboutMeLS())
+    const [precios, setPrecios] = useState([]) 
+
+    console.log(precios)
      //const [userData, setUserData] = useState(getUserDataLS())
 
 
@@ -134,16 +130,19 @@ const UserContextProvider = ({ children }) => {
             const responseSliders = await axios.get(`${BASE_URL}/upload/sliders`)
             const responseProyects = await axios.get(`${BASE_URL}/proyects`)
             const responseAbout = await axios.get(`${BASE_URL}/aboutme`)
+            const responsePrecios = await axios.get(`${BASE_URL}/precios`) 
+
 
             const imgsSkills = await responseSkills.data
             const sliders = await responseSliders.data
             const proyects = await responseProyects.data
             const aboutMe = await responseAbout.data
+            const precios = await responsePrecios.data
 
             setImagenes(imgsSkills)
             setImgsSlider(sliders)
             setAbout(aboutMe)
-
+            setPrecios(precios)
 
 
             if (proyects.length > 0) {
@@ -398,7 +397,9 @@ const UserContextProvider = ({ children }) => {
                 updateSlader,
                 about,
                 logOut,
-                setAbout
+                setAbout,
+                precios,
+                setPrecios
                 // userData,
                 // setUserData
             }}

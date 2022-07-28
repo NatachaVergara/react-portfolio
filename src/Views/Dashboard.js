@@ -6,33 +6,39 @@ import styles from './Dashboard.module.scss'
 
 
 const Dashboard = () => {
+    let categorias = [
+        {
+            id: 1,
+            nombre: 'Proyectos',
+            to: '/controlpanel/proyectos'
+        },
+        {
+            id: 2,
+            nombre: 'Precios',
+            to: '/controlpanel/precios'
+        },
+        {
+            id: 3,
+            nombre: 'Skills',
+            to: '/controlpanel/homeskills'
+        }
+    ]
+
+
     return (
         <main className={styles.inicioContainer}>
             <MenuCPanel />
+
             <div className={styles.cards}>
-                <div className="card" style={{ width: "10rem" }}>
-                    <div className="card-body">
-                        <h5 className="card-title">Skills</h5>
-                        <Link to="/controlpanel/homeskills" className="btn btn-outline-danger">Ir</Link>
+                {categorias.map(cat => (
+                    <div className="card" style={{ width: "10rem" }} key={cat.id}>
+                        <div className="card-body">
+                            <h5 className="card-title"> {cat.nombre} </h5>
+                            <Link to={cat.to} className="btn btn-outline-danger">Ir</Link>
+                        </div>
                     </div>
-                </div>
-              
-                <div className="card" style={{ width: "10rem" }}>
-                    <div className="card-body">
-                        <h5 className="card-title">Proyectos</h5>
-                        <Link to="/controlpanel/proyectos" className="btn btn-outline-danger">Ir</Link>
-                    </div>
-                </div>
-                <div className="card" style={{ width: "10rem" }}>
-                    <div className="card-body">
-                        <h5 className="card-title">Precios</h5>
-                        <Link to="#" className="btn btn-outline-danger">Ir</Link>
-                    </div>
-                </div>
-
+                ))}
             </div>
-
-
         </main>
 
     )

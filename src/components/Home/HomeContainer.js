@@ -3,10 +3,13 @@ import { MdDone } from 'react-icons/md';
 
 import styles from './Home.module.scss'
 import Skills from './Skills';
-import { precios } from '../../Data/precios'
 import CardPrecios from '../Card/CardPrecios';
+import { useUserContext } from '../../Store/useContext';
 
 const HomeContainer = () => {
+    const { precios } = useUserContext()
+
+
     return (
         <main data-aos="fade-down" >
             <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark">
@@ -26,22 +29,24 @@ const HomeContainer = () => {
             <section className='container mt-2 mt-md-0' >
 
                 <div className="row row-cols-1 row-cols-md-3  row-cols-lg-4 mb-3 text-center d-flex justify-content-center" >
-                    {precios.map(card => (
-                        <CardPrecios
-                            key={card.id}
-                            title={card.title}
-                            precio={card.precio}
-                            beneficios={card.beneficios}
-                            styles={styles}
-                        />
-
-
-                    ))}
+                    {precios.length < 0 ? <h4>Cargando....</h4> :
+                        precios.map(card => (
+                            <CardPrecios
+                                key={card.id}
+                                titulo={card.titulo}
+                                precio={card.precio}
+                                dominio={card.dominio}
+                                hosting={card.hosting}
+                                libre={card.libre}
+                                almacenamiento={card.almacenamiento}
+                                telefono={card.telefono}
+                                styles={styles}
+                            />
+                        ))
+                    }
                 </div>
 
-
-
-                <div className=" container">
+                <div className="container">
                     <table className="table text-center" data-aos="zoom-in-down">
                         <thead>
                             <tr>
@@ -103,8 +108,6 @@ const HomeContainer = () => {
                 </div>
             </section>
             <Skills />
-
-
         </main>
     )
 }

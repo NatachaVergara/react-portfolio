@@ -19,6 +19,7 @@ import SkillContainer from '../components/Panel_Control/SkillSectionHome/SkillCo
 import SectionContainer from '../components/SectionContainer'
 import Dashboard from '../Views/Dashboard'
 import Perfil from '../components/Panel_Control/Perfil';
+import Precios from '../components/Panel_Control/Precios';
 
 
 const RouterApp = () => {
@@ -49,6 +50,7 @@ const RouterApp = () => {
                             <Route path='addslider' element={<AddSlider />} />
                             <Route path="prueba" element={<SectionContainer />} />
                             <Route path="perfil" element={<Perfil />} />
+                            <Route path="precios" element={<Precios />} />
                         </Route>
                         :
                         null}
