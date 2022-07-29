@@ -45,10 +45,7 @@ const EditModal = (props) => {
         formData.append('logo', logo)
         formData.append('tec', tec)
 
-
-        // for (const value of formData.values()) {
-        //     console.log(value);
-        // }
+  
 
         try {
             const response = await axios.put(`${BASE_URL}/proyects/${id}`, formData, {

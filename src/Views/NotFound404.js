@@ -1,13 +1,17 @@
 import React from 'react'
-
+import MenuCPanel from '../components/Panel_Control/MenuCPanel/MenuCPanel'
+import { useUserContext } from '../Store/useContext'
 const NotFound404 = () => {
+  const { isUser } = useUserContext()
   return (
-    <>
-    <h1 className='d-flex justify-content-center align-items-center'>Ups... La página que solicitas no está funcionando o no existe</h1>
-      <picture className="d-flex justify-content-center align-items-center m-5">     
-        <img src="https://http.cat/404" className="img-fluid img-thumbnail" alt="not found 404" />
-      </picture>
-    </>
+    <div className={`d-flex flex-column flex-lg-row`}>
+      {isUser && <MenuCPanel />}
+      <div className={`container`}>        
+        <picture className="d-flex justify-content-center align-items-center m-5">
+          <img src="https://http.cat/404" className="img-fluid img-thumbnail" alt="no existe esa pagina error 404" />
+        </picture>
+      </div>
+    </div>
   )
 }
 

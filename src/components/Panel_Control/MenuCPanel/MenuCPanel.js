@@ -2,33 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './MenuCPanel.module.scss'
 import img from '../../../img/imgPerfil.jpg'
+import {cPanelMenu} from '../../../Data/MenuData'
 const MenuCPanel = () => {
-    const links = [
 
-
-        {
-            id: 1,
-            link: '/controlpanel/inicio',
-            name: 'Inicio'
-        },
-        {
-            id: 2,
-            link: '/controlpanel/homeskills',
-            name: 'Skills'
-        },
-        {
-            id: 3,
-            link: '/controlpanel/homeCards',
-            name: 'Precios'
-        },
-        {
-            id: 4,
-            link: '/controlpanel/proyectos',
-            name: 'Proyectos'
-        }
-
-
-    ]
 
     return (
         <div className={styles.panelContainer}>
@@ -41,7 +17,7 @@ const MenuCPanel = () => {
 
             </div>
             <div className={styles.links}>
-                {links.map(link => (
+                {cPanelMenu.map(link => (
                     <div className={styles.homeContainer} key={link.id}>
                         <Link to={link.link} >
                             {link.name}

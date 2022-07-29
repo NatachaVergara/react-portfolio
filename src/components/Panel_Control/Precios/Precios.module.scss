@@ -1,0 +1,71 @@
+.preciosContainer {
+    display: flex;
+    flex-direction: row;
+
+
+    @media screen and (max-width: 1000px) {
+        flex-direction: column;
+    }
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    h2 {
+        margin: 20px auto;
+        color: white;
+        font-family: 'Playfair Display', serif;
+    }
+
+}
+
+
+.cardContainerbody {
+    width: 90%;
+    margin: 15px;
+
+    .card {
+        width: 300px;
+        padding: 15px;
+        margin: 50px;
+
+        span {
+          
+            font-family: 'Playfair Display', serif;
+        }
+
+        @media screen and (max-width: 1000px) {
+            margin: auto;
+            padding: auto;
+
+        }
+
+        .cardBody {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            h1,
+            li {
+                font-family: 'Raleway', sans-serif;
+            }
+            
+        }
+
+        .buttons{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;align-content: center;
+
+            button{
+                margin: auto 30px;
+            }
+        }
+    }
+}

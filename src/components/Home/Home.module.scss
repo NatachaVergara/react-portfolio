@@ -33,7 +33,7 @@
         transform: rotate(30deg);
     }
 
-   
+
 
 }
 
@@ -77,12 +77,22 @@
     transition: all .2s ease-in-out;
     cursor: pointer;
 
+    span {
+        font-family: 'Playfair Display', serif;
+        font-weight: 600;
+    }
+
+    h1,
+    ul {
+        font-family: 'Raleway', sans-serif;
+    }
+
     &:hover {
         transform: scale(1.1);
         color: black;
     }
 
-    @media screen and (max-width: 1000px){
+    @media screen and (max-width: 1000px) {
         transform: none;
     }
 
@@ -95,7 +105,7 @@
     color: black;
 
     &:hover {
-       color: black;
+        color: black;
     }
 
     svg {

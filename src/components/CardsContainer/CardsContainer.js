@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Card from '../Card'
 import CardP from '../Card/CardP'
+import { AiFillFileAdd } from 'react-icons/ai'
+
 
 const CardsContainer = (props) => {
 
@@ -13,7 +15,7 @@ const CardsContainer = (props) => {
   return (
     <>
       <h2> {props.title} </h2>
-      <Link className='btn btn-warning mb-5' to={to} >+</Link>
+      <Link className='btn btn-outline-warning mb-5 fs-4' to={to}><AiFillFileAdd /></Link>
       {cardProyecto !== true ?
 
         <div className={props.styles.cards}>
@@ -52,21 +54,8 @@ const CardsContainer = (props) => {
               />
 
             ))
-
-
           }
-
-
-
-
         </div>
-
-
-
-
-
-
-
       }
     </>
   )
