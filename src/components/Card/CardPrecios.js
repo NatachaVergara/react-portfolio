@@ -1,5 +1,9 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import { BsWhatsapp } from 'react-icons/bs';
+import Swal from 'sweetalert2';
+import { useUserContext } from '../../Store/useContext';
+import { BASE_URL } from '../../Utils/URL';
 import BtnDelete from '../Buttons/BtnDelete';
 import BtnEdit from '../Buttons/BtnEdit';
 import PreciosModal from '../Modal/PreciosModal';
@@ -7,9 +11,60 @@ import PreciosModal from '../Modal/PreciosModal';
 
 
 const CardPrecios = ({ styles, id, titulo, precio, dominio, hosting, libre, almacenamiento, telefono, edit }) => {
+    const { setPrecios } = useUserContext()
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+
+
+    const onHandleDelete = () => {
+        Swal.fire({
+            title: '¿Está seguro que quiere eliminar?',
+            text: "Una vez eliminado no se puede revertir!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, eliminar!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                deleletePrecio()
+            }
+        })
+
+    }
+
+    const deleletePrecio = async () => {
+        try {
+            const response = await axios.delete(`${BASE_URL}/precios/${id}`);
+            const registros = await response.data.registros
+            const msg = await response.data.msg
+
+            if (response.status === 200) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: msg,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                setPrecios(registros)
+
+            } else {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'warning',
+                    title: 'No se ha podido eliminar',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
 
 
@@ -28,6 +83,8 @@ const CardPrecios = ({ styles, id, titulo, precio, dominio, hosting, libre, alma
                 libre={libre}
                 almacenamiento={almacenamiento}
                 telefono={telefono}
+                styles={styles}
+                modalTitle={'Actualizar Precio'}
             />
 
 
@@ -47,8 +104,8 @@ const CardPrecios = ({ styles, id, titulo, precio, dominio, hosting, libre, alma
                                 <li>{libre}</li>
                                 <li>y mas ...</li>
                             </ul>
-                            <BsWhatsapp />
-                            <a href={`https://api.whatsapp.com/send?phone=${telefono}&text=Hola Natacha, te contacto desde tu Portfolio.`} alt='logo-whatsup'
+                            <BsWhatsapp /><span>{telefono} </span>
+                            <a href={`https://api.whatsapp.com/send?phone=549${telefono}&text=Hola Natacha, te contacto desde tu Portfolio.`} alt='logo-whatsup'
                                 target="_blank" rel="noreferrer"
                                 className={styles.cardLink}>
                             </a>
@@ -58,7 +115,7 @@ const CardPrecios = ({ styles, id, titulo, precio, dominio, hosting, libre, alma
                                 onedit={handleShow}
                             />
                             <BtnDelete
-                                ondelete={() => { }}
+                                ondelete={onHandleDelete}
                             /></div>
                     </div> :
                     <div className={`card mb-4 rounded-3 shadow-sm ${styles.card}`}>

@@ -8,7 +8,7 @@ import Btn from '../../Buttons/Btn'
 import foto from '../../../img/imgPerfil.jpg'
 import { useUserContext } from '../../../Store/useContext'
 const ContenidoPerfil = ({ titulo, path, texto, postAboutme }) => {
-  // const { setAbout } = useUserContext()
+  const { userType } = useUserContext()
   //console.log(userData)
   const [edit, setEdit] = useState(false)
   const [title, setTitulo] = useState(titulo)
@@ -41,7 +41,7 @@ const ContenidoPerfil = ({ titulo, path, texto, postAboutme }) => {
   return (
     <div className={styles.perfil}>
       <div>
-        <img src={foto} alt='#' />   
+        <img src={foto} alt='#' />
 
         <h4>Natacha Vergara</h4> <BtnEdit />
         <h4>ntchvergara@gmail.com</h4> <BtnEdit />
@@ -57,7 +57,8 @@ const ContenidoPerfil = ({ titulo, path, texto, postAboutme }) => {
               <input type="file" name='image' onChange={(e) => setImage(e.target.files[0])} />
               <textarea name='text' value={text} onChange={(e) => setTexto(e.target.value)} rows="23" cols="50" ></textarea >
               {/* <button type='submit' onClick={onhandleclick}>Enviar</button> */}
-              <BtnAdd text={'OK'} />
+              {userType === 'TEST' ? <BtnAdd text={'OK'} disabled={'disabled'} /> : <BtnAdd text={'OK'} />}
+
               <Btn text={'Cancelar'} styles={'btn btn-outline-warning mt-2'} click={() => setEdit(false)} />
             </form>
           </> :
