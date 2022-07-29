@@ -123,7 +123,7 @@ const CardPrecios = ({ styles, id, titulo, precio, dominio, hosting, libre, alma
                             <span className="my-0 fw-normal fs-4">{titulo}</span>
                         </div>
                         <div className="card-body">
-                            <a href={`https://api.whatsapp.com/send?phone=${telefono}&text=Hola Natacha, te contacto desde tu Portfolio.`} alt='logo-whatsup'
+                            <a href={`https://api.whatsapp.com/send?phone=549${telefono}&text=Hola Natacha, te contacto desde tu Portfolio.`} alt='logo-whatsup'
                                 target="_blank" rel="noreferrer"
                                 className={styles.cardLink}>
                                 <h1 className="card-title pricing-card-title"> <small className="text-muted fw-light fs-6">desde</small> ${precio} mil</h1>
