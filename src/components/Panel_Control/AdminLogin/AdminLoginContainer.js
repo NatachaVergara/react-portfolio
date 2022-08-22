@@ -38,7 +38,7 @@ const AdminContainer = ({ styles }) => {
 
   return (
     <>
-      {loading ? <div className='w-25'><Spinner /></div> : <AdminLoginForm fetchLogin={fetchLogin} />}
+       <AdminLoginForm fetchLogin={fetchLogin} loading={loading} />
     </>
   )
 }
