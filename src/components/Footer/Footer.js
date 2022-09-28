@@ -3,29 +3,11 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { BiLogIn } from "react-icons/bi";
 import styles from './Footer.module.scss'
-// import axios from 'axios'
-// import { BASE_URL } from '../Utils/URL';
+
 
 
 
 const Footer = () => {
-    // const [redesSociales, setRedesSociales] = useState([])  
-
-
-    // const fetchRedesSociales = async () => {
-
-    //     axios.get(`${BASE_URL}/footer`)
-    //         .then(res => {
-    //             console.log(res)
-    //             console.log(res.data)
-    //             setRedesSociales(res.data.data)
-
-    //         })
-    // }
-
-    // useEffect(() => {
-    //     fetchRedesSociales()
-    // }, [])
 
     const scrollTop = () => {
         window.scrollTo(0, 0);
@@ -36,18 +18,18 @@ const Footer = () => {
         <div className={styles.footerBasic}>
             <footer>
                 <ul className="nav justify-content-center border-bottom pb-3 mb-3">
-                    <li className="nav-item"><Link to='/' onClick={scrollTop}  className='nav-link px-2 text-muted'>Home</Link></li>
-                    <li className="nav-item"><Link to='/portfolio'  onClick={scrollTop} className='nav-link px-2 text-muted'>Portfolio</Link></li>
+                    <li className="nav-item"><Link to='/' onClick={scrollTop} className='nav-link px-2 text-muted'>Home</Link></li>
+                    <li className="nav-item"><Link to='/portfolio' onClick={scrollTop} className='nav-link px-2 text-muted'>Portfolio</Link></li>
 
-                    <li className="nav-item"><Link to='/about'  onClick={scrollTop} className='nav-link px-2 text-muted'>Sobre Mi</Link></li>
+                    <li className="nav-item"><Link to='/about' onClick={scrollTop} className='nav-link px-2 text-muted'>Sobre Mi</Link></li>
 
                 </ul>
                 <div className="container">
                     <div className="d-flex  flex-column flex-md-row flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
                         <div className="col-md-4 d-flex justify-content-between align-items-center">
-                            <span className="mb-3 mb-md-0 text-muted"> Natacha Vergara  {new Date().getFullYear()} </span>
+                            <span className="mb-3 mb-md-0 text-muted"> ntchvergara@gmail.com  {new Date().getFullYear()} </span>
                             <span className="mb-3 mb-md-0 text-muted">
-                                <Link to='/login'  onClick={scrollTop} className='btn fs-4'> <BiLogIn /></Link> </span>
+                                <Link to='/login' onClick={scrollTop} className='btn fs-4'> <BiLogIn /></Link> </span>
                         </div>
 
                         <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
@@ -57,13 +39,6 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-
-
-
-                {/* <p className={styles.copyright}>Natacha Vergara  {new Date().getFullYear()} </p>
-                <div className={styles.admin}>
-                    <Link to='/login' className='btn mt-5'> <FcSettings /></Link>
-                </div> */}
             </footer>
 
         </div>
