@@ -16,6 +16,7 @@
     "emailjs-com": "^3.2.0",
     "formik": "^2.2.9",
     "formik-file-and-image-input": "^0.0.6",
+    "js-cookie": "^3.0.1",
     "materialize-css": "^1.0.0-rc.2",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",

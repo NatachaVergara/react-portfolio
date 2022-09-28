@@ -14,7 +14,7 @@ const AdminLoginForm = ({ fetchLogin, loading }) => {
 
       <div className={styles.formularioLogin}>
         <h4>Login</h4>
-        {loading ? <div className='w-25 d-flex justify-content-center align-items-center'><Spinner /></div> : <Formik
+        {loading ? <div className='w-25 d-flex justify-content-center align-items-center text-danger'><Spinner /></div> : <Formik
           initialValues={{
             email: '',
             password: '',

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { errorLogin } from '../../sweetAlerts/alert'
 import { BASE_URL } from '../../../Utils/URL'
 import { useUserContext } from '../../../Store/useContext'
-import Spinner from '../../Spinner';
+
 
 
 
@@ -24,7 +24,7 @@ const AdminContainer = ({ styles }) => {
         setIsUser(res.data.isUser)
         setUserId(res.data.user.id)
         setUserType(res.data.userType)
-        
+
         navigate('/controlpanel/inicio')
 
       })
@@ -38,7 +38,7 @@ const AdminContainer = ({ styles }) => {
 
   return (
     <>
-       <AdminLoginForm fetchLogin={fetchLogin} loading={loading} />
+      <AdminLoginForm fetchLogin={fetchLogin} loading={loading} />
     </>
   )
 }
