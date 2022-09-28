@@ -14,79 +14,6 @@ export const useUserContext = () => {
     return useContext(UserContext)
 }
 
-// const getLocalUserID = () => {
-//     let userID = sessionStorage.getItem('userIDSS')
-//     if (userID) {
-//         return JSON.parse(sessionStorage.getItem('userIDSS'))
-//     } else {
-//         return null
-//     }
-// }
-
-
-// const getSSUser = () => {
-//     let isUser = sessionStorage.getItem('isUserSS')
-//     if (isUser) {
-//         return JSON.parse(sessionStorage.getItem('isUserSS'))
-//     } else {
-//         return null
-//     }
-// }
-
-
-
-// const getUserTypeSS = () => {
-//     let userType = sessionStorage.getItem('userTypeSS')
-//     if (userType) {
-//         return JSON.parse(sessionStorage.getItem('userTypeSS'))
-//     } else {
-//         return null
-//     }
-// }
-
-
-
-// const getSkillSS = () => {
-//     let skillSS = sessionStorage.getItem('skillImg')
-
-//     if (skillSS) {
-//         return JSON.parse(sessionStorage.getItem('skillImg'))
-//     } else {
-//         return []
-//     }
-
-// }
-
-// const getCarouselSS = () => {
-//     let carouselSS = sessionStorage.getItem('carousel')
-
-//     if (carouselSS) {
-//         return JSON.parse(sessionStorage.getItem('carousel'))
-//     } else {
-//         return []
-//     }
-
-// }
-
-// const getAboutMeLS = () => {
-//     let aboutMeLS = sessionStorage.getItem('aboutMe')
-
-//     if (aboutMeLS) {
-//         return JSON.parse(sessionStorage.getItem('aboutMe'))
-//     } else {
-//         return []
-//     }
-// }
-
-// const getProyectsLS = () => {
-//     let proyects = sessionStorage.getItem('proyectsLS')
-
-//     if (proyects) {
-//         return JSON.parse(sessionStorage.getItem('proyectsLS'))
-//     } else {
-//         return []
-//     }
-// }
 
 
 
@@ -102,8 +29,7 @@ const UserContextProvider = ({ children }) => {
     const [about, setAbout] = useState(Cookies.get('about') ? JSON.parse(Cookies.get('about')) : [])
     const [precios, setPrecios] = useState([])
 
-    // console.log(precios)
-    //const [userData, setUserData] = useState(getUserDataLS())
+
 
 
     useEffect(() => {
@@ -114,7 +40,6 @@ const UserContextProvider = ({ children }) => {
         Cookies.set('carousel', JSON.stringify(imgsSlider))
         Cookies.set('aboutMe', JSON.stringify(about))
         Cookies.set('proyectsLS', JSON.stringify(proyects))
-        //Cookies.set('userDataLS', JSON.stringify(userData))
 
     }, [userId, isUser, userType, imagenes, imgsSlider, about, proyects])
 
@@ -127,7 +52,7 @@ const UserContextProvider = ({ children }) => {
 
     }
     //Imagenes de skills
-    const getImagenes = async () => {
+    const uploadData = async () => {
         try {
             const responseSkills = await axios.get(`${BASE_URL}/upload/images`)
             const responseSliders = await axios.get(`${BASE_URL}/upload/sliders`)
@@ -161,8 +86,7 @@ const UserContextProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        // console.log('context')
-        getImagenes()
+        uploadData()
     }, [])
 
 
@@ -383,8 +307,6 @@ const UserContextProvider = ({ children }) => {
                 setUserType,
                 imagenes,
                 setImagenes,
-                //getImagenes,
-                // findProyects,
                 loading,
                 uploadImg,
                 deleteProyectbyId,
@@ -393,7 +315,6 @@ const UserContextProvider = ({ children }) => {
                 createProyect,
                 imgsSlider,
                 setImgsSlider,
-                // getSliders,
                 uploadNewSlider,
                 deleteSlider,
                 updateImg,
@@ -403,8 +324,6 @@ const UserContextProvider = ({ children }) => {
                 setAbout,
                 precios,
                 setPrecios
-                // userData,
-                // setUserData
             }}
         >
 
