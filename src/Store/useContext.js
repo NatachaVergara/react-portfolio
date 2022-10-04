@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../Utils/URL'
@@ -54,20 +54,21 @@ const UserContextProvider = ({ children }) => {
     //Imagenes de skills
     const uploadData = async () => {
         try {
-            // const responseSkills = await axios.get(`${BASE_URL}/upload/images`)
+            const responseSkills = await axios.get(`${BASE_URL}/upload/images`)
             const responseSliders = await axios.get(`${BASE_URL}/upload/sliders`)
             const responseProyects = await axios.get(`${BASE_URL}/proyects`)
             const responseAbout = await axios.get(`${BASE_URL}/aboutme`)
             const responsePrecios = await axios.get(`${BASE_URL}/precios`)
 
 
-            // const imgsSkills = await responseSkills.data
+            const imgsSkills = await responseSkills.data
             const sliders = await responseSliders.data
             const proyects = await responseProyects.data
             const aboutMe = await responseAbout.data
             const precios = await responsePrecios.data
 
-            // setImagenes(imgsSkills)
+            console.log(imgsSkills)
+            setImagenes(imgsSkills)
             setImgsSlider(sliders)
             setAbout(aboutMe)
             setPrecios(precios)
