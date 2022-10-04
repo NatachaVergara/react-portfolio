@@ -35,7 +35,6 @@ const Footer = () => {
                         <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
                             <li className="ms-3"><a href="https://www.linkedin.com/in/natacha-vergara/" target="_blank" rel="noopener noreferrer"><LinkedIn /></a></li>
                             <li className="ms-3"> <a href="https://github.com/NatachaVergara" target="_blank" rel="noopener noreferrer"><GitHub /></a></li>
-
                         </ul>
                     </div>
                 </div>

@@ -57,11 +57,14 @@ footer {
     padding-top: 1px;
     color: black;
     opacity: 0.75;
+
+    &:hover {
+      opacity: 0.9;
+      background-color:red;
+    }
   }
 
-  a:hover {
-    opacity: 0.9;
-  }
+  
 
 }
 

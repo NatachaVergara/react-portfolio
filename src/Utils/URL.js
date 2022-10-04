@@ -1,1 +1,1 @@
-export const BASE_URL = `https://nv-portfolio.herokuapp.com`
+export const BASE_URL = `https://backendportolio-production.up.railway.app`
