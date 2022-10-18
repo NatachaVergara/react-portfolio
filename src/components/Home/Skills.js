@@ -6,7 +6,7 @@ import { useUserContext } from '../../Store/useContext';
 import { BASE_URL } from '../../Utils/URL';
 AOS.init();
 const Skills = () => {
-    const { imagenes } = useUserContext()
+    const { skills } = useUserContext()
 
     return (
         <section className={styles.skills}>          
@@ -16,8 +16,8 @@ const Skills = () => {
 
                     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
 
-                        {imagenes.length < 0 ? <h4>Cargando....</h4> :
-                            imagenes.map(img => (
+                        {skills.length < 0 ? <h4>Cargando....</h4> :
+                            skills.map(img => (
                                 <div key={img.id} className="col d-flex align-items-start" data-aos="zoom-in-down">
                                  <img src={`${BASE_URL}/upload/images/${img.path}`} alt="logos"/>
                                 </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet, Route, Routes } from "react-router-dom";
 import Home from '../Views/Home'
 import Portfolio from '../Views/Portfolio'
-import Contact from '../Views/Contact'
+
 import About from '../Views/About'
 import Login from '../Views/Login'
 import { useUserContext } from '../Store/useContext';
@@ -31,8 +31,7 @@ const RouterApp = () => {
                 <Route path="/*" element={<NotFound404 />} />
                 <Route path="/" element={<Home />} />
                 <Route path="/home" element={<Home />} />
-                <Route path="/portfolio" element={<Portfolio />} />
-                <Route path="/contact" element={<Contact />} />
+                <Route path="/portfolio" element={<Portfolio />} />               
                 <Route path="/about" element={<About />} />
                 <Route path="/login" element={<Login />} />
 
