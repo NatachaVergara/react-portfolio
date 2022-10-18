@@ -1,46 +1,44 @@
-import React, { useState } from 'react'
-import AdminLoginForm from './AdminLoginForm'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-import { errorLogin } from '../../sweetAlerts/alert'
-import { BASE_URL } from '../../../Utils/URL'
-import { useUserContext } from '../../../Store/useContext'
-
-
-
-
+import React, { useState } from "react";
+import AdminLoginForm from "./AdminLoginForm";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { errorLogin } from "../../sweetAlerts/alert";
+import { BASE_URL } from "../../../Utils/URL";
+import { useUserContext } from "../../../Store/useContext";
 
 const AdminContainer = ({ styles }) => {
-  const { setUserId, setIsUser, setUserType } = useUserContext()
-  const [loading, setLoading] = useState(false)
-  let navigate = useNavigate()
+  const { setUserId, setIsUser, setUserType } = useUserContext();
+  const [loading, setLoading] = useState(false);
+  let navigate = useNavigate();
 
-  //<div className={styles.spinner}>Entrando....</div>
-  // 
-  const fetchLogin = (values) => {
-    setLoading(true)
-    axios.post(`${BASE_URL}/signin`, values)
-      .then(res => {
-        setIsUser(res.data.isUser)
-        setUserId(res.data.user.id)
-        setUserType(res.data.userType)
+  const onLogin = async (values) => {
+    setLoading(true);
+    try {
+      const response = await axios.post(`${BASE_URL}/signin`, values);
+      const data = await response.data;
 
-        navigate('/controlpanel/inicio')
+      console.log(data);
 
-      })
-      .catch(error => {
-        console.log(error.response.data)
-        errorLogin(error.response.data)
-      })
-      .finally(() => setLoading(false));
+      if (response.status === 201) {
+        setIsUser(data.isUser);
+        setUserId(data.user.id);
+        setUserType(data.userType);
+        setLoading(false);
+        navigate("/controlpanel/inicio");
+      }
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+      errorLogin(error.response.data);
 
-  }
+    }
+  };
 
   return (
     <>
-      <AdminLoginForm fetchLogin={fetchLogin} loading={loading} />
+      <AdminLoginForm onLogin={onLogin} loading={loading} />
     </>
-  )
-}
+  );
+};
 
-export default AdminContainer
+export default AdminContainer;
