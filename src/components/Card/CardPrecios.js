@@ -104,10 +104,12 @@ const CardPrecios = ({ styles, id, titulo, precio, dominio, hosting, libre, alma
                                 <li>{libre}</li>
                                 <li>y mas ...</li>
                             </ul>
-                            <BsWhatsapp /><span>{telefono} </span>
+                            <BsWhatsapp /><span >{telefono} </span>
                             <a href={`https://api.whatsapp.com/send?phone=549${telefono}&text=Hola Natacha, te contacto desde tu Portfolio.`} alt='logo-whatsup'
                                 target="_blank" rel="noreferrer"
-                                className={styles.cardLink}>
+                                className={styles.cardLink}
+                               
+                                >
                             </a>
                         </div>
                         <div className={styles.buttons}>
@@ -125,7 +127,9 @@ const CardPrecios = ({ styles, id, titulo, precio, dominio, hosting, libre, alma
                         <div className="card-body">
                             <a href={`https://api.whatsapp.com/send?phone=549${telefono}&text=Hola Natacha, te contacto desde tu Portfolio.`} alt='logo-whatsup'
                                 target="_blank" rel="noreferrer"
-                                className={styles.cardLink}>
+                                className={styles.cardLink}
+                                title='Contacto para mas información'
+                                >
                                 <h1 className="card-title pricing-card-title"> <small className="text-muted fw-light fs-6">desde</small> ${precio} mil</h1>
                                 <ul className="list-unstyled mt-3 mb-4">
                                     {dominio === 1 ? <li>Dominio</li> : null}
@@ -138,15 +142,7 @@ const CardPrecios = ({ styles, id, titulo, precio, dominio, hosting, libre, alma
                             </a>
                         </div>
                     </div>}
-
-
-
-
-
-
-
-
-            </div>
+         </div>
         </>
 
     )

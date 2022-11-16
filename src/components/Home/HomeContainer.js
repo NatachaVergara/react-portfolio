@@ -1,5 +1,5 @@
 import React from 'react'
-import { MdDone } from 'react-icons/md';
+// import { MdDone } from 'react-icons/md';
 
 import styles from './Home.module.scss'
 import Skills from './Skills';
@@ -46,7 +46,7 @@ const HomeContainer = () => {
                     }
                 </div>
 
-                <div className="container">
+                {/* <div className="container">
                     <table className="table text-center" data-aos="zoom-in-down">
                         <thead>
                             <tr>
@@ -105,7 +105,7 @@ const HomeContainer = () => {
 
                         </tbody>
                     </table>
-                </div>
+                </div> */}
             </section>
             <Skills />
         </main>
