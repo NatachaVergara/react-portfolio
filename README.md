@@ -25,9 +25,11 @@
 | sass | 1.49.10| Estilos|
 | sweetalert2 |11.4.14|  Alertas|
 | material-ui/icons| 4.11.2  | Íconos|
+| bootstrap-icons| 1.8.3  | Íconos|
 | react-icons| 4.3.1  | Íconos|
 | AOS | 2.3.4  | efectos css/js|
 | Bootstrap | 5.1.3  | Estilos |
+| js-cookie | 3.0.1  | Cookies |
 
 
 
