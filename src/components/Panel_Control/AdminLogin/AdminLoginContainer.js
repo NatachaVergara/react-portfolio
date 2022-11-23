@@ -6,7 +6,7 @@ import { errorLogin } from "../../sweetAlerts/alert";
 import { BASE_URL } from "../../../Utils/URL";
 import { useUserContext } from "../../../Store/useContext";
 
-const AdminContainer = ({ styles }) => {
+const AdminContainer = () => {
   const { setUserId, setIsUser, setUserType } = useUserContext();
   const [loading, setLoading] = useState(false);
   let navigate = useNavigate();
@@ -17,7 +17,7 @@ const AdminContainer = ({ styles }) => {
       const response = await axios.post(`${BASE_URL}/signin`, values);
       const data = await response.data;
 
-      console.log(data);
+      //console.log(data);
 
       if (response.status === 201) {
         setIsUser(data.isUser);
