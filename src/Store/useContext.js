@@ -34,30 +34,33 @@ const UserContextProvider = ({ children }) => {
   }
 
 
-  const uploadData = async () => {
-    try {
-      const responseSkills = await axios.get(`${BASE_URL}/upload/images`);
-      const responseProyects = await axios.get(`${BASE_URL}/proyects`);
-      const responseAbout = await axios.get(`${BASE_URL}/aboutme`);
-      const responsePrecios = await axios.get(`${BASE_URL}/precios`);
 
-      const imgsSkills = await responseSkills.data;
-      const proyects = await responseProyects.data;
-      const aboutMe = await responseAbout.data;
-      const precios = await responsePrecios.data;
-
-      setSkills(imgsSkills);
-      setAbout(aboutMe);
-      setPrecios(precios);
-      setProyects(proyects);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   useEffect(() => {
+    const uploadData = async () => {
+      try {
+        const responseSkills = await axios.get(`${BASE_URL}/upload/images`);
+        const responseProyects = await axios.get(`${BASE_URL}/proyects`);
+        const responseAbout = await axios.get(`${BASE_URL}/aboutme`);
+        const responsePrecios = await axios.get(`${BASE_URL}/precios`);
+
+        const imgsSkills = await responseSkills.data;
+        const proyects = await responseProyects.data;
+        const aboutMe = await responseAbout.data;
+        const precios = await responsePrecios.data;
+
+        setSkills(imgsSkills);
+        setAbout(aboutMe);
+        setPrecios(precios);
+        setProyects(proyects);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    
     uploadData();
-  }, []);
+
+  }, [setSkills, setAbout, setPrecios, setProyects]);
 
 
   const [img, setImg] = useState(null);
