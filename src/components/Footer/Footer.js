@@ -46,7 +46,7 @@ const Footer = () => {
             <div className="col-md-4 d-flex justify-content-between align-items-center">
               <span className="mb-3 mb-md-0 text-muted">
                 {" "}
-               &copy; ntchvergara@gmail.com {new Date().getFullYear()}{" "}
+                &copy; ntchvergara@gmail.com {new Date().getFullYear()}{" "}
               </span>
               <span className="mb-3 mb-md-0 text-muted">
                 <Link to="/login" onClick={scrollTop} className="fs-4">
@@ -63,7 +63,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <box-icon type="logo" name="instagram"></box-icon>
+                  <box-icon type="logo" name="linkedin"></box-icon>
                 </a>
               </li>
 

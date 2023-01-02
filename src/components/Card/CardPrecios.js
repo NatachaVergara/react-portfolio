@@ -88,7 +88,8 @@ const CardPrecios = ({ styles, id, titulo, precio, dominio, hosting, libre, alma
             />
 
 
-            <div className={`col-12 col-md-5 col-lg-4`} data-aos={edit ? null : "zoom-in-down"}      >
+            <div className={`col-12 col-md-5 col-lg-4`} data-aos={edit ? null : "zoom-in-down"}>
+                <h1 className='m-5'>SERVICIOS Y PRECIO</h1>
                 {edit ?
                     <div className={`card mb-4 rounded-3 shadow-sm ${styles.card}`}>
                         <div className="card-header py-3">
@@ -108,8 +109,8 @@ const CardPrecios = ({ styles, id, titulo, precio, dominio, hosting, libre, alma
                             <a href={`https://api.whatsapp.com/send?phone=549${telefono}&text=Hola Natacha, te contacto desde tu Portfolio.`} alt='logo-whatsup'
                                 target="_blank" rel="noreferrer"
                                 className={styles.cardLink}
-                               
-                                >
+
+                            >
                             </a>
                         </div>
                         <div className={styles.buttons}>
@@ -129,7 +130,7 @@ const CardPrecios = ({ styles, id, titulo, precio, dominio, hosting, libre, alma
                                 target="_blank" rel="noreferrer"
                                 className={styles.cardLink}
                                 title='Contacto para mas información'
-                                >
+                            >
                                 <h1 className="card-title pricing-card-title"> <small className="text-muted fw-light fs-6">desde</small> ${precio} mil</h1>
                                 <ul className="list-unstyled mt-3 mb-4">
                                     {dominio === 1 ? <li>Dominio</li> : null}
@@ -142,7 +143,7 @@ const CardPrecios = ({ styles, id, titulo, precio, dominio, hosting, libre, alma
                             </a>
                         </div>
                     </div>}
-         </div>
+            </div>
         </>
 
     )

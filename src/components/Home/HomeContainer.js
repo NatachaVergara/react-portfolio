@@ -5,10 +5,12 @@ import styles from './Home.module.scss'
 import Skills from './Skills';
 import CardPrecios from '../Card/CardPrecios';
 import { useUserContext } from '../../Store/useContext';
+import CardList from '../Portfolio/CardList';
+import { Link } from 'react-router-dom';
 
 const HomeContainer = () => {
     const { precios } = useUserContext()
-
+    console.log(precios)
 
     return (
         <main data-aos="fade-down" >
@@ -26,7 +28,7 @@ const HomeContainer = () => {
                 <div className={`shadow-sm d-none d-md-block ${styles.productDevice} ${styles.productDevice2}`}></div>
             </div>
 
-            <section className='container mt-2 mt-md-1' >
+            <section className='container mt-2 mt-md-5 mb-md-5' >
                 <div className="row row-cols-1 row-cols-md-3  row-cols-lg-4 mb-3 text-center d-flex justify-content-center" >
                     {precios.length < 0 ? <h4>Cargando....</h4> :
                         precios.map(card => (
@@ -44,6 +46,11 @@ const HomeContainer = () => {
                         ))
                     }
                 </div>
+            </section>
+            <section className='bg-dark bg-gradient mt-5 d-flex flex-column justify-content-center'>
+                <h2 className='text-center mt-5 pt-5 text-white'>PROYECTOS</h2>
+                <CardList />
+                <Link to='/portfolio' className='btn btn-outline-success w-25 mx-auto my-5'>ver proyectos</Link>
             </section>
             <Skills />
         </main>
