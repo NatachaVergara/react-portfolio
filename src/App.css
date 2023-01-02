@@ -1,10 +1,10 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&family=Raleway:wght@300&display=swap");
 
 /*
 Titulos
@@ -14,15 +14,38 @@ font-family: 'Raleway', sans-serif;
 
 */
 .menuCpanel {
-    width: 150px;
+  width: 150px;
 }
 
-.bgColorSections{
-    background-color: rgb(26, 20, 20); 
+.bgColorSections {
+  background-color: rgb(26, 20, 20);
 }
 
-@media screen and (max-width:576px) {
-    .menuCpanel {
-        width: 100%;
-    }
+.nav-item {
+  cursor: pointer;
+  
+}
+
+.nav-item p {  
+  margin: 0 20px;
+  padding: 0 0.25rem;  
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.nav-item p:hover:not(.btn) {
+  box-shadow: inset 100px 0 0 0 #54b3d6;
+  color: white;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 576px) {
+  .menuCpanel {
+    width: 100%;
+  }
+
+  .nav-item p {  
+    margin: 20px 20px;
+    
+  }
+
 }
