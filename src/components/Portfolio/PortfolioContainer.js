@@ -1,13 +1,16 @@
 import React from 'react'
-import CardList from './CardList'
 import styles from './CardBody.module.scss'
+import CarouselPortfolio from './CarouselPortfolio'
 
 
 const PortfolioContainer = () => {
 
     return (
         <section className={styles.portfolioSection}>
-            <CardList />
+            {/* <CardList /> */}
+           <div className='container'>
+           <CarouselPortfolio/>
+           </div>
         </section>
     )
 }

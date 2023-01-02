@@ -60,7 +60,8 @@ const UserContextProvider = ({ children }) => {
     
     uploadData();
 
-  }, [setSkills, setAbout, setPrecios, setProyects]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
 
   const [img, setImg] = useState(null);
